@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fashion-Fusion-Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <!-- navbar -->
+  <div id="navbar">
+
+  </div>
+
+  <div class="main-section">
+    
+  <div class="conteiner row gap-5 ">
+    <!-- carosoal -->
+    <div class="col-12 col-lg-6" id="productGallery">
+
+      <div class="swiffy-slider slider-item-ratio slider-item-ratio-1x1 slider-nav-round slider-nav-nodelay"
+        id="pgallery">
+        <ul class="slider-container">
+          <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." data-bs-toggle="modal"
+              data-bs-target="#productGalleryModal" onclick="imageClick(0)"></li>
+          <li><img src="./images/t-shirt2.png" loading="lazy" alt="..." data-bs-toggle="modal"
+              data-bs-target="#productGalleryModal" onclick="imageClick(1)"></li>
+          <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." data-bs-toggle="modal"
+              data-bs-target="#productGalleryModal" onclick="imageClick(2)"></li>
+
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go previous"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
+      </div>
+
+      <div
+        class="swiffy-slider slider-nav-dark slider-nav-sm slider-nav-chevron slider-item-show4 slider-item-snapstart slider-item-ratio slider-item-ratio-1x1 slider-nav-visible slider-nav-page slider-nav-outside-expand pt-3 d-none d-lg-block">
+        <ul class="slider-container" id="pgallerythumbs" style="cursor:pointer">
+          <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." onmouseover="thumbHover(0)"></li>
+          <li><img src="./images/t-shirt2.png" loading="lazy" alt="..." onmouseover="thumbHover(1)"></li>
+          <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." onmouseover="thumbHover(2)"></li>
+
+        </ul>
+
+        <button type="button" class="slider-nav" aria-label="Go previous"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
+      </div>
+
+      <div class="modal  fade" id="productGalleryModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="swiffy-slider h-100 slider-nav-dark" id="pgalleryModal">
+                <ul class="slider-container" tabindex="-1">
+                  <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe1.webp"
+                      loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
+                  <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe2.webp"
+                      loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
+                  <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe3.webp"
+                      loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
+                  <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe4.webp"
+                      loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
+                  <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe5.webp"
+                      loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
+                  <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe6.webp"
+                      loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
+                </ul>
+
+                <button type="button" class="slider-nav" aria-label="Go previous"></button>
+                <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
+                <ul
+                  class="slider-indicators slider-indicators-dark slider-indicators-highlight slider-indicators-round">
+                  <li class="active"></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- product Details -->
+    <div class=" col-12 col-lg-5 ">
+
+      <div class="mt-3">
+        <small class="text-secondary opacity-50 ">Fashion-Fusion-Shop</small>
+        <h2>304 Mens Apex T-Shirt Faded Black</h2>
+        <h5>$454</h5>
+        <p class="text-secondary opacity-75">Tax included</p>
+      </div>
+      <div>
+
+        <h6>Size</h6>
+        <button class="border border-1 border-black btn btn-light">S</button>
+        <button class="border border-1 border-black btn btn-light">M</button>
+        <button class="border border-1 border-black btn btn-light">L</button>
+      </div>
+      <div>
+        <hr class="opacity-25 fs-5">
+        <div class="mt-4 d-flex gap-3">
+          quantity
+          <div>
+            <b class="">Quantity</b>: <input type="text" class="p-3 border-2 rounded border border-info w-50 "></input>
+
+          </div>
+          <div>
+            <button type="submit"
+              class="btn btn-outline-danger   px-5 py-3 mb-2 text-bold align-items-center text-secondary  mb-5  border-2"
+              style="width: 350px;">Add To Cart</button>
+          </div>
+        </div>
+
+      </div>
+      <div>
+        <button type="submit" class="fs-5 purchase-btn w-75 p-3 rounded border-0 mb-2 text-light">Purchase</button>
+      </div>
+
+      <div>
+        <p>One of a kind, hand made 304 limited edition Apex T-shirt in Faded Black. This <br> unique T-shirt features
+          304 logos and designs throughout our history from some of our favourite lines. <br>
+          As these are unique prints, the printed garment may possibly <br> vary from the product image depending on
+          size.</p>
+        <li>Faded Black T-Shirt</li>
+        <li>Fit: Regular</li>
+        <li>Fabric: 100% Cotton, 220gsm</li>
+        <li>Full cover graphic logo design hand printed</li>
+        <p>Due to nature of this custom product it is non refundable and no discount codes will be valid.</p>
+      </div>
+      <!-- accurdiam  -->
+      <!-- <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Shipping
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample"> 
+              <div class="accordion-body">
+                <p>Free UK Standard Up to 7 days Delivery on orders over £40
+
+                  £3.99 UK Standard Delivery (up to 7 days)
+                  
+                  £4.99 UK Next Day Delivery (please note this is not available on every product)
+                  
+                  Cut off for UK Next Day Delivery is 3:30pm
+                  
+                  Check Delivery & Returns section for international courier info
+                  
+                  We ship globally & country specific info can be found in the deliveries section in the website footer. Delivery carriers are identified at checkout based on the country you are ordering from. We offer overseas delivery options ranging from Express 1-2 day through to Economy 3-7 working days.
+                  
+                  Returns
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Returns
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p>We offer pre paid return Royal Mail labels on all UK orders. <br>
+
+                  EU and US customers can also download DHL fully tracked returns labels via the website returns portal. <br>
+                  
+                  We offer a lifetime returns policy. Please refer to full T&C's to ensure return quality standards are met.
+                  
+                  Refunds are offered on all full price items. Anything purchased in our sale will be refunded via e-credit note.</p>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+         <div>
+
+         </div>
+          
+
+      
+      </div> 
+
+  </div>
+  <!-- More product shows -->
+
+     
+
+    
+   
+  </div>
+
+ 
+  </div>
+  <!-- more products -->
+<div class="more products">
+  <h1 class="mt-5">You May Also Like</h1>
+  <div class="row row-cols-1 row-cols-md-4 g-2 mx-5 ">
+
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+ <div id="footer"></div>
+</div>
+
+  <script src="./navbar.js"></script>
+  <script src="./footer.js"></script>
+  <script src="./index.js"></script>
+  <script src="./detatils.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+  crossorigin="anonymous" defer></script>
+
+
+</body>
+
+</html>

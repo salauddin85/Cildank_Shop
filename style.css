@@ -1,0 +1,112 @@
+
+.account-icon {
+    font-size: 22px;
+}
+.shop-name{
+    font-size: 25px;
+    color: black;
+}
+.nav-font{
+    font-size:16px;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+
+.white-mode{
+    background-color: white;
+    color: black;
+}
+/* 
+@import "functions";
+@import "variables";
+@import "variables-dark";
+
+
+
+
+ */
+
+.btn-outline-danger{
+border-color: black;
+}
+.btn-outline-danger:hover{
+    background-color: rgba(255, 0, 0, 0.71);
+}
+
+.purchase-btn{
+    /* background-color: rgba(81, 0, 255, 0.667); */
+    background-color:rgba(0, 0, 139, 0.799);
+}
+
+.search-inp{
+background-color:rgba(220, 220, 220, 0.256);
+border-color: rgba(128, 128, 128, 0.192) !important;
+}
+.search-inp:hover{
+    background-color:rgba(245, 245, 220, 0.408);
+    border: none;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section p {
+    margin: 5px 0;
+}
+
+.footer-section a img {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
