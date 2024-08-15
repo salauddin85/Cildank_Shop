@@ -40,20 +40,14 @@
             <h5>$454</h5>
             <p class="text-secondary opacity-75">Tax included</p>
           </div>
-          <div>
-
-            <h6>Size</h6>
-            <button class="border border-1 border-black btn btn-light">S</button>
-            <button class="border border-1 border-black btn btn-light">M</button>
-            <button class="border border-1 border-black btn btn-light">L</button>
-          </div>
-          <form action="">
+          
+          <form action="" id="purchase-form">
             <div>
               <hr class="opacity-25 fs-5">
               <div class="mt-4 d-flex gap-3">
                 quantity
                 <div>
-                  <b class="">Quantity</b>: <input type="text" class="p-3 border-2 rounded border border-info w-50 "></input>
+                  <b class="">Quantity</b>: <input type="text" name="quality" id="quality" required class="p-3 border-2 rounded border border-info w-50 "></input>
       
                 </div>
                 <div>
@@ -141,76 +135,7 @@
 
 
 
-<div class="col-12 col-lg-6 mt-5" id="productGallery">
-
-  <div class="swiffy-slider slider-item-ratio slider-item-ratio-1x1 slider-nav-round slider-nav-nodelay"
-    id="pgallery">
-    <ul class="slider-container">
-      <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." data-bs-toggle="modal"
-          data-bs-target="#productGalleryModal" onclick="imageClick(0)"></li>
-      <li><img src="./images/t-shirt2.png" loading="lazy" alt="..." data-bs-toggle="modal"
-          data-bs-target="#productGalleryModal" onclick="imageClick(1)"></li>
-      <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." data-bs-toggle="modal"
-          data-bs-target="#productGalleryModal" onclick="imageClick(2)"></li>
-
-    </ul>
-
-    <button type="button" class="slider-nav" aria-label="Go previous"></button>
-    <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
-  </div>
-
-  <div
-    class="swiffy-slider slider-nav-dark slider-nav-sm slider-nav-chevron slider-item-show4 slider-item-snapstart slider-item-ratio slider-item-ratio-1x1 slider-nav-visible slider-nav-page slider-nav-outside-expand pt-3 d-none d-lg-block">
-    <ul class="slider-container" id="pgallerythumbs" style="cursor:pointer">
-      <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." onmouseover="thumbHover(0)"></li>
-      <li><img src="./images/t-shirt2.png" loading="lazy" alt="..." onmouseover="thumbHover(1)"></li>
-      <li><img src="./images/t-shirt-white3.png" loading="lazy" alt="..." onmouseover="thumbHover(2)"></li>
-
-    </ul>
-
-    <button type="button" class="slider-nav" aria-label="Go previous"></button>
-    <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
-  </div>
-
-  <div class="modal  fade" id="productGalleryModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="swiffy-slider h-100 slider-nav-dark" id="pgalleryModal">
-            <ul class="slider-container" tabindex="-1">
-              <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe1.webp"
-                  loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
-              <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe2.webp"
-                  loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
-              <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe3.webp"
-                  loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
-              <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe4.webp"
-                  loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
-              <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe5.webp"
-                  loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
-              <li class="d-flex align-items-center justify-content-center"><img src="../assets/img/shoes/shoe6.webp"
-                  loading="lazy" class="mw-100 mh-100" alt="..." data-bs-dismiss="modal"></li>
-            </ul>
-
-            <button type="button" class="slider-nav" aria-label="Go previous"></button>
-            <button type="button" class="slider-nav slider-nav-next" aria-label="Go next"></button>
-            <ul
-              class="slider-indicators slider-indicators-dark slider-indicators-highlight slider-indicators-round">
-              <li class="active"></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- <div id="footer"></div>
+ <div id="footer" class="mt-5"></div>
 </div>
 
   <script src="./navbar.js"></script>
@@ -218,6 +143,7 @@
   <script src="./index.js"></script>
   <script src="./detatils.js"></script>
   <script src="./product.js"></script>
+  <script src="./purchase.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">

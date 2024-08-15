@@ -20,6 +20,7 @@ function thumbHover(imageNumber) {
 
 function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
+    console.log(params)
     return {
         name: params.get("name"),
         price: params.get("price"),
@@ -27,12 +28,13 @@ function getQueryParams() {
         sub_category: params.get("sub_category"),
         description: params.get("description"),
         image: params.get("image"),
+       
     };
 }
 
 function displayProductDetails() {
-    const { name, price, quantity, sub_category, description, image } =
-        // console.log(sub_category)
+    const { name, price, quantity, sub_category, description, image} =
+        // console.log(id)
         getQueryParams();
     const productDetails = document.getElementById("product-details");
     if(quantity.length<0)
