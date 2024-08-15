@@ -49,6 +49,50 @@ border-color: rgba(128, 128, 128, 0.192) !important;
     background-color:rgba(245, 245, 220, 0.408);
     border: none;
 }
+
+.more-products-container{
+    width: 20%; /* Adjust as needed */
+    margin: 0 auto; /* Center container horizontally */
+    text-align: center; /* Center text inside */
+  }
+
+
+.price-l-h
+{
+    cursor: pointer;
+    
+}
+.price-h-l{
+    cursor: pointer;
+}
+.price-l-h:hover{
+    color: darkslategray;
+    font-size: 20px;
+    border: #333;
+    border: 1px solid;
+    padding: 2px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.price-h-l:hover{
+    color: midnightblue;
+    font-size: 20px;
+    font-weight: bold;
+    border:#333;
+    border: 1px solid;
+    padding: 2px;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
+
+
+
+
 footer {
     background-color: #333;
     color: white;

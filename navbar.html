@@ -1,7 +1,7 @@
 <p class="text-center mt-3">FREE UK DELIVERY OVER £50</p>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
   <div class="container-fluid">
-    <!-- <a class="navbar-brand mx-auto" href="#">Navbar</a> -->
+    <!-- Toggler for mobile view -->
     <button
       class="navbar-toggler"
       type="button"
@@ -13,106 +13,77 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div
-      class="collapse navbar-collapse nav-font p-2"
-      id="navbarSupportedContent"
-    >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#"><b>MENS</b> </a>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse nav-font p-2" id="navbarSupportedContent">
+      
+      <!-- First UL -->
+      <ul class="navbar-nav mb-2 mb-lg-0 mx-auto text-center">
+        <li class="nav-item pe-3 fs-5">
+          <div class="dropdown">
+            <a class="text-secondary link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="dropdown" aria-expanded="false">
+              <b style="text-decoration: none; cursor: pointer;">MENS</b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><b>WOMENS</b></a>
+        <li class="nav-item ps-3 fs-5">
+          <div class="dropdown">
+            <a class="text-secondary link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="dropdown" aria-expanded="false">
+              <b style="text-decoration: none; cursor: pointer;">WOMENS</b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+
+      <!-- Second UL -->
+      <ul class="navbar-nav mb-2 mb-lg-0 mx-auto text-center">
         <li class="nav-item">
-          <a class="nav-link shop-name text-bold" href="#"
-            ><b>FASHION</b>-<b>FUSION</b>-<b>SHOP</b></a
-          >
+          <a class="nav-link shop-name text-bold" href="#">
+            <b>FASHION</b>-<b>FUSION</b>-<b>SHOP</b>
+          </a>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-        <li class="  text-black text-bold fs-5 me-4">$Balance:343445</li>
+
+      <!-- Third UL -->
+      <ul class="navbar-nav mb-2 mb-lg-0 mx-auto text-center">
+        <li class="text-black text-bold fs-5 me-4">$Balance:343445</li>
         <li class="nav-item dropdown">
-          <a
-            class="nav-link"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-regular fa-moon fs-4"></i>
           </a>
           <ul class="dropdown-menu">
             <li class="nav-item ms-2 ps-2">
               <i class="fa-solid fa-moon"></i>
-              <button
-                onclick="myFunction()"
-                class="border border-0 btn btn-outline-dark text-info-emphasis"
-              >
-                dark mode
-              </button>
+              <button onclick="myFunction()" class="border border-0 btn btn-outline-dark text-info-emphasis">dark mode</button>
             </li>
             <li class="nav-item ms-2 ps-2">
               <i class="fa-regular fa-moon"></i>
-              <button
-                onclick="myFunction2()"
-                class="border border-0 btn btn-outline-light text-secondary"
-              >
-                white mode
-              </button>
+              <button onclick="myFunction2()" class="border border-0 btn btn-outline-light text-secondary">white mode</button>
             </li>
           </ul>
         </li>
         <li>
-            <a href="./search.html"><i class="fa-solid fa-magnifying-glass fs-5 opacity-75 p-2 text-decoration-none text-dark ">     </i>
-            </a>
-     
+          <a href="./search.html"><i class="fa-solid fa-magnifying-glass fs-5 opacity-75 p-2 text-decoration-none text-dark"></i></a>
         </li>
-        <li class="px-3 mt-1 opacity-75">
-          |
-        </li>
+        <li class="px-3 mt-1 opacity-75">|</li>
         <li class="nav-item dropdown">
-          <a
-            class="nav-link"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-regular fa-user account-icon"></i>
           </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item p-2">
-              <a
-                type="button"
-                class="btn btn-dark text-bold px-5"
-                href="./login.html"
-                >LOGIN</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="ms-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                href="./registration.html"
-                target="_blank"
-                >Create My Account</a
-              >
-            </li>
-            <li class="nav-item p-2">
-              <a
-                type="button"
-                class="btn btn-warning text-white text-bold px-5"
-                href="./login.html"
-                >LOGOUT</a
-              >
-            </li>
-          </ul>
+          <ul class="dropdown-menu" id="auth-element"></ul>
         </li>
         <li>
-          <a href="./shop_cart.html" class="text-decoration-none text-black opacity-75"><i class="fa-solid fa-cart-shopping fs-5  p-2"></i>
-          </a>
+          <a href="./shop_cart.html" class="text-decoration-none text-black opacity-75"><i class="fa-solid fa-cart-shopping fs-5 p-2"></i></a>
         </li>
       </ul>
     </div>

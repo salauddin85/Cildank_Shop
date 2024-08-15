@@ -16,12 +16,6 @@
 <body>
   <!-- navbar -->
   <div id="navbar"></div>
-
-
- <section class="main-section">
-
-
-  </div>
   <div class="ms-5 mt-5">
     <h1>MENS ALL</h1>
     <p class="text-bold text-black mt-2">
@@ -31,7 +25,7 @@
       you covered.
     </p>
   </div>
-  <div class="d-flex justify-content-between col-lg-6 col-lg-10 mx-5 mb-2">
+  <div class="d-flex justify-content-between col-lg-6 col-lg-12 mx-5 mb-2">
     <div>
       <!-- Show Filter -->
       <div class="d-flex gap-1">
@@ -50,7 +44,7 @@
           <div class="collapse mb-3 " id="collapseExample">
             <h6 class="text-center">SIZE</h6>
             <div class="card card-body">
-              <!-- <div class="form-check">
+              <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                 <label class="form-check-label" for="flexCheckDefault"> S </label>
               </div>
@@ -80,19 +74,7 @@
                 <label class="form-check-label" for="flexCheckDefault">
                   XXXL
                 </label>
-              </div> -->
-
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="S" id="sizeS" />
-                <label class="form-check-label" for="sizeS"> S </label>
               </div>
-            
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="M" id="sizeM" />
-                <label class="form-check-label" for="sizeM"> M </label>
-              </div>
-            
-
               <a href="#"
                 class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Reset</a>
             </div>
@@ -104,11 +86,10 @@
     <div class="d-flex">
       <div class="d-flex gap-2">
         <!-- show sort by product -->
-        <div class="fs-5 text-secondary" id="totalProduct">
-          <!-- <span id="resultCount"> Results <small class="opacity-25">|</small> -->
+        <div class="fs-5   text-secondary">
+          176 Results <small class="opacity-25">|</small>
         </div>
-      
-        <div class="text-black fs-5 ms-2 me-3">Sort By:
+        <div class="text-black fs-5 me-5">Sort By:
 
         </div>
 
@@ -124,45 +105,92 @@
           </a>
         </p>
         <div class="collapse mb-3 " id="collapseExample1">
-         
+          <h6 class="text-center">SIZE</h6>
           <div class="card card-body">
-            <strong id="sortLowToHigh" class="price-l-h">Price, low to high</strong>
-            <strong id="sortHighToLow" class="price-h-l">Price, high to low</strong>
-         </div>
-        
+
+            <strong>Price,low to high</strong>
+            <strong>Price,high to low</strong>
+
+
+          </div>
         </div>
 
       </div>
     </div>
   </div>
-  <!-- shows product -->
+  
   <div class="row row-cols-1 row-cols-md-4 g-2 mx-5 " id="products">
 
+    
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
 
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <a href="./details.html"><img src="./images/t-shirt-white3.png" class="card-img-top" alt="...">
+        </a>
+
+      </div>
+      <div>
+        <div class="card-body mt-2 mb-3">
+          <a href="./details.html" class="card-title text-decoration-none ">T Shirts Name</a>
+          <p></p><a href="./details.html" class="card-text text-decoration-none text-black">Price:$</a>
+        </div>
+      </div>
+    </div>
   </div>
-  
- </section>
- 
+  <div>
+    <div class="text-center">
+      <!-- pagenation or load more -->
+      <a type="submit"
+        class="btn btn-outline-danger mt-5 px-5 py-3 mb-2 text-bold text-center text-black opacity-75 mb-5 border border-black  border-2">
+        LOAD MORE
+      </a>
 
-<div id="more-products">
-  <div class="more-products-container">
-    <a id="previous-button"
-      class="btn btn-outline-danger mt-5 px-5 py-3 mb-2 text-bold text-black opacity-75 mb-5 border border-black border-2"
-      style="display: none;">
-      PREVIOUS
-    </a>
-    <a id="load-more-button"
-      class="btn btn-outline-danger mt-5 px-5 py-3 mb-2 text-bold text-black opacity-75 mb-5 border border-black border-2">
-      LOAD MORE
-    </a>
+
+
+
+    </div>
+
+    <!-- navbar -->
+    <div id="footer"></div>
   </div>
-</div>
-
-
-
-  <!-- footer -->
-  <div id="footer"></div>
-  
   <script src="./navbar.js"></script>
   <script src="./footer.js"></script>
   <script src="./index.js"></script>

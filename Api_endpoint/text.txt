@@ -1,10 +1,11 @@
 1.For Authentication
   http://127.0.0.1:8000/auth/register/
   http://127.0.0.1:8000/auth/login/
+  http://127.0.0.1:8000/auth/logout/
 
 2.For Product releted
 All Product: http://127.0.0.1:8000/products/product/
-Product Pagination: http://127.0.0.1:8000/products/product/?page
+Product Pagination: http://127.0.0.1:8000/products/product/?page=2
 
 Sort by price asc : http://127.0.0.1:8000/products/product/sorted_by_price/?order=asc
 Sort by price desc :http://127.0.0.1:8000/products/product/sorted_by_price/?order=desc

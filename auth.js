@@ -31,7 +31,6 @@ const handleRegistration = (event) =>
         .then(data => {
             // console.log(data);
             alert("Registration Successful. Please check your email for confirmation.");
-            // window.location.href = "login.html";
         })
         .catch(error => {
             console.error('Error:', error);
@@ -69,8 +68,10 @@ const handleRegistration = (event) =>
             })
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
-                localStorage.setItem("authToken", data.key);
+                console.log("set data",data);
+                console.log("user data",data.user_id);
+                console.log("token data",data.token);
+                localStorage.setItem("authToken", data.token);
                 window.location.href = "./index.html";
             })
             .catch(error => {
@@ -80,3 +81,25 @@ const handleRegistration = (event) =>
         
 
 
+const handleLogout = ()=>{
+    const token = localStorage.getItem("authToken");
+    // console.log(token)
+    fetch(' http://127.0.0.1:8000/auth/logout/',
+    {
+        method:'GET',
+        headers:{
+            "Content-Type":"application/json",
+            Authorization:`Token ${token}`,
+        },
+    })
+    .then((res) =>{
+        console.log(res);
+        if (res.ok){
+            localStorage.removeItem("authToken");
+            window.location.href = "./login.html";
+        }
+    })
+    .catch((err) =>{
+        console.log("Logout error",err);
+    })
+}
