@@ -30,7 +30,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )">
                             <img src="${imageUrl}" alt="Clickable Image" class="fixed-height img-fluid" style="cursor: pointer;">
                         </a>
@@ -45,7 +46,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )"> ${product.name}</h5>
                         <h6  style="cursor: pointer; class="card-text"<a href="#"  onclick="MensProductDetails(
                             '${encodeURIComponent(product.name)}', 
@@ -54,7 +56,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )">$${product.price}</h6>
                     </div>
                 </div>
@@ -103,7 +106,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
                           '${encodeURIComponent(product.sub_category)}', 
                           '${encodeURIComponent(imageUrl)}', 
                           '${encodeURIComponent(product.description)}', 
-                          '${encodeURIComponent(product.id)}'
+                          '${encodeURIComponent(product.id)}',
+                          '${encodeURIComponent(product.color)}',
                   )">
                           <img src="${imageUrl}" alt="Clickable Image" class="fixed-height img-fluid" style="cursor: pointer;">
                       </a>
@@ -118,7 +122,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
                           '${encodeURIComponent(product.sub_category)}', 
                           '${encodeURIComponent(imageUrl)}', 
                           '${encodeURIComponent(product.description)}', 
-                          '${encodeURIComponent(product.id)}'
+                          '${encodeURIComponent(product.id)}',
+                          '${encodeURIComponent(product.color)}',
                   )"> ${product.name}</h5>
                       <h6  style="cursor: pointer; class="card-text"<a href="#"  onclick="MensProductDetails(
                           '${encodeURIComponent(product.name)}', 
@@ -127,7 +132,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
                           '${encodeURIComponent(product.sub_category)}', 
                           '${encodeURIComponent(imageUrl)}', 
                           '${encodeURIComponent(product.description)}', 
-                          '${encodeURIComponent(product.id)}'
+                          '${encodeURIComponent(product.id)}',
+                          '${encodeURIComponent(product.color)}',
                   )">$${product.price}</h6>
                   </div>
               </div>
@@ -149,8 +155,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
 .catch((err) => console.error("Error fetching data:", err));
 
 
-const  MensProductDetails = (name, price, quantity, sub_category, image, description, id) => {
-    const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}`;
+const  MensProductDetails = (name, price, quantity, sub_category, image, description, id,color) => {
+    const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}&color=${encodeURIComponent(color)}`;
     window.location.href = detailsUrl;
 };
 
@@ -182,7 +188,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )">
                             <img src="${imageUrl}" alt="Clickable Image" class="fixed-height img-fluid" style="cursor: pointer;">
                         </a>
@@ -197,7 +204,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )"> ${product.name}</h5>
                         <h6  style="cursor: pointer; class="card-text"<a href="#"  onclick="WomensProductDetails(
                             '${encodeURIComponent(product.name)}', 
@@ -206,7 +214,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )">$${product.price}</h6>
                     </div>
                 </div>
@@ -256,7 +265,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )">
                             <img src="${imageUrl}" alt="Clickable Image" class="fixed-height img-fluid" style="cursor: pointer;">
                         </a>
@@ -271,7 +281,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )"> ${product.name}</h5>
                         <h6  style="cursor: pointer; class="card-text"<a href="#"  onclick="WomensProductDetails(
                             '${encodeURIComponent(product.name)}', 
@@ -280,7 +291,8 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                     )">$${product.price}</h6>
                     </div>
                 </div>
@@ -305,7 +317,7 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
 
 
 
-const  WomensProductDetails = (name, price, quantity, sub_category, image, description, id) => {
-    const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}`;
+const  WomensProductDetails = (name, price, quantity, sub_category, image, description, id,color) => {
+    const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}&color=${encodeURIComponent(color)}`;
     window.location.href = detailsUrl;
 };

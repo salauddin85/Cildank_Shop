@@ -81,7 +81,8 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
                         '${encodeURIComponent(product.sub_category)}', 
                         '${encodeURIComponent(imageUrl)}', 
                         '${encodeURIComponent(product.description)}', 
-                        '${encodeURIComponent(product.id)}'
+                        '${encodeURIComponent(product.id)}',
+                        '${encodeURIComponent(product.color)}',
                     )">
                         <img src="${imageUrl}" class="card-img-top img-fluid fixed-height" alt="${product.name}">
                     </a>
@@ -93,7 +94,8 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                         )" class="card-title text-decoration-none fs-5 mb-2">${product.name}</a>
                         <a href="#" onclick="showDetails(
                             '${encodeURIComponent(product.name)}', 
@@ -102,7 +104,8 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
                             '${encodeURIComponent(product.sub_category)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
-                            '${encodeURIComponent(product.id)}'
+                            '${encodeURIComponent(product.id)}',
+                            '${encodeURIComponent(product.color)}',
                         )" class="card-text text-decoration-none text-black mt-auto">Price: $${product.price}</a>
                     </div>
                 </div>
@@ -167,8 +170,9 @@ previousButton.addEventListener("click", () => {
 });
 
 
-const  showDetails = (name, price, quantity, sub_category, image, description, id) => {
-    const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}`;
+const  showDetails = (name, price, quantity, sub_category, image, description,id,color) => {
+    console.log("174 line",color)
+    const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}&color=${encodeURIComponent(color)}`;
     window.location.href = detailsUrl;
 };
 

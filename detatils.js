@@ -9,6 +9,7 @@ function getQueryParams() {
         description: decodeURIComponent(params.get("description")),
         image: decodeURIComponent(params.get("image")),
         id: decodeURIComponent(params.get("id")),
+        color: decodeURIComponent(params.get("color"))
         // reviewProductsid: decodeURIComponent(params.get("reviewProductsid")),
         // reviewProductimage: decodeURIComponent(params.get("reviewProductimage")),
         // reviewProductname: decodeURIComponent(params.get("reviewProductname")),
@@ -19,7 +20,7 @@ function getQueryParams() {
 
 // Function to display product details on the details page
 function displayProductDetails() {
-    const { name, price, quantity, sub_category, description, image, id } =
+    const { name, price, quantity, sub_category, description, image, id,color } =
         getQueryParams();
     if (
         !name ||
@@ -28,7 +29,8 @@ function displayProductDetails() {
         !sub_category ||
         !description ||
         !image ||
-        !id
+        !id ||
+        !color
     ) {
         console.error("Missing product details");
         return;
@@ -57,10 +59,11 @@ function displayProductDetails() {
             <div class="col-12 col-lg-5">
                 <div class="mt-3">
                     <small class="text-light opacity-50">Cildank</small>
-                    <h2>${name}</h2>
-                    <h4>${sub_category}</h4>
-                    <h5>$${price}</h5>
-                    <p class="text-light opacity-75">Tax included</p>
+                    <h2  class ="fw-bold ">${name}</h2>
+                    <h4 class ="fw-bold mt-4">${sub_category}</h4>
+                    <h5 class ="fw-bold ">Price:$${price}</h5>
+                    <h5 class ="fw-bold text-uppercase mt-4">Color: ${color}</h5>
+                    <p class="fw-bold opacity-75">Tax included</p>
                 </div>
 
                 <div class="d-flex mt-4 justify-content-evenly gap-3">
@@ -73,7 +76,7 @@ function displayProductDetails() {
                 </div>
 
                 <div>
-                    <p>${description}</p>
+                    <p class="fw-bold">${description}</p>
                     <ul>
                         <li>Faded ${name}</li>
                         <li>Fit: Regular</li>
