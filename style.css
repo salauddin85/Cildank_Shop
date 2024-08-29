@@ -806,10 +806,11 @@ footer {
 }
 .brand-icon{
     color:#222;
+   
 }
 .brand-icon:hover{
 /* color: darkcyan; */
-color:sienna;
+color:rgb(0, 128, 87);
 }
 .footer-con-abo{
     color: #f4f4f4;
