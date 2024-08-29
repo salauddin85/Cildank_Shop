@@ -156,7 +156,9 @@
 
 
 
+
  .banner-sections {
+    position: relative;
     background-image: url(./images/minimalist-retail-clothing-display.jpg);
     background-repeat: no-repeat;
     background-size: cover; /* Ensures the image covers the entire area */
@@ -164,7 +166,36 @@
     height: 93vh;
     width: 100%; /* Make the banner take the full width of the viewport */
     margin: 0; /* Remove any default margin */
+    /* box-shadow:  rgb(0, 0, 0);
+     */
+    /* padding-top: 20px; */
 }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+    z-index: 1;
+}
+.navbar {
+    position: relative;
+    z-index: 2; 
+}
+.banner-content {
+    position: relative;
+    z-index: 1;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    /* padding: 20px; */
+}
+
+
+
+
+
 
 .btn-outline-danger{
 border-color: black;
@@ -185,8 +216,8 @@ border-color: black;
     opacity: 85%;
 }
 .navbar-element:hover{
-    /* color:rgb(0, 128, 87); */
-    color:sienna;
+    color:rgb(0, 128, 87);
+    /* color:sienna; */
     /* color: rgb(123, 114, 250); */
 
     cursor: pointer;
@@ -428,46 +459,6 @@ body {
 
 
 
-
-/* @media(min-width:576px){
-   #menswomenstop{
-    flex-wrap: wrap;
-   }
-   #menstopProduct{
-    flex-wrap: wrap;
-   }
-   #womenstopProduct{
-    flex-wrap:wrap;
-   }
-   .banner-sections{
-    height: 50vh;
-   }
-   .banner-details{
-    /* padding-top: -15px;
-     */
-    /* margin-top:-50px !important;
-   }
-} */
-
-/* @media(min-width:768px){ */
-    /* #menswomenstop{
-     flex-wrap:wrap;
-    }
-    #menstopProduct{
-     flex-wrap: nowrap;
-    }
-    #womenstopProduct{
-        flex-wrap:nowrap;
-    }
-    #womenstopProduct.col{
-     
-    }
-    #mensProduct{
-        columns: 12;
-    } */
-    
- /* } */ */
-
 body {
     font-family: Arial, sans-serif;
 }
@@ -547,10 +538,41 @@ body {
     }
     #menstopProduct{
         flex-wrap: wrap;
+        /* text-align: center; */
+        margin-left: 20px !important;
     }
     #womenstopProduct{
         flex-wrap: wrap;
+        margin-left: 20px !important;
     }
+    #banner-details{
+        padding-top: 40px !important;
+        margin-bottom: 10px;
+    }
+    
+    #mensProduct{
+        margin-left: 70px !important;
+    }
+    #womensProduct{
+        margin-left: 70px !important;
+    }
+    #viewProductsbtn{
+        margin-top: 100px !important;
+    }
+    
+ .banner-sections {
+    position: relative;
+    background-image: url(./images/minimalist-retail-clothing-display.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    height: 100vh !important;
+    width: 100%; /* Make the banner take the full width of the viewport */
+    margin: 0; /* Remove any default margin */
+    /* box-shadow:  rgb(0, 0, 0);
+     */
+    /* padding-top: 20px; */
+}
     
 }
 @media (max-width: 768px) {
@@ -593,8 +615,21 @@ body {
         margin-left: -55px;
     }
     #mensProduct{
-        
+        /* gap: 2px; */
+        margin-left: -20px !important;
+        justify-content: space-between;
     } 
+    #womensProduct{
+        /* gap: 2px; */
+        margin-left: -20px !important;
+        justify-content: space-between;
+    } 
+    .banner-details{
+        padding-top: 90px !important;
+    }
+    #viewProductsbtn{
+        margin-top: -10px !important;
+    }
 }
 
 
