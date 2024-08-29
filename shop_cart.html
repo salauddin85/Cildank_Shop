@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fashion-Fusion-Shop</title>
+    <title>Cildank</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="./style.css" />
@@ -13,88 +13,81 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body style=" background-color: #f9f9f9;">
     <!-- navbar -->
     <div id="navbar"> </div>
-    <div class="d-flex justify-content-between">
-        <div>
-            <h2 class="ps-3 mt-3 text-center ">My Shopping Cart</h2>
-        </div>
-        <div class="pe-5 mt-3">
-            <a href="./index.html" class=" fs-5  link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                Continue to Shopping
-            </a>
-            
-        </div>
-    </div>
-    
-    <div class="row mt-3">
-        <!-- Shopping cart -->
-        <div class=" col-7 d-flex mx-3 ">
-            <div class="col">
-                <a href="./details.html"><img src="./images/t-shirt-white3.png"
-                        class=" w-100 text-decoration-none rounded" alt="...">
+    <section class="cart-details">
+        <div class="d-flex justify-content-evenly mb-5">
+            <div>
+                <h2 class="ps-3 mt-3 text-center ">My Shopping Cart</h2>
+            </div>
+            <div class="pe-5 mt-3">
+                <a href="./index.html"
+                    class=" fs-5  link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                    Continue to Shopping
                 </a>
-            </div>
-            <div class="col ms-4">
-                <a href="./details.html" class=" text-decoration-none text-black"> T-Shirts Name</a>
-                <div>
-                    <b>size</b>
-                </div>
-            </div>
-            <div class="col" >
-                <a href="./details.html" class=" text-decoration-none text-black">500$</a>
 
             </div>
-            <div class="col">
-                <h5>20</h5>
-            </div>
-            <div class="col">
-                <h5>Total</h5>
-            </div>
-            <div class="col">
-                <!-- remove cart icon -->
-                <a href=""> <i class="fa-regular fa-trash-can text-black fs-5 "></i></a>
-            </div>
-                            
         </div>
-        
-        <div class="col-4 ">
-            
+
+      <div class="d-flex flex-wrap justify-content-center ">
+        <div id="shopCart" class="col-lg-6 col-md-7 mb-12 ">
+
+
+           
+        </div>
+        <div class=" mt-3 col-lg-4 col-md-5 mb-12">
+
+
             <div class="shadow p-3 rounded " style="background-color: rgba(169, 169, 169, 0.184);">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h5>Shipping </h5>
+                <div class="d-flex  fw-bold  justify-content-between">
+                    <div class="fw-bold fs-5 opacity-75">
+                        <b >Shipping </b>
                     </div>
-                    <div>
-                        <h5>Calculated at checkout</h5>
+                    <div class="fw-bold fs-5 opacity-75">
+                        <b >Calculated at checkout</b>
                     </div>
-                    
+
                 </div>
                 <hr>
-                <div class="d-flex justify-content-between">
-                    <h5>Subtotal</h5>
-                    <h4>$299.94</h4>
+                <div class="d-flex fw-bold justify-content-between">
+                    <div class=" fs-5  opacity-75 fw-bold">
+                        <b>Subtotal</b>
+                        
+                    </div>
+                    <div class=" fs-5  opacity-75 fw-bold">
+                        <b class="">$</b>
+                        <b id="taka"> </b>
+                    </div>
                 </div>
                 <hr>
-                <p>Tax included and shipping calculated at checkout</p>
-               
+                <p class="fw-bold">Tax included and shipping calculated at checkout</p>
+
             </div>
             <div class="mt-3">
-                <button type="submit" class="fs-5 bg-dark w-100 p-3 rounded border-0 mb-2 text-light">Purchase</button>
+                <button type="submit"
+                    onclick="handleCartPurchase()"
+                    class="fs-5 bg-dark w-100 p-3 rounded border-0 mb-2 text-light">Purchase</button>
             </div>
+        
+
+
         </div>
+       
+      </div>
 
-        <!-- pay total balance -->
 
-    </div>
-
+    </section>
     <!-- footer -->
     <div style="margin-top: 90px;" id="footer"></div>
     </div>
     <script src="./navbar.js"></script>
     <script src="./footer.js"></script>
     <script src="./index.js"></script>
+    <script src="./shop_cart.js"></script>
+    <script src="./auth.js"></script>
+    <!-- <script src="./detatils.js"></script> -->
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

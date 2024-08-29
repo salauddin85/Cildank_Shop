@@ -13,6 +13,7 @@ Sort by size: http://127.0.0.1:8000/products/product/sorted_by_size/M/
 
 Wishlist Add: http://127.0.0.1:8000/products/wishlist/add_product/1/
 Wishlist Remove: http://127.0.0.1:8000/products/wishlist/remove_product/1/
+all wishlist:http://127.0.0.1:8000/products/wishlist/
 
 Reviews:http://127.0.0.1:8000/products/review/
 
