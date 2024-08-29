@@ -1,8 +1,13 @@
+
+
+
+
+// পণ্য বিস্তারিত তথ্য লোড করার ফাংশন
 const PurchaseDetails = () => {
   const token = localStorage.getItem("authToken");
   console.log("inside token purchase", token);
   if (!token) {
-    alert("No authentication token found. Please log in.");
+    alert("কোনো অথেন্টিকেশন টোকেন পাওয়া যায়নি। দয়া করে লগ ইন করুন।");
     return;
   }
   fetch("https://cildank-shop.onrender.com/purchases/purchase_all/", {
@@ -20,23 +25,23 @@ const PurchaseDetails = () => {
     })
     .then((data) => {
       const PurchaseDetails = document.getElementById("PurchaseDetails");
-      PurchaseDetails.innerHTML = ""; // Clear previous data if needed
+      PurchaseDetails.innerHTML = ""; // আগের ডেটা মুছে ফেলা
 
-      // Use an object to aggregate product quantities and total prices
+      // পণ্যগুলিকে একত্রিত করতে একটি অবজেক্ট ব্যবহার
       const aggregatedProducts = {};
 
       if (Array.isArray(data)) {
         data.forEach((product) => {
           const productId = product.product.id;
-          const quantity = product.quantity || 1; // Assume quantity 1 if not provided
+          const quantity = product.quantity || 1; // যদি পরিমাণ না দেওয়া থাকে, তবে 1 ধরবে
           const price = product.product.price;
 
           if (aggregatedProducts[productId]) {
-            // If product is already in the aggregated list, update quantity and total price
+            // যদি পণ্যটি আগেই তালিকায় থাকে, তবে পরিমাণ এবং মোট দাম আপডেট করবে
             aggregatedProducts[productId].quantity += quantity;
             aggregatedProducts[productId].totalPrice += price * quantity;
           } else {
-            // If product is not in the aggregated list, add it
+            // যদি পণ্যটি তালিকায় না থাকে, তবে তা যুক্ত করবে
             aggregatedProducts[productId] = {
               ...product,
               quantity: quantity,
@@ -45,16 +50,17 @@ const PurchaseDetails = () => {
           }
         });
 
-        // Display each product only once, using the aggregated data
+        // একত্রিত ডেটা ব্যবহার করে প্রতিটি পণ্য একবার করে প্রদর্শন করবে
         Object.values(aggregatedProducts).forEach((product) => {
-          console.log(product)
+          console.log(product);
           const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${product.product.image}`;
 
           const newDiv = document.createElement("div");
+          console.log(product.product.id);
           newDiv.className = "row mt-3";
           newDiv.innerHTML = `
             <div class="col-3">
-              <a ><img src="${imageUrl}" class="img-fluid text-decoration-none rounded w-75 h-100" alt="${product.product.name}"></a>
+              <a><img src="${imageUrl}" class="img-fluid text-decoration-none rounded w-75 h-100" alt="${product.product.name}"></a>
             </div>
             <div class="col-2 fs-5 fw-bold text-black pur-list-sub">
               <b>${product.product.sub_category}</b>
@@ -64,14 +70,14 @@ const PurchaseDetails = () => {
               <b class="text-black fs-5 mt-5 fw-bold">Size:${product.product.size}</b> <br>
               <b class="text-black fs-5 fw-bold">Quantity: ${product.quantity}</b> <br>
               <b class="text-black fs-5 fw-bold">Total Price: $${product.totalPrice.toFixed(2)}</b> <br>
-              <button type="button" onclick="" class="review-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Review</button>
+              <button type="button" onclick="PurchaseReview(${product.product.id})" class="review-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Review </button>
 
               <!-- Modal -->
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="w-100 mx-auto mt-5 review-box shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                      <form class="Review-form w-100 px-auto" id="Reviewform" onsubmit="PurchaseReview(event,${product.product.id})">
+                      <form class="Review-form w-100 px-auto" id="Reviewforms" onsubmit="SubmitReview(event)">
                         <div class="mb-3 ms-4">
                           <label for="image" class="form-label fs-5 text-black text-center">Image*</label>
                           <input type="file" class="form-control text-center text-black common-name" required id="image" name="image" accept="image/*">
@@ -122,80 +128,49 @@ const PurchaseDetails = () => {
           PurchaseDetails.appendChild(newDiv);
         });
       } else {
-        console.error("Expected data to be an array but received:", data);
+        console.error("error", data);
       }
     });
-  // .catch(error => {
-  //     console.error('Error:', error);
-  //     alert("Failed to fetch purchase details. Please try again later.");
-  // });
 };
 
-
-
-
-
-
-
+// পণ্য বিস্তারিত লোড করা হবে
 PurchaseDetails();
 
+let currentProductId = null; // গ্লোবাল ভ্যারিয়েবল
 
-
-
-
-
-const PurchaseReview = (event,id) => {
-  event.preventDefault();
-  console.log("product id",id)
-  // console.log("Review ID from URL inside function:", queryParams.reviewId);
-  const token = window.localStorage.getItem("authToken");
-  const Reviewform = document.getElementById("Reviewform");
-
-  if (!token) {
-    alert("No authentication token found. Please log in.");
-    return;
-  }
-
-  const formData = new FormData(Reviewform);
-  const reviewData = {
-    image: formData.get("image"),
-    body: formData.get("body"),
-    rating: formData.get("rating"),
-   
+// Review Button Click Event
+const PurchaseReview = (id) => {
+  // event.preventDefault(); // ডিফল্ট আচরণ বন্ধ করা
+  currentProductId = id; // প্রোডাক্ট আইডি সংরক্ষণ করা
+  console.log("Captured product ID for review:", currentProductId);
 };
-console.log(reviewData)
 
-  // const submitAction = formData.get("submitAction");
+// Review Submit Function
+// Review Submit Function
+const SubmitReview = (event) => {
+  event.preventDefault(); // ফর্ম সাবমিটের ডিফল্ট আচরণ বন্ধ করা
 
- 
-  fetch(`https://cildank-shop.onrender.com/products/add_review/${id}`, {
+  const Reviewform = document.getElementById("Reviewforms");
+  const formData = new FormData(Reviewform);
+
+  const token = localStorage.getItem("authToken"); // টোকেন localStorage থেকে নেওয়া
+
+  fetch(`https://cildank-shop.onrender.com/products/add_review/${currentProductId}`, {
     method: "POST",
     headers: {
       Authorization: `Token ${token}`,
     },
-    body: formData,
+    body: formData, // এখানে সরাসরি FormData পাঠানো হচ্ছে
   })
-    .then((res) => {
-      return res.json().then((data) => ({
-        status: res.status,
-        body: data,
-      }));
-    })
-    .then(({ status, body }) => {
-      if (status === 201) {
-        alert("Review added successfully");
-      } else if (status === 400 || status === 409) {
-        // Adjust status code based on your backend implementation
-        alert("This product review already exists.");
+    .then((response) => {
+      if (response.ok) {
+        alert("Review Added Successfully");
+       
       } else {
-        alert("An unexpected error occurred.");
+        alert("Review failed");
       }
     })
     .catch((error) => {
-      console.log(error);
-      alert("Failed to add review. Please try again later.");
+      console.error("Error:", error);
     });
-  
-  
 };
-
