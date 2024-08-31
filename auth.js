@@ -101,7 +101,7 @@ const handleLogin = (event) => {
     // Check if token is present
   if (!token && token===undefined) {
       alert("You are not Authoraization user. Please Register.");
-      window.location.href = "./register.html";
+      window.location.href = "https://salauddin85.github.io/Cildank_Shop/registration.html";
       return;
   }
   const form = document.getElementById("login-form");
