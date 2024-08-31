@@ -13,7 +13,7 @@ const handleAmount = (event) => {
     // Check if token is present
     if (!token) {
         alert("You are not authenticated user. Please log in.");
-        window.location.href = "./login.html";
+        window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
         return;
     }
 

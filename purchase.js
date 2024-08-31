@@ -9,7 +9,7 @@ const PurchaseDetails = () => {
   if (!token) {
     alert("Authentication token not found. Please log in.");
 
-    window.location.href = "./login.html";
+    window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
     return;
   }
   fetch("https://cildank-shop.onrender.com/purchases/purchase_all/", {

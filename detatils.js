@@ -227,6 +227,11 @@ const ReveiewProduct = (id) => {
 const handleReviewEdit = (event, reviewId) => {
     event.preventDefault();
     const token = localStorage.getItem("authToken");
+    if (!token) {
+        alert("You are not authenticated user. Please log in.");
+        window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
+        return;
+    }
     const form = document.getElementById(`reviewEdit-${reviewId}`);
     const formData = new FormData(form);  // Using FormData to handle file uploads
 
@@ -294,6 +299,11 @@ const handleReviewEdit = (event, reviewId) => {
 
 const handleReviewDelete = (reviewId) => {
     const token = localStorage.getItem("authToken");
+    if (!token) {
+        alert("You are not authenticated user. Please log in.");
+        window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
+        return;
+    }
 
     fetch(`https://cildank-shop.onrender.com/products/review/${reviewId}/`, {
         method: 'DELETE',

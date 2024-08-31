@@ -140,7 +140,7 @@ const handleCartPurchase = () => {
 
   if (!token) {
     alert("No authentication token found. Please log in.");
-    window.location.href="./login.html"
+    window.location.href="https://salauddin85.github.io/Cildank_Shop/login.html"
     return;
   }
 

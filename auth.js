@@ -129,7 +129,7 @@ const handleLogin = (event) => {
       console.log("token data", data.token);
       localStorage.setItem("authToken", data.token);
       alert("Login Successfull");
-      window.location.href = "./index.html";
+      window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -138,7 +138,7 @@ const handleLogin = (event) => {
 
 const handleLogout = () => {
   const token = localStorage.getItem("authToken");
-  console.log(token);
+  console.log("logout token",token);
   fetch("https://cildank-shop.onrender.com/auth/logout/", {
     method: "POST",
     headers: {
@@ -150,7 +150,7 @@ const handleLogout = () => {
       console.log(res);
       if (res.ok) {
         localStorage.removeItem("authToken");
-        window.location.href = "./login.html";
+        window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
       }
     })
     .catch((err) => {
