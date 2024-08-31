@@ -96,7 +96,14 @@ const handleRegistration = (event) => {
 
 const handleLogin = (event) => {
   event.preventDefault();
-
+  const token = localStorage.getItem("authToken");
+    
+    // Check if token is present
+    if (!token) {
+        alert("You are not Authoraization user. Please Register.");
+        window.location.href = "./register.html";
+        return;
+    }
   const form = document.getElementById("login-form");
   const formData = new FormData(form);
 
