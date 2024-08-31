@@ -99,11 +99,11 @@ const handleLogin = (event) => {
   const token = localStorage.getItem("authToken");
     
     // Check if token is present
-    if (token===undefined) {
-        alert("You are not Authoraization user. Please Register.");
-        window.location.href = "./register.html";
-        return;
-    }
+  if (!token && token===undefined) {
+      alert("You are not Authoraization user. Please Register.");
+      window.location.href = "./register.html";
+      return;
+  }
   const form = document.getElementById("login-form");
   const formData = new FormData(form);
 
