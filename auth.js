@@ -99,7 +99,7 @@ const handleLogin = (event) => {
   const token = localStorage.getItem("authToken");
     
     // Check if token is present
-    if (!token) {
+    if (token===undefined) {
         alert("You are not Authoraization user. Please Register.");
         window.location.href = "./register.html";
         return;
