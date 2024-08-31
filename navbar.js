@@ -15,7 +15,7 @@ fetch("navbar.html")
 
     if (token && token !== "undefined") {
       navElement.innerHTML += `
-        <li class="nav-item p-2">
+        <li class="nav-item p-2" id="logout">
           <a
             type="button"
             class="btn btn-warning text-black fw-bold text-bold px-5"
@@ -27,7 +27,7 @@ fetch("navbar.html")
       `;
     } else {
       navElement.innerHTML += `
-        <li class="nav-item p-2">
+        <li class="nav-item p-2" id="login">
           <a
             type="button"
             class="btn btn-dark text-bold px-5"
@@ -36,7 +36,7 @@ fetch("navbar.html")
             LOGIN
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="registration-link">
           <a
             class="ms-2 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
             href="./registration.html"

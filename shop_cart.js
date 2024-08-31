@@ -126,24 +126,24 @@ const loadWishlist = () => {
       console.error("Error:", error);
     });
 };
-
+loadWishlist();
 // Function to handle purchase
+
 const handleCartPurchase = () => {
- 
   const taka = document.getElementById("taka").textContent;
   const Taka = String(taka);
   console.log(Taka);
 
   const token = localStorage.getItem("authToken");
   console.log("Retrieved token:", token);
-  console.log("all ids",uniqueProductIds)
-  // const  Ids= [9, 3, 2];
+  console.log("all ids", uniqueProductIds);
+
   if (!token) {
     alert("No authentication token found. Please log in.");
+    window.location.href="./login.html"
     return;
   }
-  
-  // Sending the total amount and product IDs in the body
+
   fetch("https://cildank-shop.onrender.com/purchases/payment_cart/", {
     method: "POST",
     headers: {
@@ -152,20 +152,34 @@ const handleCartPurchase = () => {
     },
     body: JSON.stringify({ 
       total_amount: Taka, 
-      product_ids: uniqueProductIds  // Sending the product IDs
+      product_ids: uniqueProductIds  
     }),  
   })
-  .then(res => res.json())
+  .then(res => {
+    if (res.status === 200) {
+      return res.json();
+    } else if (res.status === 400) {
+      return res.json().then(data => {
+        // Show backend error message in alert
+        alert(` ${data.error || 'Unknown error'}`);
+        throw new Error(data.error || 'Unknown error');
+      });
+    } else {
+      throw new Error('Unexpected status code: ' + res.status);
+    }
+  })
   .then(data => {
     console.log(data);
-    console.log(data)
     alert("Purchase Successful. Check Your Mail or Purchases List.");
   })
   .catch(error => {
     console.error('Error:', error);
-    alert(`An error occurred: ${error.message}`);
+    alert(` ${error.message}`);
   });
 };
 
+
+
+
 // Load wishlist when the page loads
-loadWishlist();
+

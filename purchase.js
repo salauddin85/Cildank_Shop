@@ -7,7 +7,9 @@ const PurchaseDetails = () => {
   const token = localStorage.getItem("authToken");
   console.log("inside token purchase", token);
   if (!token) {
-    alert("কোনো অথেন্টিকেশন টোকেন পাওয়া যায়নি। দয়া করে লগ ইন করুন।");
+    alert("Authentication token not found. Please log in.");
+
+    window.location.href = "./login.html";
     return;
   }
   fetch("https://cildank-shop.onrender.com/purchases/purchase_all/", {
@@ -60,12 +62,12 @@ const PurchaseDetails = () => {
           newDiv.className = "row mt-3";
           newDiv.innerHTML = `
             <div class="col-3">
-              <a><img src="${imageUrl}" class="img-fluid text-decoration-none rounded w-75 h-100" alt="${product.product.name}"></a>
+              <a><img src="${imageUrl}" id="pur-list-img" class="img-fluid text-decoration-none rounded w-75 h-100" alt="${product.product.name}"></a>
             </div>
             <div class="col-2 fs-5 fw-bold text-black pur-list-sub">
               <b>${product.product.sub_category}</b>
             </div>
-            <div class="col-3">
+            <div class="col-3" id="list-details">
               <a href="./details.html" class="text-decoration-none fw-bold mb-3 text-black fs-5 ">${product.product.name}</a> <br>
               <b class="text-black fs-5 mt-5 fw-bold">Size:${product.product.size}</b> <br>
               <b class="text-black fs-5 fw-bold">Quantity: ${product.quantity}</b> <br>
@@ -174,3 +176,7 @@ const SubmitReview = (event) => {
       console.error("Error:", error);
     });
 };
+
+
+
+// co

@@ -20,9 +20,9 @@ const loadReview = () => {
                 newli.innerHTML = `
                     <div class="cards-review shadow h-100">
                         <div class="ratio ratio-16x9">
-                            <img src="${imageUrl}" class="img-class" alt="...">
+                            <img src="${imageUrl}" class="img-class " id="img-reivew" alt="...">
                         </div>
-                        <div class="card-body p-3 p-xl-5">
+                        <div class="card-body p-3 p-xl-5" id="review-body">
                             <h3 class="card-title h5">${review.name}</h3>
                             <h3 class="card-title h5">${review.rating}</h3>
                             <p class="card-text">${review.body}</p>

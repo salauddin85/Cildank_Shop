@@ -17,7 +17,7 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
 
         const div = document.createElement("div");
         div.className = "col-lg-3 col-md-6";
-        div.id="";
+        div.id="mensProducts";
 
         // Set the inner HTML for the product card
         div.innerHTML = `
@@ -176,6 +176,7 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
 
         const div = document.createElement("div");
         div.className = "col-lg-3 col-md-6";
+        div.id="womensProducts";
 
         // Set the inner HTML for the product card
         div.innerHTML = `
