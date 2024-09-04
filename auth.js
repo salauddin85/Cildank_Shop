@@ -93,52 +93,45 @@ const handleRegistration = (event) => {
 
 
 const handleLogin = (event) => {
-event.preventDefault();
-const token = localStorage.getItem("authToken");
+  event.preventDefault();
+  const token = localStorage.getItem("authToken");
+    
+    // Check if token is present
+  if (!token && token===undefined) {
+      alert("You are not Authoraization user. Please Register.");
+      window.location.href = "https://salauddin85.github.io/Cildank_Shop/registration.html";
+      return;
+  }
+  const form = document.getElementById("login-form");
+  const formData = new FormData(form);
 
-// Check if token is present
-if (!token && token === undefined) {
-  alert("You are not an authorized user. Please register.");
-  window.location.href = "https://salauddin85.github.io/Cildank_Shop/registration.html";
-  return;
-}
-const form = document.getElementById("login-form");
-const formData = new FormData(form);
+  const loginData = {
+    username: formData.get("username"),
 
-const loginData = {
-  username: formData.get("username"),
-  password: formData.get("password"),
-};
+    password: formData.get("password"),
+  };
 
 console.log("login data", loginData);
 
-fetch("https://cildank-shop.onrender.com/auth/login/", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(loginData),
-})
-  .then((res) => {
-    if (res.status === 400) {
-      return res.json().then((data) => {
-        alert("Error: " + data.error || "Login failed. Please check your credentials.");
-        throw new Error(data.error || "Login failed");
-      });
-    } else if (!res.ok) {
-      throw new Error("Something went wrong. Please try again later.");
-    }
-    return res.json();
+  fetch("https://cildank-shop.onrender.com/auth/login/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(loginData),
   })
-  .then((data) => {
-    console.log("set data", data);
-    localStorage.setItem("authToken", data.token);
-    alert("Login Successful");
-    window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("set data", data);
+      console.log("user data", data.user_id);
+      console.log("token data", data.token);
+      localStorage.setItem("authToken", data.token);
+      alert("Login Successfull");
+      window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 };
 
 
