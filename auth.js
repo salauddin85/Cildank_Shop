@@ -173,7 +173,7 @@ fetch("https://cildank-shop.onrender.com/auth/account/")
             
                <div class="account-details fs-5 p-2 text-success-emphasiss">
               
-                  <h6 class="text-center text-primary fs-5">Welcome Your Profile:</h6>
+                  <h6 class="text-center text-primary fs-5">Your Account details:</h6>
                   <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${account.user_name}</h6>
                   <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${account.account_no}</h6>
                   <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${account.balance}</h6>

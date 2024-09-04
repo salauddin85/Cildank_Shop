@@ -672,6 +672,10 @@ body {
          margin-bottom: 30px;
          padding-left: 0px;
      }
+     #nav-logo{
+        width: 15%;
+        border-radius: 5px;
+       }
      
      
 
@@ -800,6 +804,10 @@ body {
         width: 500px !important;
         height: 300px !important;
      }
+     #nav-logo{
+        width: 10%;
+        border-radius: 5px;
+       }
     
      
  }  
@@ -822,6 +830,13 @@ body {
    } */
    #mensProduct{
     flex-wrap: wrap !important;
+   }
+   #nav-ele-2{
+    margin-left: 220px ;
+   }
+   #nav-logo{
+    width: 15%;
+    border-radius: 5px;
    }
 }
 
