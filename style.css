@@ -838,6 +838,13 @@ body {
     width: 15%;
     border-radius: 5px;
    }
+   #nav-logo-text{
+    margin-left: -50px ;
+    /* margin-right: -50px ; */
+   }
+   #nav-ele-2{
+    margin-left: 275px ;
+   }
 }
 
 body {
