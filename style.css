@@ -253,6 +253,7 @@ border-color: black;
 }
 .navbar-element:hover{
     color:rgb(0, 128, 87);
+    opacity: 100%;
     /* color:sienna; */
     /* color: rgb(123, 114, 250); */
 
@@ -672,6 +673,7 @@ body {
          padding-left: 0px;
      }
      
+     
 
     
  .banner-sections {
@@ -798,6 +800,7 @@ body {
         width: 500px !important;
         height: 300px !important;
      }
+    
      
  }  
 
@@ -983,7 +986,7 @@ footer {
 }
 
 .footer-bottom {
-    background-color: #222;
+    /* background-color: #222; */
     padding: 10px 0;
     margin-top: 20px;
 }
@@ -1005,3 +1008,363 @@ color:rgb(0, 128, 87);
 .footer-con-abo:hover{
     color: darkcyan;
 }
+
+
+/* 
+    FAQS RELETED STYLE 
+*/
+
+    .faq-header {
+        background-color: #343a40;
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+    }
+    .faq-section {
+        margin-top: 20px;
+    }
+    .faq-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    .faq-content {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .faq-content p {
+        margin-bottom: 0;
+    }
+    .category-heading {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+
+    .faq-review-section {
+        margin-top: 50px;
+        background-color:whitesmoke; /* Soft grayish-blue background */
+        padding: 4rem 0;
+        /* border: 1px solid gray; */
+    }
+    
+    .section-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #333;
+        font-size: 2.5rem;
+    }
+    
+    .section-description {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem;
+        color:black;
+        margin-top: 1rem;
+    }
+    
+    .info-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .info-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #e74c3c;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease;
+    }
+    
+    .info-title:hover {
+        color:#111
+    }
+    
+    .info-text {
+        font-family: 'Roboto', sans-serif;
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .info-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #fff;
+        /* background-color: tomato; */
+        border-radius: 50px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .info-button:hover {
+        background-color:black !important;
+        color: #fff; /* Ensure text color is visible */
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Specific hover color change for faq-card */
+    .faq-card:hover .info-button {
+        background-color: #c03a2b; /* Darker red for faq-card hover */
+    }
+    
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2rem;
+        }
+    
+        .section-description {
+            font-size: 1.1rem;
+        }
+    
+        .info-card {
+            padding: 1.5rem;
+        }
+    
+        .info-title {
+            font-size: 1.5rem;
+        }
+    
+        .info-text {
+            font-size: 0.95rem;
+        }
+    
+        .info-button {
+            font-size: 0.95rem;
+            padding: 0.65rem 1.25rem;
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Hero Section */
+.hero-section {
+    background: linear-gradient(to right,#343a40,#343a40 );
+    padding: 4rem 2rem;
+    color: #fff;
+    text-align: center;
+    font-size: medium !important;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.332);
+}
+
+.hero-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+
+
+/* About Us Section */
+.about-section {
+    /* background-color: #2c4b50;  */
+    /* background-color: rgb(95, 160, 114); */
+    /* background-color:#111111cb; */
+    /* background-color:rgba(128, 73, 0, 0.581); */
+    background-color:darkslategrey;
+    padding: 4rem 2rem;
+    /* color: white !important; */
+    /* border-radius: 10px; */
+    
+}
+
+.about-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #ecf0f1; /* Light text color */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.636);
+}
+
+.about-text {
+    padding: -20 px !important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight:lighter;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:whitesmoke; /* Lighter text color */
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+}
+
+.about-image {
+    position: relative;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient background */
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 1rem;
+}
+
+.image-overlay h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.image-overlay p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) { /* Large screens */
+    .about-section h2 {
+        font-size: 1.75rem;
+    }
+    .about-text {
+        font-size: 1.15rem;
+    }
+    .image-overlay h3 {
+        font-size: 1.75rem;
+    }
+    .image-overlay p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 992px) { /* Medium screens */
+    .about-section h2 {
+        font-size: 1.5rem;
+    }
+    .about-text {
+        font-size: 1.1rem;
+    }
+    .image-overlay h3 {
+        font-size: 1.5rem;
+    }
+    .image-overlay p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets */
+    .about-section h2 {
+        font-size: 1.25rem;
+    }
+    .about-text {
+        font-size: 1rem;
+    }
+    .image-overlay h3 {
+        font-size: 1.25rem;
+    }
+    .image-overlay p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 576px) { /* Mobile */
+    .about-section {
+        padding: 2rem 1rem;
+    }
+    .about-section h2 {
+        font-size: 1.125rem;
+    }
+    .about-text {
+        font-size: 0.95rem;
+    }
+    .image-overlay h3 {
+        font-size: 1rem;
+    }
+    .image-overlay p {
+        font-size: 0.75rem;
+    }
+}
+
+
+
+/* Style for toast notifications */
+.toast-container {
+    z-index: 1050; /* Make sure it appears above other elements */
+  }
+  .toast {
+    min-width: 250px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .toast-header {
+    background-color: #28a745; /* Green for success */
+    color: #fff;
+  }
+  .toast-header.error {
+    background-color: #dc3545; /* Red for error */
+  }
+  .toast-body {
+    background-color: #fff;
+    color: #333;
+  }
+  
+
+

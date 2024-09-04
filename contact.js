@@ -37,5 +37,3 @@ const ContactForm = (event) => {
         alert("A network error occurred. Please check your connection and try again.");
     });
 }
-
-

@@ -85,32 +85,36 @@ function displayProductDetails() {
                     <p>Due to the nature of this custom product it is non-refundable and no discount codes will be valid.</p>
                 </div>
 
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
+               <div class="accordion" id="accordionExample" style="border: 2px solid #333; border-radius: 10px; background-color: #f8f9fa; padding: 10px;">
+                    <!-- Shipping Section -->
+                    <div class="accordion-item" style="border-bottom: 1px solid #ccc;">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: #5a5a5a; color: #fff; font-weight: bold;">
                                 Shipping
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p>Free UK Standard Up to 7 days Delivery on orders over £40. £3.99 UK Standard Delivery (up to 7 days). £4.99 UK Next Day Delivery (please note this is not available on every product). Cut off for UK Next Day Delivery is 3:30pm. Check Delivery & Returns section for international courier info. We ship globally & country-specific info can be found in the deliveries section in the website footer. Delivery carriers are identified at checkout based on the country you are ordering from. We offer overseas delivery options ranging from Express 1-2 day through to Economy 3-7 working days.</p>
+                            <div class="accordion-body" style="padding: 15px; color: #333;">
+                                <p>Free UK Standard Up to 7 days Delivery on orders over  $50. $3.99 UK Standard Delivery (up to 7 days). $4.99 UK Next Day Delivery (please note this is not available on every product). Cut off for UK Next Day Delivery is 3:30pm. Check Delivery & Returns section for international courier info. We ship globally & country-specific info can be found in the deliveries section in the website footer. Delivery carriers are identified at checkout based on the country you are ordering from. We offer overseas delivery options ranging from Express 1-2 day through to Economy 3-7 working days.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
+
+                    <!-- Returns Section -->
+                    <div class="accordion-item" style="border-bottom: 1px solid #ccc;">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #5a5a5a; color: #fff; font-weight: bold;">
                                 Returns
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
+                            <div class="accordion-body" style="padding: 15px; color: #333;">
                                 <p>We offer pre-paid return Royal Mail labels on all UK orders. EU and US customers can also download DHL fully tracked returns labels via the website returns portal. We offer a lifetime returns policy. Please refer to full T&C's to ensure return quality standards are met. Refunds are offered on all full-price items. Anything purchased in our sale will be refunded via e-credit note.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
             
             </div>
            

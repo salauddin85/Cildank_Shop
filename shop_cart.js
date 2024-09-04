@@ -182,4 +182,3 @@ const handleCartPurchase = () => {
 
 
 // Load wishlist when the page loads
-

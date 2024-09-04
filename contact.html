@@ -13,7 +13,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body style="background-color:beige;">
+<body class="bg-dark-subtle">
   <!-- navbar -->
   <div id="navbar"></div>
 
@@ -58,15 +58,15 @@
                 <form class="contact-form" id="ContactForm" onsubmit="ContactForm(event)">
                     <div class="mb-3">
                         <label for="name" class="form-label fs-5 text-black">Name*</label>
-                        <input type="text" class="form-control text-black common-name" required id="name" name="name" placeholder="Your Name">
+                        <input type="text" class="form-control rounded-0 text-black common-name" required id="name" name="name" placeholder="Your Name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label fs-5 text-black">Email*</label>
-                        <input type="email" class="form-control text-black common-name" required id="email" name="email" placeholder="Your Email">
+                        <input type="email" class="form-control rounded-0 text-black common-name" required id="email" name="email" placeholder="Your Email">
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label fs-5 text-black">Message*</label>
-                        <textarea class="form-control text-black common-name" id="message" rows="5" required name="message" placeholder="Your Message"></textarea>
+                        <textarea class="form-control text-black rounded-0 common-name" id="message" rows="5" required name="message" placeholder="Your Message"></textarea>
                     </div>
                     <button type="submit" class="btn w-100">Send Message</button>
                 </form>
