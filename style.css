@@ -254,7 +254,7 @@ border-color: black;
 .navbar-element:hover{
     /* color:rgb(0, 128, 87);
      */
-    color:chocolate;
+    color:rgb(210, 105, 30);
     opacity: 100%;
     /* color:sienna; */
     /* color: rgb(123, 114, 250); */
@@ -399,7 +399,9 @@ body {
     margin-bottom: 20px;
 }
 .team-section {
-    background-color:indigo;
+    /* background-color:wheat; */
+    /* background-color:#f5f5f5d9; */
+    /* background-color:rgba(0, 0, 0, 0.159); */
     padding: 50px 15px;
     /* color: teal; */
 }
@@ -412,6 +414,7 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-size: larger;
+    color:black !important;
 }
 .team-member img {
     border-radius: 50%;
@@ -419,8 +422,8 @@ body {
     max-width: 150px;
 }
 .testimonial-section {
-    background-color:lightseagreen;
-    color: #fff;
+    /* background-color:whitesmoke; */
+    color:rgba(0, 0, 0, 0.625);
     padding: 50px 15px;
 }
 .testimonial-section h2 {
@@ -502,7 +505,9 @@ body {
 }
 .contact-section {
     padding: 60px 0;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
+    background-color:rgba(245, 245, 245, 0.142);
+    /* padding-bottom; */
 }
 .contact-section h2 {
     margin-bottom: 40px;
@@ -512,12 +517,13 @@ body {
     margin-bottom: 40px;
 }
 .contact-info img {
-    max-width: 100%;
+    max-width: 80% !important;
     height: auto;
     border-radius: 8px;
 }
 .contact-form .form-control {
     border-radius: 0;
+    margin-top: 10px;
     /* color: antiquewhite !important; */
 }
 .contact-form button {
@@ -1024,7 +1030,10 @@ footer {
 }
 .brand-icon:hover{
 /* color: darkcyan; */
-color:rgb(0, 128, 87);
+/* color:rgb(0, 128, 87);
+ */
+ color:chocolate
+
 }
 .footer-con-abo{
     color: #f4f4f4;
@@ -1038,159 +1047,69 @@ color:rgb(0, 128, 87);
     FAQS RELETED STYLE 
 */
 
-    .faq-header {
-        background-color: #343a40;
-        color: white;
-        padding: 30px 0;
+
+
+
+.faq-section {
+    padding: 50px 0;
+}
+
+.faq-header h1 {
+    font-size: 36px;
+    margin-top: -30px ;
+    
+}
+
+.faq-header p {
+    font-size: 18px;
+}
+
+.faq-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Flex layout to keep the image and accordion side by side without layout shifts */
+@media (min-width: 992px) {
+    .faq-section-content {
+        display: flex;
+        justify-content: space-between; /* Ensure even space between the accordion and image */
+        align-items: flex-start; /* Align content at the top */
+    }
+
+    /* Adjust margin for the FAQ content */
+    .faq-content {
+        flex: 1;
+        margin-right: 30px;
+    }
+
+    /* Ensure image doesn't move by setting its position to sticky */
+    .faq-image {
+        position: sticky;
+        top: 20px; /* Adjust this as needed */
+        max-width: 100%;
+        height: auto;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 991px) {
+    /* On smaller screens, make the content stack vertically */
+    .faq-section-content {
+        flex-direction: column;
+        /* align-items: center; */
         text-align: center;
     }
-    .faq-section {
-        margin-top: 20px;
+
+    .faq-image {
+        margin-bottom: 20px;
     }
-    .faq-title {
-        font-size: 1.5rem;
+
+    .accordion-item {
         margin-bottom: 10px;
     }
-    .faq-content {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .faq-content p {
-        margin-bottom: 0;
-    }
-    .category-heading {
-        font-size: 1.2rem;
-        color: #6c757d;
-        margin-bottom: 10px;
-    }
-
-
-
-
-
-
-    .faq-review-section {
-        margin-top: 50px;
-        background-color:whitesmoke; /* Soft grayish-blue background */
-        padding: 4rem 0;
-        /* border: 1px solid gray; */
-    }
-    
-    .section-title {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-        color: #333;
-        font-size: 2.5rem;
-    }
-    
-    .section-description {
-        font-family: 'Roboto', sans-serif;
-        font-size: 1.2rem;
-        color:black;
-        margin-top: 1rem;
-    }
-    
-    .info-card {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 2rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .info-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
-    }
-    
-    .info-title {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        color: #e74c3c;
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
-        transition: color 0.3s ease;
-    }
-    
-    .info-title:hover {
-        color:#111
-    }
-    
-    .info-text {
-        font-family: 'Roboto', sans-serif;
-        color: #666;
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .info-button {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 600;
-        font-size: 1rem;
-        color: #fff;
-        /* background-color: tomato; */
-        border-radius: 50px;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-        text-decoration: none;
-    }
-    
-    .info-button:hover {
-        background-color:black !important;
-        color: #fff; /* Ensure text color is visible */
-        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Specific hover color change for faq-card */
-    .faq-card:hover .info-button {
-        background-color: #c03a2b; /* Darker red for faq-card hover */
-    }
-    
-    @media (max-width: 768px) {
-        .section-title {
-            font-size: 2rem;
-        }
-    
-        .section-description {
-            font-size: 1.1rem;
-        }
-    
-        .info-card {
-            padding: 1.5rem;
-        }
-    
-        .info-title {
-            font-size: 1.5rem;
-        }
-    
-        .info-text {
-            font-size: 0.95rem;
-        }
-    
-        .info-button {
-            font-size: 0.95rem;
-            padding: 0.65rem 1.25rem;
-        }
-    }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -1203,9 +1122,10 @@ color:rgb(0, 128, 87);
 
     /* Hero Section */
 .hero-section {
-    background: linear-gradient(to right,#343a40,#343a40 );
+    /* background-color:; */
+    background: linear-gradient(to right, #f5f5f5,#f5f5f5);
     padding: 4rem 2rem;
-    color: #fff;
+    color: black !important;
     text-align: center;
     font-size: medium !important;
 }
@@ -1214,30 +1134,30 @@ color:rgb(0, 128, 87);
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2.5rem;
-    color: #ffffff;
+    color: black;
+    opacity: 75%;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.332);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.466);
 }
 
 .hero-subtitle {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    color: black;
+    opacity: 76%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.471);
 }
 
 
 
 /* About Us Section */
 .about-section {
-    /* background-color: #2c4b50;  */
-    /* background-color: rgb(95, 160, 114); */
-    /* background-color:#111111cb; */
+  
     /* background-color:rgba(128, 73, 0, 0.581); */
-    background-color:darkslategrey;
+    background-color:whitesmoke;
     padding: 4rem 2rem;
-    /* color: white !important; */
+    color:black !important;
     /* border-radius: 10px; */
     
 }
@@ -1255,8 +1175,8 @@ color:rgb(0, 128, 87);
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight:lighter;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:whitesmoke; /* Lighter text color */
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    color:black !important; /* Lighter text color */
 }
 
 .about-text p {
@@ -1367,8 +1287,6 @@ color:rgb(0, 128, 87);
     }
 }
 
-
-
 /* Style for toast notifications */
 .toast-container {
     z-index: 1050; /* Make sure it appears above other elements */
@@ -1392,3 +1310,30 @@ color:rgb(0, 128, 87);
   
 
 
+  .custom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   /* Full viewport height for demonstration */
+    text-align: center;
+}
+.circle-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Light background */
+    color: #000; /* Black icon color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Adjust font size if needed */
+    text-decoration: none; /* Remove underline from link */
+    /* Space between button and text */
+}
+.view-more {
+    font-weight: bold;
+    font-size: 1.25rem; /* Font size for the text */
+    color: chocolate; /* Text color */
+    text-decoration: none; /* Remove underline from link */
+}

@@ -18,6 +18,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+    href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous"
+  />
+  
   </head>
 
   <body>
@@ -98,7 +104,7 @@
         </h2>
         <div style="text-align: center; max-width: 80%; margin: 0 auto">
           <h6
-            class="text-info-emphasis lh-base fs-5"
+            class="lh-base fs-5"
             style="
               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
                 sans-serif;
@@ -151,7 +157,7 @@
         </h1>
 
         <h6
-          class="text-success-emphasis lh-base fs-5"
+          class="lh-base fs-5"
           style="
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
               sans-serif;
@@ -188,7 +194,7 @@
         </h1>
 
         <h6
-          class="text-success-emphasis lh-base fs-5"
+          class="lh-base fs-5"
           style="
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
               sans-serif;
@@ -212,57 +218,214 @@
     </section>
 
     <hr class="border border-danger border-1 opacity-25 mt-5" />
-    <section class="faq-review-section pt-3 pb-5">
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-12 col-lg-10">
-            <h2 class="section-title">Stay Informed & Share Your Experience</h2>
-            <p class="section-description">
-              At Cildank, we value your experience. Browse our FAQ to find
-              answers to common questions or leave a review to help us improve.
-            </p>
+
+    <section class="faq-section">
+      <div class="faq-header text-center mb-3">
+        <h1>Cildank Shop FAQs Answered</h1>
+        <p>Your go-to source for all your clothing inquiries at Cildank</p>
+      </div>
+
+      <!-- FAQ Main Content -->
+      <div class="container faq-section-content mb-5 mt-5">
+        <div class="row justify-content-center">
+          <!-- Image on the right side for larger screens -->
+          <div class="col-lg-6 order-lg-2 text-center">
+            <img
+              src="./images/istockphoto-1855399148-1024x1024.jpg"
+              alt="FAQ Image"
+              class="img-fluid faq-image"
+            />
           </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col-12 col-md-6 mb-4 mb-md-0">
-            <div class="info-card faq-card text-center">
-              <h3 class="info-title">FAQs</h3>
-              <p class="info-text fw-bold">
-                Find answers to the most common questions about our products,
-                shipping, returns, and more.
-              </p>
-              <a
-                href="./Faq.html"
-                class="info-button"
-                style="background-color: tomato"
-              >
-                <i class="fas fa-question fa-2x text-center"></i>
-                <span>FAQs</span>
-              </a>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="info-card review-card text-center">
-              <h3 class="info-title">All Reviews</h3>
-              <p class="info-text fw-bold">
-                Your feedback helps us provide better service and improve our
-                products. Share your thoughts!
-              </p>
-              <a
-                href="./about.html"
-                class="info-button mx-auto"
-                style="background-color: tomato"
-                id="info-button"
-              >
-                <i class="fas fa-comments fa-2x text-center"></i>
-                <span>Reviews</span>
-              </a>
+          <!-- Accordion on the left side -->
+          <div class="col-lg-6 order-lg-1 faq-content">
+            <!-- Accordion for FAQ -->
+            <div class="accordion" id="ordersAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button py-4 fw-bold text-black"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    How do I track my order?
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#ordersAccordion"
+                >
+                  <div class="accordion-body mt-2">
+                    You can track your order by logging into your account and
+                    navigating to the 'Orders' section. You'll find real-time
+                    updates on the status of your shipment.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed py-4 pt-5 fw-bold text-black"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    What is your return policy?
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#ordersAccordion"
+                >
+                  <div class="accordion-body">
+                    You can return any item within 30 days of purchase, provided
+                    it is unworn, unwashed, and in its original packaging.
+                    Please visit our Returns Center to initiate a return.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed py-4 pt-5 fw-bold text-black"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    Can I exchange an item for a different size?
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#ordersAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes, we offer exchanges for different sizes. If the size you
+                    want is out of stock, we will notify you via email, and you
+                    can choose to receive a refund instead.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button
+                    class="accordion-button collapsed py-4 pt-5 fw-bold text-black"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                    How do I create an account?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFour"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFour"
+                  data-bs-parent="#ordersAccordion"
+                >
+                  <div class="accordion-body">
+                    To create an account, click on the 'Sign Up' button at the
+                    top of the page, fill out the registration form with your
+                    details, and submit it. You will receive a confirmation
+                    email to verify your account.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button
+                    class="accordion-button collapsed py-4 pt-5 fw-bold text-black"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive"
+                    aria-expanded="false"
+                    aria-controls="collapseFive"
+                  >
+                    Do you offer any discounts or promotions?
+                  </button>
+                </h2>
+                <div
+                  id="collapseFive"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingFive"
+                  data-bs-parent="#ordersAccordion"
+                >
+                  <div class="accordion-body">
+                    Yes, we frequently offer discounts and promotions. Subscribe
+                    to our newsletter or follow us on social media to stay
+                    updated on the latest deals.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    
+    <hr class="border border-danger border-1 opacity-25 mt-5" />
+
+
+
+  
+    <section>
+      <div class="container">
+        <h2 class="text-center fs-1">Our Customers Review</h2>
+       
+
+      <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible ">
+          <ul class="slider-container py-4" id="allReview">
+              
+              
+             
+              
+  
+             
+          </ul>
+      
+          <button type="button" class="slider-nav" aria-label="Go left"></button>
+          <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+      
+          <div class="slider-indicators">
+              <button class="active" aria-label="Go to slide"></button>
+              <button aria-label="Go to slide"></button>
+              <button aria-label="Go to slide" class=""></button>
+              <button aria-label="Go to slide"></button>
+              <button aria-label="Go to slide"></button>
+          </div>
+      </div>
+
+
+      </div>
+    </section>
+
+    <div class="container custom-container mt-2 mb-5 " >
+      <a href="./about.html" class="circle-button bg-dark-subtle ">
+          <i class="fa-solid fa-greater-than"></i>
+      </a>
+      <a href="./about.html" class="view-more fs-6 text-uppercase opacity-100 mt-1">View more</a>
+  </div>
+  
+  
     <!-- footer -->
     <div id="footer" class=""></div>
 
@@ -277,6 +440,11 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js"
+      crossorigin="anonymous"
+      defer
     ></script>
   </body>
 </html>

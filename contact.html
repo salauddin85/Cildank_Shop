@@ -13,19 +13,19 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-dark-subtle">
+<body class="bg-white">
   <!-- navbar -->
   <div id="navbar"></div>
 
   
 
     <!-- Contact Section -->
-    <section class="contact-section container">
+    <section class="contact-section container mb-5">
         <div class="row gap-3 justify-content-evenly">
-            <h2 class="text-center text-primary-emphasis">Get in Touch</h2>
+            <h2 class="text-center text-primary-emphasis" style="margin-top: -30px !important;">Get in Touch</h2>
             <div class="col-lg-5 contact-info">
                 
-                <img class="" src="./images/contact.png" alt="Contact Image">
+                <img class="rounded-0" src="./images/contact.png" alt="Contact Image" >
                 <!-- <p class="fs-5"><strong>Address:</strong> 123 Fashion Avenue, New York, NY 10001</p>
                 <p class="fs-5"><strong>Phone:</strong> (123) 456-7890</p>
                 <p class="fs-5"><strong>Email:</strong> support@clothingshop.com</p> -->
@@ -54,7 +54,7 @@
                 </div>
                 </div>
             </div>
-            <div class="col-lg-5 ms-2">
+            <div class="col-lg-5 ms-2 ">
                 <form class="contact-form" id="ContactForm" onsubmit="ContactForm(event)">
                     <div class="mb-3">
                         <label for="name" class="form-label fs-5 text-black">Name*</label>
@@ -68,7 +68,7 @@
                         <label for="message" class="form-label fs-5 text-black">Message*</label>
                         <textarea class="form-control text-black rounded-0 common-name" id="message" rows="5" required name="message" placeholder="Your Message"></textarea>
                     </div>
-                    <button type="submit" class="btn w-100">Send Message</button>
+                    <button type="submit" class="btn w-100 mt-4">Send Message</button>
                 </form>
                 
             </div>

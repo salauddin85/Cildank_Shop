@@ -322,3 +322,53 @@ const  WomensProductDetails = (name, price, quantity, sub_category, image, descr
     const detailsUrl = `./details.html?name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}&quantity=${encodeURIComponent(quantity)}&sub_category=${encodeURIComponent(sub_category)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}&id=${encodeURIComponent(id)}&color=${encodeURIComponent(color)}`;
     window.location.href = detailsUrl;
 };
+
+
+
+
+
+
+
+
+
+
+
+const loadReviews = () => {
+  fetch("https://cildank-shop.onrender.com/products/review/")
+      .then((res) => res.json())
+      .then((data) => {
+          console.log("review", data);
+          
+          // Use slice to limit to 2 reviews
+          const limitedData = data.slice(0, 2);
+
+          limitedData.forEach(review => {
+              console.log("products id", review.products.id);
+              
+              const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${review.image}`;
+
+              const newli = document.createElement("li");
+              const allReview = document.getElementById("allReview");
+              newli.className = "slide-visible";
+              newli.innerHTML = `
+                  <div class="cards-review shadow bg-white text-black h-100">
+                      <div class="ratio ratio-16x9">
+                          <img src="${imageUrl}" class="img-class " id="img-reivew" alt="...">
+                      </div>
+                      <div class="card-body p-3 p-xl-5" id="review-body">
+                          <h3 class="card-title h5">${review.name}</h3>
+                          <h3 class="card-title h5">${review.rating}</h3>
+                          <p class="card-text">${review.body}</p>
+                      </div>
+                  </div>
+              `;
+
+              allReview.appendChild(newli);
+          });
+      })
+      .catch((err) => console.log(err));
+};
+
+loadReviews();
+
+
