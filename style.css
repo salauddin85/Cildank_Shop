@@ -1287,6 +1287,15 @@ footer {
     }
 }
 
+.text-wrapper {
+    max-width: 100%; /* Adjust width as needed */
+    overflow-wrap: break-word; /* Break long words and URLs */
+    text-align: center; /* Center text horizontally */
+}
+
+
+
+
 /* Style for toast notifications */
 .toast-container {
     z-index: 1050; /* Make sure it appears above other elements */
@@ -1310,30 +1319,4 @@ footer {
   
 
 
-  .custom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   /* Full viewport height for demonstration */
-    text-align: center;
-}
-.circle-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    /* Light background */
-    color: #000; /* Black icon color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px; /* Adjust font size if needed */
-    text-decoration: none; /* Remove underline from link */
-    /* Space between button and text */
-}
-.view-more {
-    font-weight: bold;
-    font-size: 1.25rem; /* Font size for the text */
-    color: chocolate; /* Text color */
-    text-decoration: none; /* Remove underline from link */
-}
+  
