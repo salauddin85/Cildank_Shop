@@ -72,7 +72,7 @@ const PurchaseDetails = () => {
               <b class="text-black fs-5 mt-5 fw-bold">Size:${product.product.size}</b> <br>
               <b class="text-black fs-5 fw-bold">Quantity: ${product.quantity}</b> <br>
               <b class="text-black fs-5 fw-bold">Total Price: $${product.totalPrice.toFixed(2)}</b> <br>
-              <button type="button" onclick="PurchaseReview(${product.product.id})" class="review-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Review </button>
+              <button type="button" onclick="PurchaseReview(${product.product.id})" class="viewProduct-btn mt-5 mb-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Review </button>
 
               <!-- Modal -->
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
