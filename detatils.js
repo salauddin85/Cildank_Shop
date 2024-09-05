@@ -85,11 +85,11 @@ function displayProductDetails() {
                     <p>Due to the nature of this custom product it is non-refundable and no discount codes will be valid.</p>
                 </div>
 
-               <div class="accordion" id="accordionExample" style="border: 2px solid #333; border-radius: 10px; background-color: #f8f9fa; padding: 10px;">
+               <div class="accordion " id="accordionExample" style="border: 2px solid gray; border-radius: 10px; background-color: #f8f9fa; padding: 10px;">
                     <!-- Shipping Section -->
                     <div class="accordion-item" style="border-bottom: 1px solid #ccc;">
                         <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: #5a5a5a; color: #fff; font-weight: bold;">
+                            <button class="accordion-button bg-dark-subtle text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: #5a5a5a; color: #fff; font-weight: bold;">
                                 Shipping
                             </button>
                         </h2>
@@ -101,9 +101,9 @@ function displayProductDetails() {
                     </div>
 
                     <!-- Returns Section -->
-                    <div class="accordion-item" style="border-bottom: 1px solid #ccc;">
+                    <div class="accordion-item mt-2" style="border-bottom: 1px solid #ccc;">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #5a5a5a; color: #fff; font-weight: bold;">
+                            <button class="accordion-button collapsed bg-dark-subtle text-black" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #5a5a5a; color: #fff; font-weight: bold;">
                                 Returns
                             </button>
                         </h2>
