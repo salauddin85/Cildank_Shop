@@ -351,7 +351,7 @@ const loadReviews = () => {
               const allReview = document.getElementById("allReview");
               newli.className = "slide-visible";
               newli.innerHTML = `
-                  <div class="cards-review shadow bg-white text-black h-100">
+                  <div class="cards-review shadow  text-black h-100" style=" background-color: whitesmoke;">
                       <div class="ratio ratio-16x9">
                           <img src="${imageUrl}" class="img-class " id="img-reivew" alt="...">
                       </div>
