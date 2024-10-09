@@ -1,5 +1,5 @@
 const loadReview = () => {
-    fetch("https://cildank-shop.onrender.com/products/review/")
+    fetch("https://cildank-shop-deploy-versel.vercel.app/products/review/")
         .then((res) => res.json())
         .then((data) => {
             console.log("review", data);

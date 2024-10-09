@@ -10,7 +10,7 @@ const ContactForm = (event) => {
     };
     console.log(ContactData);
 
-    fetch("https://cildank-shop.onrender.com/auth/contactus/", {
+    fetch("https://cildank-shop-deploy-versel.vercel.app/auth/contactus/", {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",

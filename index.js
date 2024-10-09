@@ -4,7 +4,7 @@ const womensProduct = document.getElementById("womensProduct");
 const womenstopProduct = document.getElementById("womenstopProduct");
 
 
-fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Mens/")
+fetch("https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_category/Mens/")
   .then((res) => res.json())
   .then((data) => {
     if (Array.isArray(data.results)) {
@@ -81,7 +81,7 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Men
 
 
 //  Mens Top Product
-fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Mens/")
+fetch("https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_category/Mens/")
 .then((res) => res.json())
 .then((data) => {
   if (Array.isArray(data.results)) {
@@ -163,7 +163,7 @@ const  MensProductDetails = (name, price, quantity, sub_category, image, descrip
 
 
 
-fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Womens/")
+fetch("https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_category/Womens/")
   .then((res) => res.json())
   .then((data) => {
     if (Array.isArray(data.results)) {
@@ -241,7 +241,7 @@ fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Wom
 
 
   // womens top product
-  fetch("https://cildank-shop.onrender.com/products/product/sorted_by_category/Womens/")
+  fetch("https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_category/Womens/")
   .then((res) => res.json())
   .then((data) => {
     if (Array.isArray(data.results)) {
@@ -334,7 +334,7 @@ const  WomensProductDetails = (name, price, quantity, sub_category, image, descr
 
 
 const loadReviews = () => {
-  fetch("https://cildank-shop.onrender.com/products/review/")
+  fetch("https://cildank-shop-deploy-versel.vercel.app/products/review/")
       .then((res) => res.json())
       .then((data) => {
           console.log("review", data);

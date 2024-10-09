@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", displayProductDetails);
 const ReveiewProduct = (id) => {
     console.log("review product", id);
 
-    fetch(`https://cildank-shop.onrender.com/products/reviews_by_product/${id}`)
+    fetch(`https://cildank-shop-deploy-versel.vercel.app/products/reviews_by_product/${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log("review by product", data);
@@ -270,7 +270,7 @@ const handleReviewEdit = (event, reviewId) => {
     // Determine method based on number of changes
     const method = changes >= 3 ? 'PUT' : 'PATCH';
 
-    const url = `https://cildank-shop.onrender.com/products/review/${reviewId}/`;
+    const url = `https://cildank-shop-deploy-versel.vercel.app/products/review/${reviewId}/`;
 
     fetch(url, {
         method: method,
@@ -309,7 +309,7 @@ const handleReviewDelete = (reviewId) => {
         return;
     }
 
-    fetch(`https://cildank-shop.onrender.com/products/review/${reviewId}/`, {
+    fetch(`https://cildank-shop-deploy-versel.vercel.app/products/review/${reviewId}/`, {
         method: 'DELETE',
         headers: {
             Authorization: `Token ${token}`,

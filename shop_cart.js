@@ -6,7 +6,7 @@ const handleCart = (id) => {
     alert("No authentication token found. Please log in.");
     return;
 }
-  fetch(`https://cildank-shop.onrender.com/products/wishlist/add_product/${id}/`, {
+  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const removeCart= (id) => {
   console.log("inside remove cart", id);
   const token = localStorage.getItem("authToken");
   console.log("token", token);
-  fetch(`https://cildank-shop.onrender.com/products/wishlist/remove_product/${id}/`, {
+  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/remove_product/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const loadWishlist = () => {
   // Temporary set to capture unique product IDs
   const productIdsSet = new Set();
 
-  fetch("https://cildank-shop.onrender.com/products/wishlist/", {
+  fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -144,7 +144,7 @@ const handleCartPurchase = () => {
     return;
   }
 
-  fetch("https://cildank-shop.onrender.com/purchases/payment_cart/", {
+  fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/payment_cart/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

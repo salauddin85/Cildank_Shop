@@ -29,31 +29,31 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
   console.log(page, size, sort, sub_category, category,color);
 
   if (sort) {
-    url = `https://cildank-shop.onrender.com/products/product/sorted_by_price/?order=${sort}&page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_price/?order=${sort}&page=${page}`;
     console.log("inside sort");
   } else if (size) {
-    url = `https://cildank-shop.onrender.com/products/product/sorted_by_size/${size}/?page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_size/${size}/?page=${page}`;
     console.log("inside size", size);
   } else if (sub_category) {
-    url = `https://cildank-shop.onrender.com/products/product/sorted_by_sub_category/${sub_category}/?page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_sub_category/${sub_category}/?page=${page}`;
     console.log("inside subcategory", sub_category);
   } 
   else if (category) {
-    url = `https://cildank-shop.onrender.com/products/product/sorted_by_category/${category}/?page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_category/${category}/?page=${page}`;
    
   } 
   else if(color){
     console.log("inside color")
-    url = `https://cildank-shop.onrender.com/products/product/sorted_by_color/${color}/?page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_color/${color}/?page=${page}`;
   }
   else if(search){
 
     
-    url = `https://cildank-shop.onrender.com/products/product/sorted_by_search/${search}/?page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_search/${search}/?page=${page}`;
 
   }
   else {
-    url = `https://cildank-shop.onrender.com/products/product/?page=${page}`;
+    url = `https://cildank-shop-deploy-versel.vercel.app/products/product/?page=${page}`;
   }
 
   fetch(url)
@@ -276,7 +276,7 @@ searchButton.addEventListener("click", () => {
 
 
 
-fetch("https://cildank-shop.onrender.com/categories/category_list/")
+fetch("https://cildank-shop-deploy-versel.vercel.app/categories/category_list/")
   .then((res) => res.json())
   .then((data) => {
     console.log("category", data);
@@ -298,7 +298,7 @@ fetch("https://cildank-shop.onrender.com/categories/category_list/")
     console.error("Error:", error);
   });
 
-fetch("https://cildank-shop.onrender.com/categories/subcategory_list/")
+fetch("https://cildank-shop-deploy-versel.vercel.app/categories/subcategory_list/")
   .then((res) => res.json())
   .then((data) => {
     console.log("sub_category", data);

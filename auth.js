@@ -46,7 +46,7 @@ const handleRegistration = (event) => {
   // Reset the error message before making the request
   document.getElementById("error").innerText = "";
 
-  fetch("https://cildank-shop.onrender.com/auth/register/", {
+  fetch("https://cildank-shop-deploy-versel.vercel.app/auth/register/", {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
@@ -113,7 +113,7 @@ const handleLogin = (event) => {
 
 console.log("login data", loginData);
 
-  fetch("https://cildank-shop.onrender.com/auth/login/", {
+  fetch("https://cildank-shop-deploy-versel.vercel.app/auth/login/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -138,7 +138,7 @@ console.log("login data", loginData);
 const handleLogout = () => {
 const token = localStorage.getItem("authToken");
 console.log("logout token",token);
-fetch("https://cildank-shop.onrender.com/auth/logout/", {
+fetch("https://cildank-shop-deploy-versel.vercel.app/auth/logout/", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -156,9 +156,8 @@ fetch("https://cildank-shop.onrender.com/auth/logout/", {
     console.log("Logout error", err);
   });
 };
-
 const loadAccount = () => {
-fetch("https://cildank-shop.onrender.com/auth/account/")
+fetch("https://cildank-shop-deploy-versel.vercel.app/auth/account/")
   .then((res) => res.json())
   .then((data) => {
     console.log("review", data);

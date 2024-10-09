@@ -25,7 +25,7 @@ const handleAmount = (event) => {
 
     console.log('data', amountData);
 
-    fetch("https://cildank-shop.onrender.com/transactions/deposit/", {
+    fetch("https://cildank-shop-deploy-versel.vercel.app/transactions/deposit/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

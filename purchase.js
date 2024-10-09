@@ -12,7 +12,7 @@ const PurchaseDetails = () => {
     window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
     return;
   }
-  fetch("https://cildank-shop.onrender.com/purchases/purchase_all/", {
+  fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/purchase_all/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -157,7 +157,7 @@ const SubmitReview = (event) => {
 
   const token = localStorage.getItem("authToken"); // টোকেন localStorage থেকে নেওয়া
 
-  fetch(`https://cildank-shop.onrender.com/products/add_review/${currentProductId}`, {
+  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/add_review/${currentProductId}`, {
     method: "POST",
     headers: {
       Authorization: `Token ${token}`,
