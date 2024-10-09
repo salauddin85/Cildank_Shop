@@ -157,40 +157,46 @@ fetch("https://cildank-shop-deploy-versel.vercel.app/auth/logout/", {
     console.log("Logout error", err);
   });
 };
+
+
+
 const loadAccount = () => {
-fetch("https://cildank-shop-deploy-versel.vercel.app/auth/account/")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("review", data);
+  const token = localStorage.getItem("authToken");
 
-    data.forEach((account) => {
-      const div = document.createElement("div");
-      const profileDetails = document.getElementById("profileDetails");
-      // newli.className = "slide-visible";
-      profileDetails.innerHTML = `
-          
-            
-            
-               <div class="account-details fs-5 p-2 text-success-emphasiss">
-              
-                  <h6 class="text-center text-primary fs-5">Your Account details:</h6>
-                  <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${account.user_name}</h6>
-                  <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${account.account_no}</h6>
-                  <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${account.balance}</h6>
-                  <hr>
-                  <h6 class="text-primary-emphasis"><a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                                  href="./transaction.html"</a>Add Balance?</h6>
-                 
-                  <h6 class="text-primary-emphasis"><a  class=" fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                                  href="./purchase.html"</a>Purchased list?</h6>
-                              
-             </div>
-          `;
-
-      profileDetails.appendChild(div);
-    });
+  fetch("https://cildank-shop-deploy-versel.vercel.app/auth/account/", {
+    method: "GET",
+    headers: {
+      Authorization: `Token ${token}`,
+    },
   })
-  .catch((err) => console.log(err));
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("review", data);
+
+      data.forEach((account) => {
+        const profileDetails = document.getElementById("profileDetails");
+
+        // profileDetails এর পুরানো HTML মুছে ফেলা হচ্ছে
+        profileDetails.innerHTML = `
+          <div class="account-details fs-5 p-2 text-success-emphasiss">
+            <h6 class="text-center text-primary fs-5">Your Account details:</h6>
+            <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${account.user_name}</h6>
+            <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${account.account_no}</h6>
+            <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${account.balance}</h6>
+            <hr>
+            <h6 class="text-primary-emphasis">
+              <a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                 href="./transaction.html">Add Balance?</a>
+            </h6>
+            <h6 class="text-primary-emphasis">
+              <a class="fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                 href="./purchase.html">Purchased list?</a>
+            </h6>
+          </div>
+        `;
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 loadAccount();
