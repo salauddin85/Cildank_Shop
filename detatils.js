@@ -364,7 +364,10 @@ const handlePurchase = (id) => {
     })
         .then((res) => {
             if (!res.ok) {
-                throw new Error(`HTTP error! Status: ${res.status}`);
+                return res.json().then((data) => {
+                    console.log("Error details:", data);  // Logs error details from the response
+                    throw new Error(`${data.detail}`);
+                });
             }
             return res.json();
         })
