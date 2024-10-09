@@ -151,12 +151,16 @@ fetch("https://cildank-shop-deploy-versel.vercel.app/auth/logout/", {
     if (res.ok) {
       localStorage.removeItem("authToken");
       window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
+      // window.location.href = "http://127.0.0.1:5502/login.html";
     }
   })
   .catch((err) => {
     console.log("Logout error", err);
   });
 };
+
+
+
 
 const loadAccount = () => {
   const token = localStorage.getItem("authToken");
@@ -171,28 +175,32 @@ const loadAccount = () => {
     .then((data) => {
       console.log("Account data:", data);  // API থেকে প্রাপ্ত ডেটা দেখুন
 
-      // এখানে চেক করুন data কি অবজেক্ট
-      if (data && typeof data === 'object') {
+      // এখানে চেক করুন data কি অ্যারে
+      if (Array.isArray(data)) {
         const profileDetails = document.getElementById("profileDetails");
 
         // profileDetails এর পুরানো HTML মুছে ফেলা হচ্ছে
-        profileDetails.innerHTML = `
-          <div class="account-details fs-5 p-2 text-success-emphasiss">
-            <h6 class="text-center text-primary fs-5">Your Account details:</h6>
-            <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${data.user_name}</h6>
-            <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${data.account_no}</h6>
-            <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${data.balance}</h6>
-            <hr>
-            <h6 class="text-primary-emphasis">
-              <a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                 href="./transaction.html">Add Balance?</a>
-            </h6>
-            <h6 class="text-primary-emphasis">
-              <a class="fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
-                 href="./purchase.html">Purchased list?</a>
-            </h6>
-          </div>
-        `;
+        profileDetails.innerHTML = '';  // প্রথমে HTML মুছে ফেলুন
+
+        data.forEach((account) => {
+          profileDetails.innerHTML += `
+            <div class="account-details fs-5 p-2 text-success-emphasiss">
+              <h6 class="text-center text-primary fs-5">Your Account details:</h6>
+              <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${account.user_name}</h6>
+              <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${account.account_no}</h6>
+              <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${account.balance}</h6>
+              <hr>
+              <h6 class="text-primary-emphasis">
+                <a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                   href="./transaction.html">Add Balance?</a>
+              </h6>
+              <h6 class="text-primary-emphasis">
+                <a class="fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                   href="./purchase.html">Purchased list?</a>
+              </h6>
+            </div>
+          `;
+        });
       } else {
         console.error("Unexpected data format:", data); // ডেটার কাঠামো যদি অপ্রত্যাশিত হয়
       }
