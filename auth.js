@@ -158,8 +158,6 @@ fetch("https://cildank-shop-deploy-versel.vercel.app/auth/logout/", {
   });
 };
 
-
-
 const loadAccount = () => {
   const token = localStorage.getItem("authToken");
 
@@ -171,18 +169,19 @@ const loadAccount = () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log("review", data);
+      console.log("Account data:", data);  // API থেকে প্রাপ্ত ডেটা দেখুন
 
-      data.forEach((account) => {
+      // এখানে চেক করুন data কি অবজেক্ট
+      if (data && typeof data === 'object') {
         const profileDetails = document.getElementById("profileDetails");
 
         // profileDetails এর পুরানো HTML মুছে ফেলা হচ্ছে
         profileDetails.innerHTML = `
           <div class="account-details fs-5 p-2 text-success-emphasiss">
             <h6 class="text-center text-primary fs-5">Your Account details:</h6>
-            <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${account.user_name}</h6>
-            <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${account.account_no}</h6>
-            <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${account.balance}</h6>
+            <h6 class="fs-5"><strong class="text-primary-emphasis">UserName</strong>: ${data.user_name}</h6>
+            <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${data.account_no}</h6>
+            <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${data.balance}</h6>
             <hr>
             <h6 class="text-primary-emphasis">
               <a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
@@ -194,9 +193,11 @@ const loadAccount = () => {
             </h6>
           </div>
         `;
-      });
+      } else {
+        console.error("Unexpected data format:", data); // ডেটার কাঠামো যদি অপ্রত্যাশিত হয়
+      }
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error("Error fetching account data:", err));
 };
 
 loadAccount();
