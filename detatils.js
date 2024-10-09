@@ -345,13 +345,16 @@ const handlePurchase = (id) => {
     const token = localStorage.getItem("authToken");
     console.log("Retrieved token:", token);
 
+   
     if (!token) {
         alert("No authentication token found. Please log in.");
         return;
     }
+    
 
+    
     // showAccount()
-    fetch(`https://cildank-shop.onrender.com/purchases/list/${id}`, {
+    fetch(`https://cildank-shop-deploy-versel.vercel.app/purchases/list/${id}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -360,10 +363,13 @@ const handlePurchase = (id) => {
         // body: JSON.stringify({ id: id }),  // Adjust body as needed
     })
         .then((res) => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
             return res.json();
         })
         .then((data) => {
-            console.log(data);
+            console.log(data,"purchase data");
             // alert( data.error);
             // console.log(data)
 

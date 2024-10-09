@@ -128,6 +128,7 @@ console.log("login data", loginData);
       localStorage.setItem("authToken", data.token);
       alert("Login Successfull");
       window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
+      // window.location.href = "http://127.0.0.1:5502/login.html";
     })
     .catch((error) => {
       console.error("Error:", error);
