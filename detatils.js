@@ -143,14 +143,16 @@ const ReveiewProduct = (id) => {
             const reviewDetails = document.getElementById("reviewDetails");
 
             data.forEach((review) => {
-                const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${review.image}`;
+                // const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${review.image}`;
+                const correctedImageUrl = review.image.replace("image/upload/", "");
+
 
                 const div = document.createElement("div");
                 div.className = ""; // Bootstrap grid classes for responsive design
 
                 div.innerHTML = `
                 <div class="cards shadow mt-5" style="height:50%;width:70%;">
-                    <img src="${imageUrl}" class="card-img-top img-fluid w-75 h-50 ms-5 mt-2 rounded" alt="...">
+                    <img src="${correctedImageUrl}" class="card-img-top img-fluid w-75 h-50 ms-5 mt-2 rounded" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${review.name}</h5>
                         <h6 class="card-title">${review.rating}</h6>
