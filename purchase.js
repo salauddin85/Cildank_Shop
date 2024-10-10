@@ -80,38 +80,25 @@ const PurchaseDetails = () => {
                   <div class="modal-content">
                     <div class="w-100 mx-auto mt-5 review-box shadow-lg p-3 mb-5 bg-body-tertiary rounded">
                       <form class="Review-form w-100 px-auto" id="Reviewforms" onsubmit="SubmitReview(event)">
-                        <div class="mb-3 ms-4">
-                          <label for="image" class="form-label fs-5 text-black text-center">Image*</label>
-                          <input type="file" class="form-control text-center text-black common-name" required id="image" name="image" accept="image/*">
-                        </div>
+                        
                         <div class="mb-3 ms-4">
                           <label for="body" class="form-label fs-5 text-black">Body*</label>
                           <textarea class="form-control text-black common-name" id="body" name="body" placeholder="body" required></textarea>
                         </div>
                         <div class="mb-3 ms-4">
-                          <label class="form-label fs-5 text-black">Rating*</label>
-                          <div>
-                            <div>
-                              <input type="radio" name="rating" id="rating-1" value="⭐" required>
-                              <label for="rating-1">⭐</label>
-                            </div>
-                            <div>
-                              <input type="radio" name="rating" id="rating-2" value="⭐⭐">
-                              <label for="rating-2">⭐⭐</label>
-                            </div>
-                            <div>
-                              <input type="radio" name="rating" id="rating-3" value="⭐⭐⭐">
-                              <label for="rating-3">⭐⭐⭐</label>
-                            </div>
-                            <div>
-                              <input type="radio" name="rating" id="rating-4" value="⭐⭐⭐⭐">
-                              <label for="rating-4">⭐⭐⭐⭐</label>
-                            </div>
-                            <div>
-                              <input type="radio" name="rating" id="rating-5" value="⭐⭐⭐⭐⭐">
-                              <label for="rating-5">⭐⭐⭐⭐⭐</label>
-                            </div>
-                          </div>
+                          <label for="image" class="form-label fs-5 text-black text-center">Image*</label>
+                          <input type="file" class="form-control text-center text-black common-name" required id="image" name="image" accept="image/*">
+                        </div>
+                        <div class="mb-3 text-black fw-bold">
+                            <label for="rating" class="form-label">Rate*</label>
+                            <select class="form-select rounded-0 border-1 border-danger" id="rating" name="rating" required>
+                              <option value="">Select a rating</option> <!-- Placeholder option -->
+                              <option value="⭐">⭐</option>
+                              <option value="⭐⭐">⭐⭐</option>
+                              <option value="⭐⭐⭐">⭐⭐⭐</option>
+                              <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+                              <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+                            </select>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -147,36 +134,71 @@ const PurchaseReview = (id) => {
   console.log("Captured product ID for review:", currentProductId);
 };
 
+
+// https://cildank-shop-deploy-versel.vercel.app/products/add_review/
+
 // Review Submit Function
+
 // Review Submit Function
-const SubmitReview = (event) => {
-  event.preventDefault(); // ফর্ম সাবমিটের ডিফল্ট আচরণ বন্ধ করা
+const uploadPreset = 'image_upload_cildank'; // তোমার তৈরি করা upload preset এর নাম
+const SubmitReview = async (event) => {
+  event.preventDefault(); // Prevent default form submission behavior
 
-  const Reviewform = document.getElementById("Reviewforms");
-  const formData = new FormData(Reviewform);
+  const imageInput = document.getElementById("image");
+  const imageFile = imageInput.files[0]; // Get the selected file
+  console.log(imageFile); // Check if the file is correct
 
-  const token = localStorage.getItem("authToken"); // টোকেন localStorage থেকে নেওয়া
+  if (!imageFile) {
+    alert("Please select an image file.");
+    return;
+  }
 
-  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/add_review/${currentProductId}`, {
-    method: "POST",
-    headers: {
-      Authorization: `Token ${token}`,
-    },
-    body: formData, // এখানে সরাসরি FormData পাঠানো হচ্ছে
-  })
-    .then((response) => {
+  // Upload image to Cloudinary
+  const cloudinaryFormData = new FormData();
+  cloudinaryFormData.append('file', imageFile); // Add file
+  cloudinaryFormData.append('upload_preset', uploadPreset); // Add upload_preset
+
+  try {
+    const cloudinaryResponse = await fetch(`https://api.cloudinary.com/v1_1/dnzqmx8nw/image/upload`, {
+      method: "POST",
+      body: cloudinaryFormData,
+    });
+
+    const cloudinaryData = await cloudinaryResponse.json();
+
+    if (cloudinaryResponse.ok) {
+      // Get the image URL
+      const imageUrl = cloudinaryData.secure_url;
+
+      const formData = new FormData(document.getElementById("Reviewforms"));
+      const data = {
+        body: formData.get("body"),
+        image: imageUrl,
+        rating: formData.get("rating"),
+      };
+
+      const token = localStorage.getItem("authToken"); // Get token from localStorage
+
+      const response = await fetch(` https://cildank-shop-deploy-versel.vercel.app/products/add_review/${currentProductId}`, {
+        method: "POST",
+        headers: {
+          Authorization: `Token ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
       if (response.ok) {
         alert("Review Added Successfully");
-       
       } else {
-        alert("Review failed");
+        const errorData = await response.json(); // Parse the error response
+        alert("Review failed: " + (errorData.error || response.statusText)); // Display error message
       }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    } else {
+      alert("Image upload failed: " + cloudinaryData.error.message); // Show error if image upload fails
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("An error occurred: " + error); // General error handling
+  }
 };
-
-
-
-// co
