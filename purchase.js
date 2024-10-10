@@ -82,16 +82,16 @@ const PurchaseDetails = () => {
                       <form class="Review-form w-100 px-auto" id="Reviewforms" onsubmit="SubmitReview(event)">
                         
                         <div class="mb-3 ms-4">
-                          <label for="body" class="form-label fs-5 text-black">Body*</label>
-                          <textarea class="form-control text-black common-name" id="body" name="body" placeholder="body" required></textarea>
+                          <label for="body" class="form-label fs-5 text-black fw-bold">Body*</label>
+                          <textarea class="form-control rounded-0 border-1 border-black text-black common-name" id="body" name="body" placeholder="body" required></textarea>
                         </div>
                         <div class="mb-3 ms-4">
-                          <label for="image" class="form-label fs-5 text-black text-center">Image*</label>
-                          <input type="file" class="form-control text-center text-black common-name" required id="image" name="image" accept="image/*">
+                          <label for="image" class="form-label fs-5 text-black fw-bold text-center">Image*</label>
+                          <input type="file" class="form-control rounded-0 border-1 border-black text-center text-black common-name" required id="image" name="image" accept="image/*">
                         </div>
-                        <div class="mb-3 text-black fw-bold">
+                        <div class="mb-3 ms-4 text-black fw-bold">
                             <label for="rating" class="form-label">Rate*</label>
-                            <select class="form-select rounded-0 border-1 border-danger" id="rating" name="rating" required>
+                            <select class="form-select rounded-0 border-1 border-black" id="rating" name="rating" required>
                               <option value="">Select a rating</option> <!-- Placeholder option -->
                               <option value="⭐">⭐</option>
                               <option value="⭐⭐">⭐⭐</option>
@@ -140,6 +140,7 @@ const PurchaseReview = (id) => {
 // Review Submit Function
 
 // Review Submit Function
+
 const uploadPreset = 'image_upload_cildank'; // তোমার তৈরি করা upload preset এর নাম
 const SubmitReview = async (event) => {
   event.preventDefault(); // Prevent default form submission behavior
@@ -179,7 +180,7 @@ const SubmitReview = async (event) => {
 
       const token = localStorage.getItem("authToken"); // Get token from localStorage
 
-      const response = await fetch(` https://cildank-shop-deploy-versel.vercel.app/products/add_review/${currentProductId}`, {
+      const response = await fetch(`https://cildank-shop-deploy-versel-ba1b.vercel.app/products/add_review/${currentProductId}`, {
         method: "POST",
         headers: {
           Authorization: `Token ${token}`,

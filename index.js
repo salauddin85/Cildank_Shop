@@ -330,30 +330,30 @@ const  WomensProductDetails = (name, price, quantity, sub_category, image, descr
 
 
 
-
-
+// http://127.0.0.1:8000/products/add_review/
 
 const loadReviews = () => {
   fetch("https://cildank-shop-deploy-versel.vercel.app/products/review/")
       .then((res) => res.json())
       .then((data) => {
           console.log("review", data);
-          
+
           // Use slice to limit to 2 reviews
           const limitedData = data.slice(0, 2);
 
           limitedData.forEach(review => {
-              console.log("products id", review.products.id);
-              
-              const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${review.image}`;
+              // Remove "image/upload/" part from the image URL if it exists
+              const correctImageUrl = review.image.replace("image/upload/", "");
+
+              console.log("Corrected Image URL:", correctImageUrl); // Verify the corrected URL
 
               const newli = document.createElement("li");
               const allReview = document.getElementById("allReview");
               newli.className = "slide-visible";
               newli.innerHTML = `
-                  <div class="cards-review shadow  text-black h-100" style=" background-color: whitesmoke;">
+                  <div class="cards-review shadow text-black h-100" style="background-color: whitesmoke;">
                       <div class="ratio ratio-16x9">
-                          <img src="${imageUrl}" class="img-class " id="img-reivew" alt="...">
+                          <img src="${correctImageUrl}" class="img-class" id="img-review" alt="...">
                       </div>
                       <div class="card-body p-3 p-xl-5" id="review-body">
                           <h3 class="card-title h5">${review.name}</h3>
@@ -366,9 +366,7 @@ const loadReviews = () => {
               allReview.appendChild(newli);
           });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error fetching reviews:", err));
 };
 
 loadReviews();
-
-
