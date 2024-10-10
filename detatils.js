@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", displayProductDetails);
 const ReveiewProduct = (id) => {
     console.log("review product", id);
 
-    fetch(`https://cildank-shop-deploy-versel.vercel.app/products/reviews_by_product/${id}`)
+    fetch(`https://cildank-shop-deploy-versel.vercel.app/reviews_by_product/${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log("review by product", data);
@@ -143,6 +143,7 @@ const ReveiewProduct = (id) => {
             const reviewDetails = document.getElementById("reviewDetails");
 
             data.forEach((review) => {
+                console.log(review,"review data")
                 // const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${review.image}`;
                 const correctedImageUrl = review.image.replace("image/upload/", "");
 
@@ -158,11 +159,12 @@ const ReveiewProduct = (id) => {
                         <h6 class="card-title">${review.rating}</h6>
                         <p class="card-text">${review.body}</p>
                         
-                        <!-- Button trigger modal -->
+                        <!-- Button trigger modal 
                         <button type="button" class="btn btn-primary rounded-0  mb-3" data-bs-toggle="modal" data-bs-target="#editModal-${review.id}">
                         Edit
                         </button>
-                        <button type="button" class="btn btn-danger rounded-0 ms-5 mb-3" onclick="handleReviewDelete(${review.id})">
+                        -->
+                        <button type="button" class="btn btn-danger rounded-0 ms-3 mb-3" onclick="handleReviewDelete(${review.id})">
                             Delete
                         </button>
 
@@ -182,7 +184,7 @@ const ReveiewProduct = (id) => {
                                 <div class="mb-3">
                                     <label for="image-${review.id}" class="form-label fs-5 text-black">Image*</label>
                                     <input type="file" class="form-control text-black" id="image-${review.id}" name="image" accept="image/*">
-                                    <img id="preview-${review.id}" src="${imageUrl}" class="img-fluid mt-2 w-50 h-50" alt="review image" />
+                                    <img id="preview-${review.id}" src="${correctedImageUrl}" class="img-fluid mt-2 w-50 h-50" alt="review image" />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label fs-5 text-black">Rating*</label>
