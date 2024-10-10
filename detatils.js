@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", displayProductDetails);
 const ReveiewProduct = (id) => {
     console.log("review product", id);
 
-    fetch(`https://cildank-shop-deploy-versel.vercel.app/reviews_by_product/${id}`)
+    fetch(`https://cildank-shop-deploy-versel-ba1b.vercel.app/products/reviews_by_product/${id}`)
         .then((res) => res.json())
         .then((data) => {
             console.log("review by product", data);
