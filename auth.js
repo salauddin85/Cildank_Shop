@@ -99,7 +99,7 @@ const handleLogin = (event) => {
     // Check if token is present
   if (!token && token===undefined) {
       alert("You are not Authoraization user. Please Register.");
-      window.location.href = "https://salauddin85.github.io/Cildank_Shop/registration.html";
+      window.location.href = "./registration.html";
       return;
   }
   const form = document.getElementById("login-form");
@@ -127,8 +127,8 @@ console.log("login data", loginData);
       console.log("token data", data.token);
       localStorage.setItem("authToken", data.token);
       alert("Login Successfull");
-      window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
-      // window.location.href = "http://127.0.0.1:5502/login.html";
+      // window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
+      window.location.href = "./index.html";
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -150,8 +150,8 @@ fetch("https://cildank-shop-deploy-versel.vercel.app/auth/logout/", {
     console.log(res);
     if (res.ok) {
       localStorage.removeItem("authToken");
-      window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
-      // window.location.href = "http://127.0.0.1:5502/login.html";
+      // window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
+      window.location.href = "./login.html";
     }
   })
   .catch((err) => {

@@ -29,6 +29,34 @@
 
  */
 
+ .quantity-container {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    border-color: #000;
+    padding: 0px 12px; 
+    height: 60px;
+}
+
+.quantity-btn {
+    border: none;
+    background-color: #f0f0f0;
+    padding: 0 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#quantity {
+    width: 40px;
+    text-align: center;
+    border: none;
+    outline: none;
+}
+
+
+
+
 .cards-review{
     /* border-radius: 50%; */
     border-radius: 10px;
@@ -368,11 +396,11 @@ border-color: rgb(48, 13, 188) !important;
 
 
 
-
+/* 
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-}
+} */
 .hero-section {
     background-image: url('./images/about.png'); /* Use the generated image */
     background-size: cover;
@@ -621,7 +649,7 @@ body {
     } */
     #img-review{
         /* padding-left: 20px !important; */
-        margin-left: 150px !important;
+        margin-left: 50px !important;
      }
      #logout{
         /* margin-left: 150px;
@@ -684,7 +712,10 @@ body {
         border-radius: 5px;
        }
      
-     
+     #purchase-add-to-cart-button{
+        flex: none;
+        flex-wrap: wrap !important;
+     }
 
     
  .banner-sections {
@@ -703,6 +734,23 @@ body {
    
     
 }
+.img-card-body {
+    text-align: center;
+    word-break: break-word;
+    overflow: hidden; 
+}
+
+.card-review-text {
+    word-wrap: break-word !important;
+    max-width: 100%; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; /* Set this to the number of lines you want to display */
+    -webkit-box-orient: vertical; 
+}
+
+
 @media (max-width: 768px) {
     .review-button {
         background-color: darkcyan;
@@ -773,12 +821,15 @@ body {
        /* margin-right: 10px !important; */
     }
     #img-reivew{
-        margin-left: 200px !;
+        margin-left: 200px ;
         margin-bottom: 20PX !important;
     }
     #review-body{
-        margin-left: -100px !important;
+        margin-left: -100px;
     }
+    /* Default for large screens (laptop/desktop) */
+
+
     #logout{
         /* margin-left: 150px;
         tex */
@@ -819,16 +870,6 @@ body {
      
  }  
 
-
-
-
-
-
-
-
-
-
- 
 
 
 @media (min-width: 1024px) {
@@ -910,20 +951,7 @@ color:black;
 }
 
 
-  /* .banner{
-    background-image: url(./images/banner3.png);
-    height:500px;
-    width: 100%;
-  } */
 
-
- /* .navbar{ */
-    /* shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); */
-    /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); ;
- } */
-/* .transaction{
-    background-color: mediumseagreen;
-} */
 .transaction-box{
    
         padding: 80px 0;
@@ -1109,12 +1137,6 @@ footer {
         margin-bottom: 10px;
     }
 }
-
-
-
-
-
-
 
 
 

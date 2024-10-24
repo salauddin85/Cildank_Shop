@@ -1,49 +1,95 @@
+
+
 const handleCart = (id) => {
   console.log("inside cart", id);
   const token = localStorage.getItem("authToken");
   console.log("token", token);
   if (!token) {
-    alert("No authentication token found. Please log in.");
-    return;
-}
-  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/${id}/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
-    },
-    // body: JSON.stringify(id),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("set data", data);
+      alert("No authentication token found. Please log in.");
+      return;
+  }
 
-      // window.location.href = "./";
-      alert("Add to cart successfully Check Cart Please")
-    })
-    .catch((error) => {
+  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/${id}/${quantity_total}/`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+      },
+  })
+  .then((res) => {
+      // Check if the response is ok (status in the range 200-299)
+      if (!res.ok) {
+          return res.json().then((data) => {
+              // Handle error responses from the backend
+              alert(data.error || 'An error occurred.'); // Show error message from backend
+              throw new Error(data.error || 'An error occurred.');
+          });
+      }
+      return res.json();
+  })
+  .then((data) => {
+      console.log("set data", data);
+      alert("Added to cart successfully! Check your cart, please.");
+  })
+  .catch((error) => {
       console.error("Error:", error);
-    });
+  });
 };
 
-const removeCart= (id) => {
+
+// const removeCart= (id) => {
+//   console.log("inside remove cart", id);
+//   const token = localStorage.getItem("authToken");
+//   console.log("token", token);
+//   fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/remove_product/${id}/`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Token ${token}`,
+//     },
+//     // body: JSON.stringify(id),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log("set data", data);
+
+//       // window.location.href = "./";
+//       // alert("Add to cart successfully Check Cart Please")
+//     })
+//     .catch((error) => {
+//       console.error("Error:", error);
+//     });
+// };
+
+
+const removeCart = (id,event) => {
+  event.preventDefault();
+
   console.log("inside remove cart", id);
   const token = localStorage.getItem("authToken");
   console.log("token", token);
+
   fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/remove_product/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Token ${token}`,
     },
-    // body: JSON.stringify(id),
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.ok) {
+        // রেসপন্স সফল হলে DOM থেকে প্রোডাক্টটি সরান
+        const productElement = document.getElementById(id);
+        if (productElement) {
+          productElement.remove(); // প্রোডাক্ট এলিমেন্ট সরানো
+        }
+      } else {
+        console.error("Failed to remove product from cart");
+      }
+      return res.json();
+    })
     .then((data) => {
-      console.log("set data", data);
-
-      // window.location.href = "./";
-      // alert("Add to cart successfully Check Cart Please")
+      console.log("Product removed:", data);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -106,7 +152,7 @@ const loadWishlist = () => {
                 </div>
                 <div class="col">
                     <!-- remove cart icon -->
-                    <a href=""> <i class="fa-regular fa-trash-can text-black fs-5" onclick="removeCart('${product.id}')"></i></a>
+                    <a href=""> <i class="fa-regular fa-trash-can text-black fs-5" onclick="removeCart('${product.id}',event)"></i></a>
                 </div>
             </div>
           `;
@@ -126,6 +172,8 @@ const loadWishlist = () => {
       console.error("Error:", error);
     });
 };
+
+
 loadWishlist();
 // Function to handle purchase
 

@@ -332,6 +332,8 @@ const  WomensProductDetails = (name, price, quantity, sub_category, image, descr
 
 // http://127.0.0.1:8000/products/add_review/
 
+
+
 const loadReviews = () => {
   fetch("https://cildank-shop-deploy-versel.vercel.app/products/review/")
       .then((res) => res.json())
@@ -351,14 +353,14 @@ const loadReviews = () => {
               const allReview = document.getElementById("allReview");
               newli.className = "slide-visible";
               newli.innerHTML = `
-                  <div class="cards-review shadow text-black h-100" style="background-color: whitesmoke;">
+                  <div class="cards-review shadow text-black h-100 " style="background-color: whitesmoke;">
                       <div class="ratio ratio-16x9">
                           <img src="${correctImageUrl}" class="img-class" id="img-review" alt="...">
                       </div>
-                      <div class="card-body p-3 p-xl-5" id="review-body">
-                          <h3 class="card-title h5">${review.name}</h3>
-                          <h3 class="card-title h5">${review.rating}</h3>
-                          <p class="card-text">${review.body}</p>
+                      <div class="img-card-body p-3 " id="img-card-body">
+                          <h3 class="card-title ">${review.name}</h3>
+                          <h3 class="card-title">${review.rating}</h3>
+                          <p class="card-review-text">${review.body}</p>
                       </div>
                   </div>
               `;
@@ -370,3 +372,5 @@ const loadReviews = () => {
 };
 
 loadReviews();
+
+

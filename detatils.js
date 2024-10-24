@@ -1,4 +1,7 @@
-// Function to get query parameters
+
+let quantity_total = ""; // Global variable
+
+
 function getQueryParams() {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -10,15 +13,19 @@ function getQueryParams() {
         image: decodeURIComponent(params.get("image")),
         id: decodeURIComponent(params.get("id")),
         color: decodeURIComponent(params.get("color"))
-        // reviewProductsid: decodeURIComponent(params.get("reviewProductsid")),
-        // reviewProductimage: decodeURIComponent(params.get("reviewProductimage")),
-        // reviewProductname: decodeURIComponent(params.get("reviewProductname")),
-        // reviewProductrating: decodeURIComponent(params.get("reviewProductrating")),
-        // reviewProductbody: decodeURIComponent(params.get("reviewProductbody")),
+        
     };
 }
 
 // Function to display product details on the details page
+
+/*
+<div>
+    <button type="button" onclick="handlePurchase('${id}')" class="fs-5 purchase-btn w-100 p-3 px-5 rounded border-0 mb-2 text-light">Purchase</button>
+</div>
+*/
+
+
 function displayProductDetails() {
     const { name, price, quantity, sub_category, description, image, id,color } =
         getQueryParams();
@@ -43,7 +50,7 @@ function displayProductDetails() {
         alert("No more Product Available");
         return;
     }
-
+    // console.log(product_quantity,"product quantity")
     productDetails.innerHTML = `
         <div class="row gap-5">
           
@@ -66,12 +73,14 @@ function displayProductDetails() {
                     <p class="fw-bold opacity-75">Tax included</p>
                 </div>
 
-                <div class="d-flex mt-4 justify-content-evenly gap-3">
-                    <div>
-                        <button type="button" onclick="handlePurchase('${id}')" class="fs-5 purchase-btn w-100 p-3 px-5 rounded border-0 mb-2 text-light">Purchase</button>
+                <div class="d-flex mt-4 justify-content-evenly  gap-3" id="purchase-add-to-cart-button">
+                    <div class="quantity-container">
+                        <button class="quantity-btn" id="decrease" onclick="changeQuantity(-1)">−</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button class="quantity-btn" id="increase" onclick="changeQuantity(1)">+</button>
                     </div>
                     <div>
-                        <button type="button" onclick="handleCart('${id}')" class="btn btn-outline-danger px-5 py-3 mb-2 text-bold align-items-center text-black fw-bold text-uppercase mb-5 border-2" style="width: 350px;">Add To Cart</button>
+                        <button type="button" onclick="handleCart('${id}',${quantity_total})" class="btn btn-outline-danger px-5 py-3 mb-2 text-bold align-items-center text-black fw-bold text-uppercase mb-5 border-2" style="width: 350px;">Add To Cart</button>
                     </div>
                 </div>
 
@@ -129,6 +138,41 @@ function displayProductDetails() {
 }
 
 document.addEventListener("DOMContentLoaded", displayProductDetails);
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const quantityInput = document.getElementById("quantity");
+
+    // Log the initial quantity value
+    console.log(quantityInput.value, "Initial quantity"); // Default value should be '1'
+    quantity_total = quantityInput.value; // Set initial quantity_total
+
+    // Log the quantity_total after setting
+    console.log(quantity_total, "quantity total after setting initial value"); 
+
+    // Define the function in the global scope
+    window.changeQuantity = function(amount) {
+        let currentQuantity = parseInt(quantityInput.value);
+        console.log(currentQuantity, "Current quantity before change"); // Log current quantity before change
+
+        // Check to prevent quantity from going below 1
+        if (currentQuantity + amount >= 1) {
+            quantityInput.value = currentQuantity + amount;
+            console.log(quantityInput.value, "Updated quantity after change"); // Log updated quantity
+            quantity_total = quantityInput.value; // Update quantity_total
+            console.log(quantity_total, "quantity total after update"); // Log updated quantity_total
+        }
+    }
+});
+
+// Remove this console.log from here, as it will run before quantity_total is set
+// console.log(quantity_total, "quantity total");
+
+
+
+
+
+
 
 
 
@@ -232,70 +276,70 @@ const ReveiewProduct = (id) => {
 };
 
 
-const handleReviewEdit = (event, reviewId) => {
-    event.preventDefault();
-    const token = localStorage.getItem("authToken");
-    if (!token) {
-        alert("You are not authenticated user. Please log in.");
-        window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
-        return;
-    }
-    const form = document.getElementById(`reviewEdit-${reviewId}`);
-    const formData = new FormData(form);  // Using FormData to handle file uploads
+// const handleReviewEdit = (event, reviewId) => {
+//     event.preventDefault();
+//     const token = localStorage.getItem("authToken");
+//     if (!token) {
+//         alert("You are not authenticated user. Please log in.");
+//         window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
+//         return;
+//     }
+//     const form = document.getElementById(`reviewEdit-${reviewId}`);
+//     const formData = new FormData(form);  // Using FormData to handle file uploads
 
-    // Extract updated values
-    const newBody = formData.get('body');
+//     // Extract updated values
+//     const newBody = formData.get('body');
     
-    // Extract the selected rating
-    const ratingRadioButtons = form.querySelectorAll(`input[name="rating-${reviewId}"]:checked`);
-    const newRating = ratingRadioButtons.length ? ratingRadioButtons[0].value : '';
+//     // Extract the selected rating
+//     const ratingRadioButtons = form.querySelectorAll(`input[name="rating-${reviewId}"]:checked`);
+//     const newRating = ratingRadioButtons.length ? ratingRadioButtons[0].value : '';
 
-    // Create a new FormData instance to include updated values
-    const updatedFormData = new FormData();
-    updatedFormData.append('body', newBody);
-    updatedFormData.append('rating', newRating);
+//     // Create a new FormData instance to include updated values
+//     const updatedFormData = new FormData();
+//     updatedFormData.append('body', newBody);
+//     updatedFormData.append('rating', newRating);
     
-    // Append image file if a new file is selected
-    const imageInput = form.querySelector(`#image-${reviewId}`);
-    if (imageInput.files.length) {
-        updatedFormData.append('image', imageInput.files[0]);
-    }
+//     // Append image file if a new file is selected
+//     const imageInput = form.querySelector(`#image-${reviewId}`);
+//     if (imageInput.files.length) {
+//         updatedFormData.append('image', imageInput.files[0]);
+//     }
 
-    // Check the number of changes
-    let changes = 0;
-    const originalBody = formData.get('body');
-    const originalImage = formData.get('image');
-    const originalRating = formData.get('rating');
+//     // Check the number of changes
+//     let changes = 0;
+//     const originalBody = formData.get('body');
+//     const originalImage = formData.get('image');
+//     const originalRating = formData.get('rating');
     
-    if (originalBody !== newBody) changes++;
-    if (originalImage !== updatedFormData.get('image')) changes++;
-    if (originalRating !== newRating) changes++;
+//     if (originalBody !== newBody) changes++;
+//     if (originalImage !== updatedFormData.get('image')) changes++;
+//     if (originalRating !== newRating) changes++;
 
-    // Determine method based on number of changes
-    const method = changes >= 3 ? 'PUT' : 'PATCH';
+//     // Determine method based on number of changes
+//     const method = changes >= 3 ? 'PUT' : 'PATCH';
 
-    const url = `https://cildank-shop-deploy-versel.vercel.app/products/review/${reviewId}/`;
+//     const url = `https://cildank-shop-deploy-versel.vercel.app/products/review/${reviewId}/`;
 
-    fetch(url, {
-        method: method,
-        headers: {
-            Authorization: `Token ${token}`,
-            // 'Content-Type': 'application/json', // Not needed for FormData
-        },
-        body: updatedFormData,
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("Review updated successfully!");
-            ReveiewProduct(reviewId);  // Refresh reviews
-        } else {
-            alert("Error updating review.");
-        }
-    })
-    .catch((error) => {
-        console.error("Error updating review:", error);
-    });
-};
+//     fetch(url, {
+//         method: method,
+//         headers: {
+//             Authorization: `Token ${token}`,
+//             // 'Content-Type': 'application/json', // Not needed for FormData
+//         },
+//         body: updatedFormData,
+//     })
+//     .then(response => {
+//         if (response.ok) {
+//             alert("Review updated successfully!");
+//             ReveiewProduct(reviewId);  // Refresh reviews
+//         } else {
+//             alert("Error updating review.");
+//         }
+//     })
+//     .catch((error) => {
+//         console.error("Error updating review:", error);
+//     });
+// };
 
 
 
