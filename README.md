@@ -50,6 +50,7 @@ This project has two types of roles:
   - 🛠️ Can add, update, edit, and manage products.
   - 📝 Can register, log in, and log out.
 - **Customer:**
+  - 📝 Can register and confirmation by email, log in, and log out.
   - 🛍️ Can view products.
   - 📝 Can register, log in, and log out.
   - 💳 Can purchase products.
