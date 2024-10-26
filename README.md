@@ -1,6 +1,6 @@
 # Cildank - Online Clothing Shop
 
-Cildank is an online clothing store where users can purchase various types of clothing, accessories, and other fashion-related products. This project is developed using Django, Django Rest Framework, HTML, CSS, and JavaScript.
+Cildank is an online clothing store where users can purchase various types of clothing, accessories, and other fashion-related products. This project is developed using Django, Django Rest Framework, HTML, CSS,Bootstrap5, and JavaScript.
 
 ## Table of Contents
 - [API Endpoints](#api-endpoints)
@@ -59,14 +59,16 @@ This project has two types of roles:
 ## Requirements
 - Python 3.12.3
 - Django 5.1
-- JavaScript 
 - PostgreSQL
+- HTML5
+- CSS3
+- Bootstrap5
+- JavaScript 
+
 
 ## Startup Instructions
 Follow the steps below to start the project:
 1. Clone the repository: `git clone <repository-url>`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Start the server: `python manage.py runserver`
-4. Navigate to the frontend project and use the command `npm start`.
+3. Start the server: `open with live server`
 
 ---
