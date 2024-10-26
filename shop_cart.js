@@ -106,7 +106,6 @@ const removeCart = (id,event) => {
 
 
 
-// ... existing code ...
 
 let Total = 0;
 let TotalQuantity = 0; // Initialize TotalQuantity
