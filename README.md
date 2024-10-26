@@ -1,6 +1,6 @@
 # Cildank - Online Clothing Shop
 
-Cildank is an online clothing store where users can purchase various types of clothing, accessories, and other fashion-related products. This project is developed using Django and React.
+Cildank is an online clothing store where users can purchase various types of clothing, accessories, and other fashion-related products. This project is developed using Django,Django Rest Framework and Html css and Javscript.
 
 ## Table of Contents
 - [API Endpoints](#api-endpoints)
@@ -62,5 +62,5 @@ Follow the steps below to start the project:
 3. Start the server: `python manage.py runserver`
 4. Navigate to the frontend project and use the command `npm start`.
 
----
+
 
