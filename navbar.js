@@ -50,3 +50,4 @@
   .catch((error) => {
     console.error("Error loading navbar:", error);
   });
+

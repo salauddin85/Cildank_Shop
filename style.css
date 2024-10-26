@@ -29,6 +29,14 @@
 
  */
 
+ /* .badge {
+    font-size: 0.75rem;
+    padding: 0.25em 0.5em;
+} */
+
+
+
+
  .quantity-container {
     display: inline-flex;
     align-items: center;

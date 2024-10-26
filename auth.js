@@ -209,3 +209,46 @@ const loadAccount = () => {
 };
 
 loadAccount();
+
+
+
+
+
+let TotalQuantityCart = 0; // Initialize TotalQuantity
+
+// Function to load wishlist and capture unique product IDs
+const loadWishlistQuantity = () => {
+    const token = window.localStorage.getItem("authToken");
+    if (!token) {
+      alert("You are not authenticated user. Please log in.");
+      // window.location.href = "./login.html";
+      return;
+  }
+
+    fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((cartlist) => {
+                cartlist.products.forEach((product) => {
+                    
+
+                    TotalQuantityCart += product.quantity; // Calculate total quantity
+                });
+            });
+
+            // Update the total quantity in the navbar
+            document.getElementById("total-quantity").innerText = TotalQuantityCart;
+ 
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
+};
+
+loadWishlistQuantity();

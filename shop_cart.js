@@ -1,6 +1,13 @@
 
+let total_quantity=""
+const handleQuantity =(quantity)=>{
+  // handleCart(quantity)
+  console.log(quantity)
+  total_quantity=quantity
+}
 
 const handleCart = (id) => {
+  console.log(quantity_total)
   console.log("inside cart", id);
   const token = localStorage.getItem("authToken");
   console.log("token", token);
@@ -9,7 +16,7 @@ const handleCart = (id) => {
       return;
   }
 
-  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/${id}/${quantity_total}/`, {
+  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/${id}/${total_quantity}/`, {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
@@ -89,6 +96,7 @@ const removeCart = (id,event) => {
       return res.json();
     })
     .then((data) => {
+      alert("Remove product in Wishlist Successfully")
       console.log("Product removed:", data);
     })
     .catch((error) => {
@@ -98,84 +106,94 @@ const removeCart = (id,event) => {
 
 
 
-
+// ... existing code ...
 
 let Total = 0;
-
-
-// Global variable to store unique product IDs
+let TotalQuantity = 0; // Initialize TotalQuantity
 let uniqueProductIds = [];
-console.log("hello",uniqueProductIds)
+
 // Function to load wishlist and capture unique product IDs
 const loadWishlist = () => {
-  const token = window.localStorage.getItem("authToken");
-  console.log(token);
-  
-  // Temporary set to capture unique product IDs
-  const productIdsSet = new Set();
+    const token = window.localStorage.getItem("authToken");
+    if (!token) {
+      alert("You are not authenticated user. Please log in.");
+      window.location.href = "./login.html";
+      return;
+  }
+    // Temporary set to capture unique product IDs
+    const productIdsSet = new Set();
 
-  fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${token}`,
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("set data", data);
-      data.forEach((cartlist) => {
-        cartlist.products.forEach((product) => {
-          const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${product.image}`;
-
-          // Add product ID to the set to ensure uniqueness
-          productIdsSet.add(product.id);
-
-          const shopCart = document.getElementById("shopCart");
-          const newDiv = document.createElement("div");
-          newDiv.className = "row mt-3";
-          newDiv.innerHTML = `
-            <div class="col-12 d-flex mx-3 ">
-                <div class="col">
-                    <a href="./details.html"><img src="${imageUrl}"
-                            class="img-fluid w-75 h-100 text-decoration-none rounded" alt="...">
-                    </a>
-                </div>
-                <div class="col ms-4">
-                    <a href="./details.html" class="text-decoration-none text-black">${product.name}</a>
-                    <div>
-                        <b>${product.size}</b>
-                    </div>
-                </div>
-                <div class="col">
-                    <a href="./details.html" class="text-decoration-none text-black">$ ${product.price}</a>
-                </div>
-                <div class="col">
-                    <!-- remove cart icon -->
-                    <a href=""> <i class="fa-regular fa-trash-can text-black fs-5" onclick="removeCart('${product.id}',event)"></i></a>
-                </div>
-            </div>
-          `;
-          Total += parseFloat(product.price);
-          shopCart.appendChild(newDiv);
-        });
-      });
-
-      // Convert set to array and store globally
-      uniqueProductIds = Array.from(productIdsSet);
-      console.log("Unique Product IDs:", uniqueProductIds);
-     
-      
-      document.getElementById("taka").innerText = `${Total}`;
+    fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+        },
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+        .then((res) => res.json())
+        .then((data) => {
+            data.forEach((cartlist) => {
+                cartlist.products.forEach((product) => {
+                    const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${product.image}`;
+
+                    // Add product ID to the set to ensure uniqueness
+                    productIdsSet.add(product.id);
+
+                    const productQuantityPrice = product.price*product.quantity;
+
+                    const shopCart = document.getElementById("shopCart");
+                    const newDiv = document.createElement("div");
+                    newDiv.className = "row mt-3";
+                    newDiv.innerHTML = `
+                        <div class="col-12 d-flex mx-3">
+                            <div class="col">
+                                <a><img src="${imageUrl}" class="img-fluid w-75 h-100 text-decoration-none rounded cursor-text" alt="..."></a>
+                            </div>
+                            <div class="col ms-4">
+                                <a class="text-decoration-none text-black">${product.name}</a>
+                                <div><b>${product.size}</b></div>
+                            </div>
+                            <div class="col ms-5">
+                                <a class="text-decoration-none text-black">$ ${product.price}</a>
+                            </div>
+                            <div class="col">
+                                <a class="text-decoration-none text-black">$ ${product.quantity}</a>
+                            </div>
+                            <div class="col">
+                                <a class="text-decoration-none text-black" id="product-quantity-price">Total $${productQuantityPrice}</a>
+                            </div>
+                            <div class="col">
+                                <a href=""><i class="fa-regular fa-trash-can text-black fs-5" onclick="removeCart('${product.id}', event)"></i></a>
+                            </div>
+                        </div>
+                    `;
+
+                    Total += parseFloat(productQuantityPrice); // Calculate total price
+                    TotalQuantity += product.quantity; // Calculate total quantity
+                    shopCart.appendChild(newDiv);
+                });
+            });
+
+                  // Convert set to array and store globally
+          uniqueProductIds = Array.from(productIdsSet);
+          console.log("Unique Product IDs:", uniqueProductIds);
+        
+
+            // Update the total quantity in the navbar
+            document.getElementById("total-quantity").innerText = TotalQuantity;
+
+            // Update total price in the cart
+            document.getElementById("taka").innerText = `${Total}`;
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+        });
 };
 
-
 loadWishlist();
-// Function to handle purchase
+
+// Load wishlist when the page loads
+
 
 const handleCartPurchase = () => {
   const taka = document.getElementById("taka").textContent;
@@ -188,7 +206,7 @@ const handleCartPurchase = () => {
 
   if (!token) {
     alert("No authentication token found. Please log in.");
-    window.location.href="https://salauddin85.github.io/Cildank_Shop/login.html"
+    window.location.href="./login.html"
     return;
   }
 
@@ -227,6 +245,3 @@ const handleCartPurchase = () => {
 };
 
 
-
-
-// Load wishlist when the page loads

@@ -1,5 +1,5 @@
 
-let quantity_total = ""; // Global variable
+// let quantity_total = ""; 
 
 
 function getQueryParams() {
@@ -80,7 +80,7 @@ function displayProductDetails() {
                         <button class="quantity-btn" id="increase" onclick="changeQuantity(1)">+</button>
                     </div>
                     <div>
-                        <button type="button" onclick="handleCart('${id}',${quantity_total})" class="btn btn-outline-danger px-5 py-3 mb-2 text-bold align-items-center text-black fw-bold text-uppercase mb-5 border-2" style="width: 350px;">Add To Cart</button>
+                        <button type="button" onclick="handleCart('${id}')" class="btn btn-outline-danger px-5 py-3 mb-2 text-bold align-items-center text-black fw-bold text-uppercase mb-5 border-2" style="width: 350px;">Add To Cart</button>
                     </div>
                 </div>
 
@@ -139,36 +139,23 @@ function displayProductDetails() {
 
 document.addEventListener("DOMContentLoaded", displayProductDetails);
 
+let quantity_total = "";  // Protome empty thakbe
 
 document.addEventListener("DOMContentLoaded", () => {
     const quantityInput = document.getElementById("quantity");
-
-    // Log the initial quantity value
-    console.log(quantityInput.value, "Initial quantity"); // Default value should be '1'
-    quantity_total = quantityInput.value; // Set initial quantity_total
-
-    // Log the quantity_total after setting
-    console.log(quantity_total, "quantity total after setting initial value"); 
-
-    // Define the function in the global scope
+    quantity_total = quantityInput.value; // Protome quantity_total ke set korchi
+    handleQuantity(quantity_total)
+    // Quantity barano ba komanor function
     window.changeQuantity = function(amount) {
         let currentQuantity = parseInt(quantityInput.value);
-        console.log(currentQuantity, "Current quantity before change"); // Log current quantity before change
-
-        // Check to prevent quantity from going below 1
-        if (currentQuantity + amount >= 1) {
+        if (currentQuantity + amount >= 1) {  // Quantity 1 er kom jate na hoy
             quantityInput.value = currentQuantity + amount;
-            console.log(quantityInput.value, "Updated quantity after change"); // Log updated quantity
-            quantity_total = quantityInput.value; // Update quantity_total
-            console.log(quantity_total, "quantity total after update"); // Log updated quantity_total
+            quantity_total = quantityInput.value;  // Update global quantity_total
+            handleQuantity(quantity_total)
+            console.log("Updated quantity_total:", quantity_total); // Confirm update in console
         }
     }
 });
-
-// Remove this console.log from here, as it will run before quantity_total is set
-// console.log(quantity_total, "quantity total");
-
-
 
 
 
@@ -437,3 +424,7 @@ const handlePurchase = (id) => {
             }
         });
 };
+
+
+
+

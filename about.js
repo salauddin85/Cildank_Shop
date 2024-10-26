@@ -28,3 +28,7 @@ function handleSubscribe() {
     emailInput.value = ''; // Clear the input field
 }
 
+
+
+
+

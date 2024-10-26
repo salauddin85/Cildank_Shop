@@ -68,8 +68,16 @@
          
         </li>
         <li>
-          <a href="./shop_cart.html" class="text-decoration-none text-black ms-2"><i class="fa-solid fa-cart-shopping fs-5 p-2"></i></a>
-        </li>
+          <a href="./shop_cart.html" class="text-decoration-none text-black ms-2">
+              <i class="fa-solid fa-cart-shopping fs-5 p-2 position-relative">
+                  <!-- Total quantity will be shown here -->
+                  <span id="total-quantity" class="position-absolute start-100 top-0 bg-light translate-middle p-2 badge rounded-circle  text-black" style="font-size: 13px;">
+                    0
+                  </span>
+              </i>
+          </a>
+      </li>
+      
         
       </ul>
     </div>
