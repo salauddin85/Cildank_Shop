@@ -12,34 +12,34 @@ Cildank is an online clothing store where users can purchase various types of cl
 ## API Endpoints
 
 ### For Authentication
-- **Register:** [Register](https://cildank-shop-deploy-versel.vercel.app/auth/register/) (POST)
-- **Login:** [Login](https://cildank-shop-deploy-versel.vercel.app/auth/login/) (POST)
-- **Logout:** [Logout](https://cildank-shop-deploy-versel.vercel.app/auth/logout/) (POST)
+- **Register:** `POST https://cildank-shop-deploy-versel.vercel.app/auth/register/`
+- **Login:** `POST https://cildank-shop-deploy-versel.vercel.app/auth/login/`
+- **Logout:** `POST https://cildank-shop-deploy-versel.vercel.app/auth/logout/`
 
 ### For Products
-- **All Products:** [All Products](https://cildank-shop-deploy-versel.vercel.app/products/product/) (GET)
-- **Product Pagination:** [Product Pagination](https://cildank-shop-deploy-versel.vercel.app/products/product/?page=2) (GET)
-- **Sort by Price Ascending:** [Sort by Price Asc](https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_price/?order=asc) (GET)
-- **Sort by Price Descending:** [Sort by Price Desc](https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_price/?order=desc) (GET)
-- **Sort by Size:** [Sort by Size](https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_size/M/) (GET)
-- **Add to Wishlist:** [Add to Wishlist](https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/1/) (POST)
-- **Remove from Wishlist:** [Remove from Wishlist](https://cildank-shop-deploy-versel.vercel.app/products/wishlist/remove_product/1/) (POST)
-- **All Wishlist Items:** [All Wishlist](https://cildank-shop-deploy-versel.vercel.app/products/wishlist/) (GET)
-- **Reviews:** [Reviews](https://cildank-shop-deploy-versel.vercel.app/products/review/) (GET)
+- **All Products:** `GET https://cildank-shop-deploy-versel.vercel.app/products/product/`
+- **Product Pagination:** `GET https://cildank-shop-deploy-versel.vercel.app/products/product/?page=2`
+- **Sort by Price Ascending:** `GET https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_price/?order=asc`
+- **Sort by Price Descending:** `GET https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_price/?order=desc`
+- **Sort by Size:** `GET https://cildank-shop-deploy-versel.vercel.app/products/product/sorted_by_size/M/`
+- **Add to Wishlist:** `POST https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/1/`
+- **Remove from Wishlist:** `POST https://cildank-shop-deploy-versel.vercel.app/products/wishlist/remove_product/1/`
+- **All Wishlist Items:** `GET https://cildank-shop-deploy-versel.vercel.app/products/wishlist/`
+- **Reviews:** `GET https://cildank-shop-deploy-versel.vercel.app/products/review/`
 
 ### For Purchases
-- **Purchase Product:** [Purchase Product](https://cildank-shop-deploy-versel.vercel.app/purchases/list/1) (GET)
+- **Purchase Product:** `GET https://cildank-shop-deploy-versel.vercel.app/purchases/list/1`
 
 ### For Transactions
-- **Deposit:** [Deposit](https://cildank-shop-deploy-versel.vercel.app/transactions/deposit/) (POST)
+- **Deposit:** `POST https://cildank-shop-deploy-versel.vercel.app/transactions/deposit/`
 
 ### For Categories
-- **All Categories:** [All Categories](https://cildank-shop-deploy-versel.vercel.app/categories/category_list/) (GET)
-- **All Subcategories:** [All Subcategories](https://cildank-shop-deploy-versel.vercel.app/categories/subcategory_list/) (GET)
+- **All Categories:** `GET https://cildank-shop-deploy-versel.vercel.app/categories/category_list/`
+- **All Subcategories:** `GET https://cildank-shop-deploy-versel.vercel.app/categories/subcategory_list/`
 
 ### Show Products by Category or Subcategory
-- **Show Products by Subcategory:** [Show Products by Subcategory](https://cildank-shop-deploy-versel.vercel.app/category_products/?sub_category_id=3) (GET)
-- **Show Products by Category:** [Show Products by Category](https://cildank-shop-deploy-versel.vercel.app/category_products/?category_id=3) (GET)
+- **Show Products by Subcategory:** `GET https://cildank-shop-deploy-versel.vercel.app/category_products/?sub_category_id=3`
+- **Show Products by Category:** `GET https://cildank-shop-deploy-versel.vercel.app/category_products/?category_id=3`
 
 ## Overview
 The purpose of this project is to create a user-friendly e-commerce platform where customers can easily purchase clothing and accessories.
