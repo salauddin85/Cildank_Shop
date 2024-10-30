@@ -194,53 +194,117 @@ loadWishlist();
 // Load wishlist when the page loads
 
 
-const handleCartPurchase = () => {
+// const handleCartPurchase = () => {
+//   const taka = document.getElementById("taka").textContent;
+//   const Taka = String(taka);
+//   console.log(Taka);
+
+//   const token = localStorage.getItem("authToken");
+//   console.log("Retrieved token:", token);
+//   console.log("all ids", uniqueProductIds);
+
+//   if (!token) {
+//     alert("No authentication token found. Please log in.");
+//     window.location.href="./login.html"
+//     return;
+//   }
+
+//   fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/payment_cart/", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Authorization": `Token ${token}`,
+//     },
+//     body: JSON.stringify({ 
+//       total_amount: Taka, 
+//       product_ids: uniqueProductIds  
+//     }),  
+//   })
+//   .then(res => {
+//     if (res.status === 200) {
+//       return res.json();
+//     } else if (res.status === 400) {
+//       return res.json().then(data => {
+//         // Show backend error message in alert
+//         alert(` ${data.error || 'Unknown error'}`);
+//         throw new Error(data.error || 'Unknown error');
+//       });
+//     } else {
+//       throw new Error('Unexpected status code: ' + res.status);
+//     }
+//   })
+//   .then(data => {
+//     console.log(data);
+//     alert("Purchase Successful. Check Your Mail or Purchases List.");
+//   })
+//   .catch(error => {
+//     console.error('Error:', error);
+//     alert(` ${error.message}`);
+//   });
+// };
+
+const handleCartPurchase = (event) => {
+  event.preventDefault();
+
+  const recipientName = document.getElementById("recipientName").value;
+  const addressLine1 = document.getElementById("addressLine1").value;
+  const addressLine2 = document.getElementById("addressLine2").value;
+  const city = document.getElementById("city").value;
+  const postalCode = document.getElementById("postalCode").value;
+  const country = document.getElementById("country").value;
+  const phoneNumber = document.getElementById("phoneNumber").value;
   const taka = document.getElementById("taka").textContent;
   const Taka = String(taka);
-  console.log(Taka);
-
   const token = localStorage.getItem("authToken");
-  console.log("Retrieved token:", token);
-  console.log("all ids", uniqueProductIds);
 
   if (!token) {
-    alert("No authentication token found. Please log in.");
-    window.location.href="./login.html"
-    return;
+      alert("No authentication token found. Please log in.");
+      window.location.href = "./login.html";
+      return;
   }
 
-  fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/payment_cart/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${token}`,
-    },
-    body: JSON.stringify({ 
-      total_amount: Taka, 
-      product_ids: uniqueProductIds  
-    }),  
+  fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/payment/initiate/", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Token ${token}`,
+      },
+      body: JSON.stringify({
+          amount: Taka,
+          address: {
+              recipient_name: recipientName,
+              phoneNumber:phoneNumber,
+              address_line_1: addressLine1,
+              address_line_2: addressLine2,
+              city: city,
+              postal_code: postalCode,
+              country: country
+          },
+          product_ids: uniqueProductIds
+      }),
   })
   .then(res => {
-    if (res.status === 200) {
-      return res.json();
-    } else if (res.status === 400) {
-      return res.json().then(data => {
-        // Show backend error message in alert
-        alert(` ${data.error || 'Unknown error'}`);
-        throw new Error(data.error || 'Unknown error');
-      });
-    } else {
-      throw new Error('Unexpected status code: ' + res.status);
-    }
+      if (res.ok) {
+          return res.json();
+      } else {
+          return res.json().then(data => {
+              alert(`Error: ${data.message || 'Unknown error'}`);
+              throw new Error(data.message || 'Unknown error');
+          });
+      }
   })
   .then(data => {
-    console.log(data);
-    alert("Purchase Successful. Check Your Mail or Purchases List.");
+      if (data.status === 'success') {
+          window.location.href = data.redirect_url; // Payment Gateway e redirect
+      } else {
+          alert(`Payment initiation failed: ${data.message}`);
+      }
   })
   .catch(error => {
-    console.error('Error:', error);
-    alert(` ${error.message}`);
+      console.error('Error:', error);
+      alert(`Error: ${error.message}`);
   });
 };
+
 
 
