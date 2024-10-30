@@ -191,58 +191,9 @@ const loadWishlist = () => {
 
 loadWishlist();
 
-// Load wishlist when the page loads
 
 
-// const handleCartPurchase = () => {
-//   const taka = document.getElementById("taka").textContent;
-//   const Taka = String(taka);
-//   console.log(Taka);
-
-//   const token = localStorage.getItem("authToken");
-//   console.log("Retrieved token:", token);
-//   console.log("all ids", uniqueProductIds);
-
-//   if (!token) {
-//     alert("No authentication token found. Please log in.");
-//     window.location.href="./login.html"
-//     return;
-//   }
-
-//   fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/payment_cart/", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       "Authorization": `Token ${token}`,
-//     },
-//     body: JSON.stringify({ 
-//       total_amount: Taka, 
-//       product_ids: uniqueProductIds  
-//     }),  
-//   })
-//   .then(res => {
-//     if (res.status === 200) {
-//       return res.json();
-//     } else if (res.status === 400) {
-//       return res.json().then(data => {
-//         // Show backend error message in alert
-//         alert(` ${data.error || 'Unknown error'}`);
-//         throw new Error(data.error || 'Unknown error');
-//       });
-//     } else {
-//       throw new Error('Unexpected status code: ' + res.status);
-//     }
-//   })
-//   .then(data => {
-//     console.log(data);
-//     alert("Purchase Successful. Check Your Mail or Purchases List.");
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//     alert(` ${error.message}`);
-//   });
-// };
-
+// Handle Cart for Purchase
 const handleCartPurchase = (event) => {
   event.preventDefault();
 
