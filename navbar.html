@@ -1,16 +1,12 @@
-
-
-
-
- <nav class="navbar navbar-expand-lg navbar-light   shadow w-100" style="background-color: white !important;" >
+<nav class="custom-navbar navbar navbar-expand-lg navbar-light shadow w-100">
   <div class="container-fluid">
     <!-- Toggler for mobile view -->
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
+      data-bs-target="#custom-navbar-content"
+      aria-controls="custom-navbar-content"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
@@ -18,67 +14,52 @@
     </button>
 
     <!-- Navbar Content -->
-    <div class="collapse navbar-collapse nav-font p-2" id="navbarSupportedContent">
-      
-     
-      <!-- Second UL -->
-      <ul class="navbar-nav mb-2 mb-lg-0   text-center navber-item">
+    <div class="collapse navbar-collapse nav-font p-0 " id="custom-navbar-content">
+      <!-- Logo Section -->
+      <ul class="navbar-nav mb-2 mb-lg-0 text-center ">
         <li class="nav-item" id="nav-logo-text">
-          <a class="nav-link shop-name text-bold" href="./index.html">
-            <!-- <b>FASHION</b>-<b>FUSION</b>-<b>SHOP</b> -->
-             <img src="./images/brandlogo3.png"   alt="" id="nav-logo" >
-            <b class=" text-bold text-black text-uppercase me-5 ">cildank</b>
+          <a class="nav-link custom-nav-link opacity-100" href="./index.html">
+            <img src="./images/brandlogo3.png" alt="" id="nav-logo">
+            <b class="custom-navbar-logo " style="color: chocolate;">CILDANK</b>
           </a>
         </li>
       </ul>
 
-      <!-- Third UL -->
-      <ul class="navbar-nav mb-2 mb-lg-0   text-center" id="nav-ele-2" >
-        
-        <li class="text-light text-bold fs-5 me-4 navbar-element   "><a href="./index.html" class=" fs-5 navbar-element text-decoration-none fs-5 text-uppercase">Home</a></li>
-        <li class="text-light text-bold fs-5 me-4 navbar-element">
-          <a
-            href="./allproducts.html"
-            class="fs-5 navbar-element text-decoration-none fs-5 text-uppercase"
-            >All Products</a
-          >
+      <!-- Navigation Links -->
+      <ul class="navbar-nav mb-2 mb-lg-0 mt-2 custom-navbar-nav " style="margin-right: 100px;">
+        <li class="custom-navbar-nav-item">
+          <a href="./index.html" class="custom-nav-link text-decoration-none">Home</a>
         </li>
-        <li class="text-black text-bold fs-5 me-4 navbar-element  "><a href="./about.html" class="fs-5 navbar-element text-decoration-none text-uppercase" >About Us</a></li>
-        <li class="text-black text-bold fs-5 me-4 navbar-element "><a href="./contact.html" class=" navbar-element fs-5 text-decoration-none text-uppercase ">Contact us</a></li>
-       
-       
-        <li class="nav-item dropdown " style="margin-top: -5px;margin-left: -5px;color: #000;opacity: 85%;">
-          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          
-            <h6 class="  text-uppercase navbar-element  " style="">Login/Register</h6>
-
-          </a>
-          <ul class="dropdown-menu" id="auth-element">
-
-          </ul>
+        <li class="custom-navbar-nav-item">
+          <a href="./allproducts.html" class="custom-nav-link text-decoration-none">All Products</a>
         </li>
-        <li class="nav-item dropdown fs-5 ms-2 text-black " style="margin-top: -8px;margin-left: -5px;">
+        <li class="custom-navbar-nav-item">
+          <a href="./about.html" class="custom-nav-link text-decoration-none">About Us</a>
+        </li>
+        <li class="custom-navbar-nav-item">
+          <a href="./contact.html" class="custom-nav-link text-decoration-none">Contact Us</a>
+        </li>
+        <li class="nav-item dropdown" style="margin-top: -5px;margin-left: -5px;">
           <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-regular fa-user account-icon text-black"></i>
-            
+            <h6 class="custom-nav-link">Login/Register</h6>
           </a>
-          <ul class="dropdown-menu" id="profileDetails">
-           
-          </ul>
-         
+          <ul class="dropdown-menu" id="auth-element"></ul>
+        </li>
+        <li class="nav-item dropdown fs-5 ms-2" style="margin-top: -5px;">
+          <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-regular fa-user account-icon cart-account-icon"></i>
+          </a>
+          <ul class="dropdown-menu" id="profileDetails"></ul>
         </li>
         <li>
-          <a href="./shop_cart.html" class="text-decoration-none text-black ms-2">
-              <i class="fa-solid fa-cart-shopping fs-5 p-2 position-relative">
-                  <!-- Total quantity will be shown here -->
-                  <span id="total-quantity" class="position-absolute start-100 top-0 bg-light translate-middle p-2 badge rounded-circle  text-black" style="font-size: 13px;">
-                    0
-                  </span>
-              </i>
+          <a href="./shop_cart.html" class="text-decoration-none">
+            <i class="fa-solid fa-cart-shopping fs-5 p-2 position-relative cart-account-icon">
+              <span id="total-quantity" class="position-absolute start-100 top-0 bg-light translate-middle p-2 badge rounded-circle text-black" style="font-size: 13px;">
+                0
+              </span>
+            </i>
           </a>
-      </li>
-      
-        
+        </li>
       </ul>
     </div>
   </div>

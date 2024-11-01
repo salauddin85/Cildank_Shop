@@ -12,11 +12,10 @@ const handleCart = (id) => {
   const token = localStorage.getItem("authToken");
   console.log("token", token);
   if (!token) {
-      alert("No authentication token found. Please log in.");
+    //   alert("No authentication token found. Please log in.");
       return;
   }
-
-  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/add_product/${id}/${total_quantity}/`, {
+  fetch(`http://127.0.0.1:8000/products/wishlist/add_product/${id}/${total_quantity}/`, {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
@@ -76,7 +75,7 @@ const removeCart = (id,event) => {
   const token = localStorage.getItem("authToken");
   console.log("token", token);
 
-  fetch(`https://cildank-shop-deploy-versel.vercel.app/products/wishlist/remove_product/${id}/`, {
+  fetch(`http://127.0.0.1:8000/products/wishlist/remove_product/${id}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -106,87 +105,86 @@ const removeCart = (id,event) => {
 
 
 
-
 let Total = 0;
-let TotalQuantity = 0; // Initialize TotalQuantity
-let uniqueProductIds = [];
 
+let uniqueProductIds = [];
+let TotalQuantity = 0; // Initialize TotalQuantity
 // Function to load wishlist and capture unique product IDs
 const loadWishlist = () => {
     const token = window.localStorage.getItem("authToken");
     if (!token) {
-      alert("You are not authenticated user. Please log in.");
-      window.location.href = "./login.html";
-      return;
-  }
+        // alert("You are not authenticated. Please log in.");
+        window.location.href = "./login.html";
+        return;
+    }
+    
     // Temporary set to capture unique product IDs
     const productIdsSet = new Set();
 
-    fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
+    fetch("http://127.0.0.1:8000/products/wishlist/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`,
         },
     })
-        .then((res) => res.json())
-        .then((data) => {
-            data.forEach((cartlist) => {
-                cartlist.products.forEach((product) => {
-                    const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${product.image}`;
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((cartlist) => {
+            cartlist.products.forEach((item) => {
+                const product = item.product; // Access the product object
+                const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${product.image}`;
+                
+                // Add product ID to the set to ensure uniqueness
+                productIdsSet.add(product.id);
 
-                    // Add product ID to the set to ensure uniqueness
-                    productIdsSet.add(product.id);
+                const productQuantityPrice = product.price * item.quantity;
 
-                    const productQuantityPrice = product.price*product.quantity;
-
-                    const shopCart = document.getElementById("shopCart");
-                    const newDiv = document.createElement("div");
-                    newDiv.className = "row mt-3";
-                    newDiv.innerHTML = `
-                        <div class="col-12 d-flex mx-3">
-                            <div class="col">
-                                <a><img src="${imageUrl}" class="img-fluid w-75 h-100 text-decoration-none rounded cursor-text" alt="..."></a>
-                            </div>
-                            <div class="col ms-4">
-                                <a class="text-decoration-none text-black">${product.name}</a>
-                                <div><b>${product.size}</b></div>
-                            </div>
-                            <div class="col ms-5">
-                                <a class="text-decoration-none text-black">$ ${product.price}</a>
-                            </div>
-                            <div class="col">
-                                <a class="text-decoration-none text-black">$ ${product.quantity}</a>
-                            </div>
-                            <div class="col">
-                                <a class="text-decoration-none text-black" id="product-quantity-price">Total $${productQuantityPrice}</a>
-                            </div>
-                            <div class="col">
-                                <a href=""><i class="fa-regular fa-trash-can text-black fs-5" onclick="removeCart('${product.id}', event)"></i></a>
-                            </div>
+                const shopCart = document.getElementById("shopCart");
+                const newDiv = document.createElement("div");
+                newDiv.className = "row mt-3";
+                newDiv.innerHTML = `
+                    <div class="col-12 d-flex mx-3">
+                        <div class="col">
+                            <a><img src="${imageUrl}" class="img-fluid w-75 h-100 text-decoration-none rounded cursor-text" alt="${product.name}"></a>
                         </div>
-                    `;
+                        <div class="col ms-4">
+                            <a class="text-decoration-none text-black">${product.name}</a>
+                            <div><b>${product.size}</b></div>
+                        </div>
+                        <div class="col ms-5">
+                            <a class="text-decoration-none text-black">$ ${product.price}</a>
+                        </div>
+                        <div class="col">
+                            <a class="text-decoration-none text-black">$ ${item.quantity}</a>
+                        </div>
+                        <div class="col">
+                            <a class="text-decoration-none text-black" id="product-quantity-price">Total $${productQuantityPrice}</a>
+                        </div>
+                        <div class="col">
+                            <a href=""><i class="fa-regular fa-trash-can text-black fs-5" onclick="removeCart('${product.id}', event)"></i></a>
+                        </div>
+                    </div>
+                `;
 
-                    Total += parseFloat(productQuantityPrice); // Calculate total price
-                    TotalQuantity += product.quantity; // Calculate total quantity
-                    shopCart.appendChild(newDiv);
-                });
+                Total += parseFloat(productQuantityPrice); // Calculate total price
+                TotalQuantity += item.quantity; // Calculate total quantity
+                shopCart.appendChild(newDiv);
             });
-
-                  // Convert set to array and store globally
-          uniqueProductIds = Array.from(productIdsSet);
-          console.log("Unique Product IDs:", uniqueProductIds);
-        
-
-            // Update the total quantity in the navbar
-            document.getElementById("total-quantity").innerText = TotalQuantity;
-
-            // Update total price in the cart
-            document.getElementById("taka").innerText = `${Total}`;
-        })
-        .catch((error) => {
-            console.error("Error:", error);
         });
+
+        // Convert set to array and store globally
+        uniqueProductIds = Array.from(productIdsSet);
+        
+        // Update the total quantity in the navbar
+        document.getElementById("total-quantity").innerText = TotalQuantity;
+
+        // Update total price in the cart
+        document.getElementById("taka").innerText = `${Total}`;
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
 };
 
 loadWishlist();
@@ -209,7 +207,7 @@ const handleCartPurchase = (event) => {
   const token = localStorage.getItem("authToken");
 
   if (!token) {
-      alert("No authentication token found. Please log in.");
+    //   alert("No authentication token found. Please log in.");
       window.location.href = "./login.html";
       return;
   }

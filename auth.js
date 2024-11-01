@@ -126,6 +126,7 @@ console.log("login data", loginData);
       console.log("user data", data.user_id);
       console.log("token data", data.token);
       localStorage.setItem("authToken", data.token);
+      localStorage.setItem("isAdmin", data.is_admin);
       alert("Login Successfull");
       // window.location.href = "https://salauddin85.github.io/Cildank_Shop/index.html";
       window.location.href = "./index.html";
@@ -212,43 +213,45 @@ loadAccount();
 
 
 
-
-
 let TotalQuantityCart = 0; // Initialize TotalQuantity
-
+// let TotalQuantity = 0; // Initialize TotalQuantity
 // Function to load wishlist and capture unique product IDs
-const loadWishlistQuantity = () => {
+const loadCartWishlist = () => {
     const token = window.localStorage.getItem("authToken");
     if (!token) {
-      alert("You are not authenticated user. Please log in.");
-      // window.location.href = "./login.html";
-      return;
-  }
+        // alert("You are not authenticated. Please log in.");
+        window.location.href = "./login.html";
+        return;
+    }
+    
+    // Temporary set to capture unique product IDs
 
-    fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
+    fetch("http://127.0.0.1:8000/products/wishlist/", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`,
         },
     })
-        .then((res) => res.json())
-        .then((data) => {
-            data.forEach((cartlist) => {
-                cartlist.products.forEach((product) => {
-                    
+    .then((res) => res.json())
+    .then((data) => {
+        data.forEach((cartlist) => {
+            cartlist.products.forEach((item) => {
+                
 
-                    TotalQuantityCart += product.quantity; // Calculate total quantity
-                });
+                TotalQuantityCart += item.quantity; // Calculate total quantity
+                
             });
-
-            // Update the total quantity in the navbar
-            document.getElementById("total-quantity").innerText = TotalQuantityCart;
- 
-        })
-        .catch((error) => {
-            console.error("Error:", error);
         });
+
+        
+        // Update the total quantity in the navbar
+        document.getElementById("total-quantity").innerText = TotalQuantityCart;
+       
+    })
+    .catch((error) => {
+        console.error("Error:", error);
+    });
 };
 
-loadWishlistQuantity();
+loadCartWishlist();

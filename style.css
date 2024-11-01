@@ -25,9 +25,65 @@
 @import "variables-dark";
 
 
+/* Custom styles for the Navbar */
+/* Custom styles for the Navbar */
+/* Custom styles for the Navbar */
+.custom-navbar {
+    background-color: white !important; /* Navbar background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
 
+.custom-nav-link {
+    font-size:17px;
+    color: #000 !important; /* Link text color */
+    opacity: 90%;
+    font-weight: bold; /* Bold text */
+    text-transform: uppercase; /* Uppercase text */
+}
 
- */
+.custom-nav-link:hover {
+    opacity: 100%;
+    color:chocolate !important; /* Color change on hover */
+}
+
+.custom-navbar-logo {
+    font-size: 1.5rem; /* Logo text size */
+}
+
+.custom-navbar-nav {
+    flex-direction: column; /* Vertical alignment for small screens */
+    margin-left: auto; /* Align to the right */
+}
+
+.custom-navbar-nav-item {
+    margin-bottom: 1rem; /* Space between nav items */
+}
+.cart-account-icon{
+    color: #000;
+    opacity: 85%;
+}
+.cart-account-icon:hover {
+    opacity: 100%;
+    color:chocolate !important; /* Color change on hover */
+}
+/* Align logo and name to the left */
+#nav-logo-text {
+    display: flex;
+    flex-direction: column; /* Stack logo and name vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+
+@media (min-width: 768px) {
+    .custom-navbar-nav {
+        flex-direction: row; /* Horizontal alignment for larger screens */
+    }
+    
+    .custom-navbar-nav-item {
+        margin-bottom: 0; /* Remove bottom margin for large screens */
+        margin-right: 1rem; /* Space between items */
+    }
+}
+
 
  /* .badge {
     font-size: 0.75rem;
