@@ -1418,4 +1418,137 @@ footer {
   
 
 
+  /* Admin Page */
+  /* --------------------------------- */
+ /* Sidebar background and text color */
+.sidebar {
+    background-color: #f8f9fa; /* Replace with your bg-dark-subtle color code if different */
+}
+
+/* Header text color */
+.sidebar h4 {
+    color: #000; /* Black text */
+}
+
+/* List group items */
+.list-group-item {
+    background-color: #f8f9fa; /* Same as sidebar background */
+    color: #000; /* Black text */
+}
+
+/* Link color in list items */
+.list-group-item a {
+    color: #000; /* Black text for links */
+    text-decoration: none; /* No underline */
+}
+
+/* Active link styles */
+.list-group-item:hover {
+     /* Highlight on hover */
+    color: #fff; /* White text on hover */
+}
+
+  .admin-card-01 {
+    border: none; /* Remove default border */
+    border-radius: 12px; /* Rounded corners */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Vertical layout */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    min-height: 200px; /* Fixed height for cards */
+  }
+
+  .admin-card-01:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  }
+
+  .admin-icon-01 {
+    font-size: 3rem; /* Increase icon size */
+    margin-bottom: 1rem; /* Space below icon */
+  }
+
+  .card-title {
+    font-size: 1.5rem; /* Increase title size */
+    margin-bottom: 0.5rem; /* Space below title */
+    font-weight: bold; /* Bold title */
+  }
+
+  .card-stat {
+    font-size: 2rem; /* Increased size for statistics */
+    font-weight: bold; /* Bold statistics */
+    color: #333; /* Darker color for text */
+    margin-bottom: 1rem; /* Space below statistics */
+  }
+
+  .list-group-item {
+    border: none; /* Remove border from list items */
+  }
+
+  /* Different background colors for each card */
+  .admin-bg-ord {
+    background-color: #e3f2fd; /* Light blue */
+  }
+
+  .admin-bg-use {
+    background-color: #d1e7dd; /* Light green */
+  }
+
+  .admin-bg-sal {
+    background-color: #f8d7da; /* Light red */
+  }
+
+  .admin-bg-cat {
+    background-color: #fff3cd; /* Light yellow */
+  }
+
+  .admin-bg-inv {
+    background-color: #e8f0fe; /* Light purple */
+  }
+
+  .admin-bg-rev {
+    background-color: #f3e5f5; /* Light pink */
+  }
+
+/* Custom colors for order status labels */
+/* Custom colors for order status labels */
+/* Custom colors for order status labels *//* Custom colors for order status labels */
+/* Custom Table Style */
+.custom-table {
+    border-radius: 10px; /* Rounded corners for table */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
   
+  .custom-table th, .custom-table td {
+    vertical-align: middle; /* Center align table cell content */
+    text-align: center; /* Center align text */
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #f1f5f9; /* Row hover effect */
+  }
+  
+  .table-dark th {
+    color: #fff;
+    background-color: #333; /* Dark header color */
+  }
+  
+  /* Badge Colors */
+  .badge.bg-success {
+    background-color: #28a745; /* Completed badge */
+  }
+  
+  .badge.bg-warning {
+    background-color: #ffc107; /* Pending badge */
+  }
+  
+  .badge.bg-danger {
+    background-color: #dc3545; /* Cancelled badge */
+  }
+  
+
+
+  /* ----------------------- */

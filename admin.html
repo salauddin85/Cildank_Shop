@@ -11,28 +11,180 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  
 </head>
 
-<body >
-  <!-- navbar -->
+<body>
+  <!-- Navbar -->
   <div id="navbar"></div>
 
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar Section -->
+      <div class="col-lg-2 col-md-3 sidebar p-3 bg-dark-subtle" id="sidebar">
+        <h4 class="text-center text-black">Admin Panel</h4>
+        <div class="mt-3 mb-4">
+            <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+        </div>
+        <ul class="list-group list-group-flush mt-2">
+            <li class="list-group-item dashboard"><a href="#" class="text-black"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li class="list-group-item products"><a href="#" class="text-black"><i class="fas fa-box"></i> Products</a></li>
+            <li class="list-group-item orders"><a href="#" class="text-black"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+            <li class="list-group-item customers"><a href="#" class="text-black"><i class="fas fa-users"></i> Customers</a></li>
+            <li class="list-group-item reports"><a href="#" class="text-black"><i class="fas fa-chart-line"></i> Reports</a></li>
+            <li class="list-group-item settings"><a href="#" class="text-black"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li class="list-group-item logout"><a href="#" class="text-black"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+        </ul>
+    </div>
     
-      
+    
 
-   
-   
-       
-    
-  <!-- footer -->
-  <div id="footer"></div>
+      <!-- Main Content Section -->
+      <div class="col-lg-10 col-md-10">
+        <div class="row mb-4">
+          <!-- First Card: Order Management -->
+          <div class="col-lg-4  col-sm-12 mb-4">
+            <div class="card admin-card-01 admin-bg-ord shadow">
+              <div class="card-body">
+                <i class="bi bi-basket-fill admin-icon-01"></i>
+                <h5 class="card-title">Order Management</h5>
+                <div class="card-stat">150</div>
+                <p>Total Orders Processed</p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Admin oversees all orders to ensure timely processing and fulfillment.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Card: User Management -->
+          <div class="col-lg-4  col-sm-12 mb-4">
+            <div class="card admin-card-01 admin-bg-use shadow">
+              <div class="card-body">
+                <i class="bi bi-person-fill admin-icon-01"></i>
+                <h5 class="card-title">User Management</h5>
+                <div class="card-stat">200</div>
+                <p>Total Active Users</p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Admin manages users by adding, removing, and editing user information effectively.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Card: Sales Reporting -->
+          <div class="col-lg-4  col-sm-12 mb-4">
+            <div class="card admin-card-01 admin-bg-sal shadow">
+              <div class="card-body">
+                <i class="bi bi-graph-up-arrow admin-icon-01"></i>
+                <h5 class="card-title">Sales & Reporting</h5>
+                <div class="card-stat">$20,000</div>
+                <p>Total Revenue This Month</p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Admin reviews sales reports regularly to make informed business decisions.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Content Section Below the Cards -->
+        <div class="row">
+          <!-- Fourth Card: Inventory Management -->
+          <div class="col-lg-4  col-sm-12 mb-4">
+            <div class="card admin-card-01 admin-bg-inv shadow">
+              <div class="card-body">
+                <i class="bi bi-box-fill admin-icon-01"></i>
+                <h5 class="card-title">Inventory Management</h5>
+                <div class="card-stat">1,200</div>
+                <p>Total Items in Stock</p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Admin keeps track of stock levels to ensure products are available.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fifth Card: Review Management -->
+          <div class="col-lg-4 col-sm-12 mb-4">
+            <div class="card admin-card-01 admin-bg-rev shadow">
+              <div class="card-body">
+                <i class="bi bi-star-fill admin-icon-01"></i>
+                <h5 class="card-title">Review Management</h5>
+                <div class="card-stat">75</div>
+                <p>Total Reviews Received</p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Admin monitors reviews to enhance product quality and customer satisfaction.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+<div class="container my-5">
+  <h2 class="text-center mb-4">Order Details</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered custom-table">
+      <thead class="table-dark">
+        <tr>
+          <th>Order ID</th>
+          <th>Customer Name</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total Price</th>
+          <th>Status</th>
+          <th>Order Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#12345</td>
+          <td>John Doe</td>
+          <td>Product Name 1</td>
+          <td>2</td>
+          <td>$100</td>
+          <td><span class="badge bg-success">Completed</span></td>
+          <td>2024-11-01</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2">View</button>
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>#12346</td>
+          <td>Jane Smith</td>
+          <td>Product Name 2</td>
+          <td>1</td>
+          <td>$50</td>
+          <td><span class="badge bg-warning text-dark">Pending</span></td>
+          <td>2024-11-02</td>
+          <td>
+            <button class="btn btn-primary btn-sm me-2">View</button>
+            <button class="btn btn-danger btn-sm">Delete</button>
+          </td>
+        </tr>
+        <!-- Additional rows as needed -->
+      </tbody>
+    </table>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+
   
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
   <script src="./navbar.js"></script>
   <script src="./footer.js"></script>
   <script src="./admin.js"></script>
   <script src="./auth.js"></script>
-  
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
