@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cildank</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./admin.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+    <div class="categorysubformflexcontainer">
+        <div>
+            <h2 class="categoryformheader">Add New Category</h2>
+            <form id="addCategoryForm" onsubmit="handleCategorySubmit(event)">
+                <div class="categoryinputcontainer">
+                    <label class="categoryformlabel" for="addcategoryName">Category Name</label>
+                    <input type="text" class="categoryinputfield" id="addcategoryName" name="name"
+                        placeholder="Enter category name" required />
+                </div>
+                <div class="categoryinputcontainer">
+                    <label class="categoryformlabel" for="addCategorySlug">Slug</label>
+                    <input type="text" class="categoryinputfield" id="addCategorySlug" name="slug"
+                        placeholder="Slug will be generated" readonly />
+                </div>
+                <button type="submit" class="categorysubmitbutton" style="margin-top: 95px;">
+                    Add Category
+                </button>
+            </form>
+        </div>
+
+        <div>
+            <h2 class="subcategoryformheader">Add New Subcategory</h2>
+            <!-- Add Subcategory Form -->
+            <form id="subCategoryForm" onsubmit="handleSubCategorySubmit(event)">
+                <div class="subcategoryinputcontainer">
+                    <label class="subcategoryformlabel" for="subCategoryName">Subcategory Name</label>
+                    <input type="text" class="subcategoryinputfield" id="subCategoryName" name="subcategory_name"
+                        placeholder="Enter subcategory name" required />
+                </div>
+                <div class="subcategoryinputcontainer">
+                    <label class="subcategoryformlabel" for="subCategorySlug">Slug</label>
+                    <input type="text" class="subcategoryinputfield" id="subCategorySlug" name="slug"
+                        placeholder="Slug will be generated" readonly />
+                </div>
+                <div class="subcategoryinputcontainer">
+                    <label class="subcategoryformlabel" for="categorySelect">Category</label>
+                    <select class="subcategoryinputfield" id="categorySelect" name="category" required>
+                        <!-- Categories will be populated dynamically -->
+
+                    </select>
+                </div>
+                <button type="submit" class="subcategorysubmitbutton">
+                    Add Subcategory
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="formwrapperfull">
+        <h2 class="formheaderstyle">Add New Product</h2>
+
+        <form id="productAddForm" onsubmit="handleProductFormSubmit(event)">
+            <div class="formgridcontainer">
+                <!-- Product Name -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="productName">Product Name</label>
+                    <input type="text" class="textfieldcustom" id="productName" name="productName" placeholder="Enter product name" required />
+                </div>
+                <!-- Product Image -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="image">Product Image</label>
+                    <input type="file" class="fileinputstyle" id="image" name="image" required />
+                </div>
+
+                <!-- Subcategory Dropdown -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="subcategoryDropdown">Subcategory</label>
+                    <select class="textfieldcustom" id="subcategoryDropdown" name="subcategory" required>
+                        <option value="">Select Subcategory</option>
+                        <!-- Subcategories will be populated dynamically -->
+                    </select>
+                </div>
+                <!-- Price -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="price">Price (USD)</label>
+                    <input type="number" class="textfieldcustom" id="price" name="price" placeholder="Enter price" step="0.01" required />
+                </div>
+                <!-- Quantity -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="quantitys">Quantity</label>
+                    <input type="number" class="textfieldcustom" id="quantitys" name="quantitys" placeholder="Enter Quantity" required />
+                </div>
+                <!-- Product Description -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="description">Product Description</label>
+                    <textarea class="textfieldcustom" id="description" name="description" rows="3" placeholder="Enter product description" required></textarea>
+                </div>
+                <!-- Size Dropdown -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="size">Size</label>
+                    <select class="textfieldcustom" id="size" name="size" required>
+                        <option value="">Select Size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <!-- Color -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="color">Color</label>
+                    <input type="text" class="textfieldcustom" id="color" name="color" placeholder="Enter color" required />
+                </div>
+                <!-- Low Stock Warning -->
+                <div class="inputfieldblock">
+                    <label class="labeltextstyle" for="isLowStock">Low Stock Warning Threshold</label>
+                    <input type="number" class="textfieldcustom" id="isLowStock" name="isLowStock" placeholder="Enter low stock limit" required />
+                </div>
+            </div>
+    
+            <button type="submit" class="formsubmitstyle">Add Product</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="./navbar.js"></script>
+    <script src="./footer.js"></script>
+    <script src="./auth.js"></script>
+    <script src="./add_product.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

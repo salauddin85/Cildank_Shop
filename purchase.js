@@ -59,7 +59,7 @@ const PurchaseDetails = () => {
               <a><img src="${imageUrl}" id="pur-list-img" class="img-fluid text-decoration-none rounded w-75 h-100" alt="${product.product.name}"></a>
             </div>
             <div class="col-2 fs-5 fw-bold text-black pur-list-sub">
-              <b>${product.product.sub_category}</b>
+              <b>${product.product.sub_category_name}</b>
             </div>
             <div class="col-3" id="list-details">
               <a href="./details.html" class="text-decoration-none fw-bold mb-3 text-black fs-5 ">${product.product.name}</a> <br>

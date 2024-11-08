@@ -19,6 +19,7 @@ function setupAuthLinks() {
   const navElement = document.getElementById("auth-element");
   const navbarItem = document.getElementById("navbarItem");
   const shopCart = document.getElementById("shopCart");
+  const profile = document.getElementById("profile");
   const token = localStorage.getItem("authToken");
   const isAdmin = localStorage.getItem("isAdmin") === "true";
 
@@ -38,8 +39,12 @@ function setupAuthLinks() {
   } 
   if (isAdmin) {
     shopCart.remove();
+    profile.remove()
     navbarItem.innerHTML += `
-      <li class="custom-navbar-nav-item ms-2">
+      <li class="custom-navbar-nav-item ms-1">
+        <a href="./profile.html" class="custom-nav-link text-decoration-none">Profile</a>
+      </li>
+      <li class="custom-navbar-nav-item ms-1">
         <a href="./admin.html" class="custom-nav-link text-decoration-none">Admin Dashboard</a>
       </li>
     `;
