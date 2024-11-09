@@ -92,52 +92,106 @@ async function fetchUsers() {
 
 
 // ----------------------------------------------------------------------------
+const AdminReport = () => {
+  fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/adminReportView/", {
+    method: "GET",
+    headers: {
+      'Authorization': `Token ${localStorage.getItem("authToken")}`
+    }
+  })
+  .then(res => {
+    if (!res.ok) {
+      alert("Failed to load Admin Report Details");
+      return null;
+    }
+    return res.json(); // Parse JSON if response is ok
+  })
+  .then(data => {
+    if (data) {
+      // Check and log the data to ensure values are available
+      console.log(data);
+       // Update the text content for various metrics
+       document.getElementById("lowStackCount").innerText = data.low_stock_products;
+       document.getElementById("TotalOrder").innerText = data.total_order;
+       document.getElementById("totalReview").innerText = data.total_review;
+       document.getElementById("totalSales").innerText = data.total_sales_count;
+       document.getElementById("totalIncome").innerText = `${data.total_payment} BDT`;
+ 
+       document.getElementById("TotalOrderProcess").innerText = `Total Orders Processing: ${data.order_pending}`;
+       document.getElementById("TotalOrderCanceld").innerText = `Total Orders Canceled: ${data.order_canceled}`;
+       document.getElementById("TotalOrderCompleted").innerText = `Total Orders Completed: ${data.order_completed}`;
+      // Ensure the correct data exists and map them into arrays for sales and income
+      const labels = ['Today', 'This Week', 'This Month'];
 
-  const AdminReport = () => {
-    fetch("https://cildank-shop-deploy-versel.vercel.app/purchases/adminReportView/", {
-      method: "GET",
-      headers: {
-        'Authorization': `Token ${localStorage.getItem("authToken")}`
-      }
-    })
-    .then(res => {
-      if (!res.ok) {
-        alert("Failed to load Admin Report Details");
-        return null;  // Return null to avoid chaining issues
-      }
-      return res.json(); // Only parse JSON if the response is OK
-    })
-    .then(data => {
-      if (data) {
-        console.log(data)
-        console.log("Total Payment:", data.total_payment);
-        // console.log("Total Sales Count:", data.low_stock_products);
-        document.getElementById("lowStackCount").innerText=data.low_stock_products
-        document.getElementById("TotalOrder").innerText=data.total_order
-        document.getElementById("totalReview").innerText=data.total_review
-        document.getElementById("totalSales").innerText=data.total_sales_count
-        document.getElementById("totalIncome").innerText=`${data.total_payment} BDT`
-        // ORDER DETAILS
-        document.getElementById("TotalOrderProcess").innerText = `Total Orders Processing: ${data.order_pending}`;
-        document.getElementById("TotalOrderCanceld").innerText = `Total Orders Canceled: ${data.order_canceled}`;
-        document.getElementById("TotalOrderCompleted").innerText = `Total Orders Completed: ${data.order_completed}`;
-        // Iterate through the product_income array
-        data.product_income.forEach(product => {
-          // console.log(`Product Name: ${product.product__name}`);
-          // console.log(`Subcategory: ${product.product__sub_category__name}`);
-          // console.log(`Price: $${product.product__price}`);
-          // console.log(`Total Quantity Sold: ${product.total_quantity}`);
-          // console.log(`Total Income: $${product.total_income}`);
-          console.log("---------");
-        });
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-      // alert("An error occurred while fetching the Admin Report");
-    });
-  };
-  
-  // Call the function
-  AdminReport();
-  // ------------------------------------------------------------------------
+      // Mapping data correctly
+      const salesData = [
+        data.total_sales_today || 0, // Use default value 0 if the value is null/undefined
+        data.total_sales_last_7_days || 0,
+        data.total_sales_last_30_days || 0
+      ];
+
+      const incomeData = [
+        data.total_income_today || 0,
+        data.total_income_last_7_days || 0,
+        data.total_income_last_30_days || 0
+      ];
+
+      // Get the context of the canvas element for the chart
+      const ctx = document.getElementById('salesIncomeChart').getContext('2d');
+
+      // Create the bar chart using Chart.js
+      const salesIncomeChart = new Chart(ctx, {
+        type: 'bar',  // Bar chart type
+        data: {
+          labels: labels,  // X-axis labels (Today, Week, Month)
+          datasets: [{
+            label: 'Total Sales', // Dataset label for Sales
+            data: salesData, // Data for sales
+            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Sales bar color
+            borderColor: 'rgba(54, 162, 235, 1)', // Sales border color
+            borderWidth: 1 // Border width for sales bars
+          }, {
+            label: 'Total Income', // Dataset label for Income
+            data: incomeData, // Data for income
+            backgroundColor: 'rgba(255, 99, 132, 0.6)', // Income bar color
+            borderColor: 'rgba(255, 99, 132, 1)', // Income border color
+            borderWidth: 1 // Border width for income bars
+          }]
+        },
+        options: {
+          responsive: true, // Make the chart responsive
+          scales: {
+            y: {
+              beginAtZero: true, // Ensure y-axis starts at 0
+              ticks: {
+                stepSize: 500, // Set step size on the y-axis
+                callback: function(value) {
+                  return value + ' BDT'; // Add currency symbol
+                }
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'top', // Position the legend on top
+            },
+            tooltip: {
+              callbacks: {
+                label: function(tooltipItem) {
+                  return tooltipItem.dataset.label + ': ' + tooltipItem.raw + ' BDT'; // Add BDT to tooltips
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+    alert("An error occurred while fetching the Admin Report");
+  });
+};
+
+// Call the function to fetch data and render the chart
+AdminReport();

@@ -156,7 +156,7 @@ fetch("https://cildank-shop-deploy-versel.vercel.app/auth/logout/", {
     if (res.ok) {
       localStorage.removeItem("authToken");
       if(is_admin){
-        localStorage.setItem("isAdmin",'false');
+        localStorage.removeItem("isAdmin");
 
       }
       
@@ -200,6 +200,10 @@ const loadAccount = () => {
               <h6 class="fs-5"><strong class="text-primary-emphasis">AccountNo</strong>: ${account.account_no}</h6>
               <h6 class="fs-5"><strong class="text-primary-emphasis">Balance</strong>: ${account.balance}</h6>
               <hr>
+              <h6 class="text-primary-emphasis">
+                <a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                   href="./profile.html">Profile?</a>
+              </h6>
               <h6 class="text-primary-emphasis">
                 <a class="ms-2 fs-5 link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                    href="./transaction.html">Add Balance?</a>

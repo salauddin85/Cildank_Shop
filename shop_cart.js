@@ -70,7 +70,11 @@ const handleCart = (id) => {
 
 const removeCart = (id,event) => {
   event.preventDefault();
-
+  const confirmed = confirm("Are you sure you want to remove product from cart?");
+    
+    if (!confirmed) {
+      return; // Exit if the user clicks "Cancel"
+    }
   console.log("inside remove cart", id);
   const token = localStorage.getItem("authToken");
   console.log("token", token);
@@ -140,7 +144,7 @@ const loadWishlist = () => {
 
                 const productQuantityPrice = product.price * item.quantity;
 
-                const shopCart = document.getElementById("shopCart");
+                const shopCart = document.getElementById("shopCarts");
                 const newDiv = document.createElement("div");
                 newDiv.className = "row mt-3";
                 newDiv.innerHTML = `

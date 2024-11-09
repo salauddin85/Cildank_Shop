@@ -1553,4 +1553,36 @@ footer {
 
 
   /* ----------------------- */
-  
+  .report-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.report-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.report-column {
+    background-color: #f0f0f0;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
