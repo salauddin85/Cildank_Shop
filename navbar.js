@@ -51,7 +51,7 @@ function setupAuthLinks() {
     
   }
   
-  if(!token &&  token == "undefined") {
+  if(!token ||  token == "undefined") {
     navElement.innerHTML += `
       <li class="nav-item p-2" id="login">
         <a

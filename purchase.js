@@ -62,7 +62,7 @@ const PurchaseDetails = () => {
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="w-100 mx-auto mt-5 review-box shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                      <form class="Review-form w-100 px-auto" id="Reviewform" onsubmit="PurchaseReview(event,${product.product.id})">
+                      <form class="Review-form w-100 px-auto" id="Reviewform" onsubmit="SubmitReview(event)">
                         <div class="mb-3 ms-4">
                           <label for="image" class="form-label fs-5 text-black text-center">Image*</label>
                           <input type="file" class="form-control text-center text-black common-name" required id="image" name="image" accept="image/*">
@@ -98,7 +98,7 @@ const PurchaseDetails = () => {
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" name="submitAction" value="send" id="submitReview" class="btn btn-primary">Send</button>
+                          <button type="submit" class="btn btn-primary">Send</button>
                         </div>
                       </form>
                     </div>
@@ -125,7 +125,7 @@ PurchaseDetails();
 
 let currentProductId = null; // গ্লোবাল ভ্যারিয়েবল
 
-// Review Button Click Event
+// // Review Button Click Event
 const PurchaseReview = (id) => {
   // event.preventDefault(); // ডিফল্ট আচরণ বন্ধ করা
   currentProductId = id; // প্রোডাক্ট আইডি সংরক্ষণ করা
@@ -142,7 +142,7 @@ const PurchaseReview = (id) => {
 const uploadPreset = 'image_upload_cildank'; // তোমার তৈরি করা upload preset এর নাম
 const SubmitReview = async (event) => {
   event.preventDefault(); // Prevent default form submission behavior
-
+  
   const imageInput = document.getElementById("image");
   const imageFile = imageInput.files[0]; // Get the selected file
   console.log(imageFile); // Check if the file is correct
@@ -169,16 +169,16 @@ const SubmitReview = async (event) => {
       // Get the image URL
       const imageUrl = cloudinaryData.secure_url;
 
-      const formData = new FormData(document.getElementById("Reviewforms"));
+      const formData = new FormData(document.getElementById("Reviewform"));
       const data = {
         body: formData.get("body"),
         image: imageUrl,
         rating: formData.get("rating"),
       };
-
+      console.log(data)
       const token = localStorage.getItem("authToken"); // Get token from localStorage
 
-      const response = await fetch(`https://cildank-shop-deploy-versel-ba1b.vercel.app/products/add_review/${currentProductId}`, {
+      const response = await fetch(`http://127.0.0.1:8000/products/add_review/${currentProductId}`, {
         method: "POST",
         headers: {
           Authorization: `Token ${token}`,
