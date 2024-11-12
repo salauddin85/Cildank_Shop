@@ -235,7 +235,7 @@ const handleRegistration = (event) => {
       
       // Temporary set to capture unique product IDs
   
-      fetch("http://127.0.0.1:8000/products/wishlist/", {
+      fetch("https://cildank-shop-deploy-versel.vercel.app/products/wishlist/", {
           method: "GET",
           headers: {
               "Content-Type": "application/json",
