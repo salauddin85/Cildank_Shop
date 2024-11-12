@@ -70,6 +70,11 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
         data.results.forEach((product) => {
           // console.log(product.description)
           const imageUrl = `https://res.cloudinary.com/dnzqmx8nw/${product.image}`;
+          // ----------------------------------------------------
+          // const imageUrl = product.image.replace("image/upload/", "");
+
+          // console.log(product.sub_category_name) //
+          // -------------------------------------------------------
           const productCol = document.createElement("div");
           productCol.className = "col";
           productCol.innerHTML = `
@@ -78,7 +83,7 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
                         '${encodeURIComponent(product.name)}', 
                         '${encodeURIComponent(product.price)}', 
                         '${encodeURIComponent(product.quantity)}', 
-                        '${encodeURIComponent(product.sub_category)}', 
+                        '${encodeURIComponent(product.sub_category_name)}', 
                         '${encodeURIComponent(imageUrl)}', 
                         '${encodeURIComponent(product.description)}', 
                         '${encodeURIComponent(product.id)}',
@@ -91,7 +96,7 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
                             '${encodeURIComponent(product.name)}', 
                             '${encodeURIComponent(product.price)}', 
                             '${encodeURIComponent(product.quantity)}', 
-                            '${encodeURIComponent(product.sub_category)}', 
+                            '${encodeURIComponent(product.sub_category_name)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
                             '${encodeURIComponent(product.id)}',
@@ -101,7 +106,7 @@ function loadProducts(page, sort, size, sub_category, category, color,search) {
                             '${encodeURIComponent(product.name)}', 
                             '${encodeURIComponent(product.price)}', 
                             '${encodeURIComponent(product.quantity)}', 
-                            '${encodeURIComponent(product.sub_category)}', 
+                            '${encodeURIComponent(product.sub_category_name)}', 
                             '${encodeURIComponent(imageUrl)}', 
                             '${encodeURIComponent(product.description)}', 
                             '${encodeURIComponent(product.id)}',

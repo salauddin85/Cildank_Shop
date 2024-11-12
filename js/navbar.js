@@ -41,17 +41,17 @@ function loadRegularNavbar() {
       shopCart.remove();
       profile.remove()
       navbarItem.innerHTML += `
-        <li class="custom-navbar-nav-item ms-2">
+        <li class="custom-navbar-nav-item ms-1">
           <a href="./profile.html" class="custom-nav-link text-decoration-none">Profile</a>
         </li>
-        <li class="custom-navbar-nav-item ms-2">
+        <li class="custom-navbar-nav-item ms-1">
           <a href="./admin.html" class="custom-nav-link text-decoration-none">Admin Dashboard</a>
         </li>
       `;
       
     }
     
-    else {
+    if(!token ||  token == "undefined") {
       navElement.innerHTML += `
         <li class="nav-item p-2" id="login">
           <a

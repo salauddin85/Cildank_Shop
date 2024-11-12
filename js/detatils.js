@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const ReveiewProduct = (id) => {
     console.log("review product", id);
 
-    fetch(`https://cildank-shop-deploy-versel-ba1b.vercel.app/products/reviews_by_product/${id}`)
+    fetch(`https://cildank-shop-deploy-versel.vercel.app/products/reviews_by_product/${id}/`)
         .then((res) => res.json())
         .then((data) => {
             console.log("review by product", data);
@@ -340,8 +340,13 @@ const handleReviewDelete = (reviewId) => {
     const token = localStorage.getItem("authToken");
     if (!token) {
         alert("You are not authenticated user. Please log in.");
-        window.location.href = "https://salauddin85.github.io/Cildank_Shop/login.html";
+        window.location.href = "./login.html";
         return;
+    }
+    const confirmed = confirm("Are you sure you want to remove review from Product?");
+    
+    if (!confirmed) {
+      return; // Exit if the user clicks "Cancel"
     }
 
     fetch(`https://cildank-shop-deploy-versel.vercel.app/products/review/${reviewId}/`, {
