@@ -122,6 +122,10 @@ const handleRegistration = (event) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (!data.token){
+          alert('invalid creadentials')
+          return
+        }
         console.log("set data", data);
         console.log("user data", data.user_id);
         console.log("token data", data.token);

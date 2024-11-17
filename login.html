@@ -10,7 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
         crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -94,7 +94,7 @@
                         <div class="col-sm-12">
                             <input
                                 type="username"
-                                class="form-control username-login py-3 rounded-0 border border-2"
+                                class="form-control username-login py-3 rounded-0 border-black"
                                 id="username"
                                 name="username"
                                 placeholder="Enter your username"
@@ -107,9 +107,10 @@
                         <div class="col-sm-12 mt-1">
                             <input
                                 type="password"
-                                class="form-control login-password py-3 rounded-0 border-2"
+                                class="form-control login-password py-3 rounded-0 border-black"
                                 id="password"
                                 name="password"
+                                placeholder="Enter your password"
                                 required
                             />
                         </div>
@@ -122,34 +123,51 @@
                             >
                                 LOGIN
                             </button>
+                            <h5 class="text-center mt-2 ">
+                                <button class="text-bold link-dark fw-bold link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover bg-transparent border-0"  data-bs-toggle="modal" data-bs-target="#credentialsModal"> See testing credentials?</button>
+                            </h5>
                         </div>
                         <div class="mt-5">
                             <h6>New Customer?</h6>
                             <h6>
                                 <a
                                     href="./registration.html"
-                                    class="text-bold link-dark fw-bold link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
+                                    class="text-bold  link-dark fw-bold link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"
                                 >Create My Account</a>
+                                
                             </h6>
                         </div>
                     </div>
                 </form>
-                <div class="text-center mt-5 ">
-                    <h4>Username: salauddin_85</h4>
-                    <h4>password: root25809#$</h4>
-
-                    <h4>For Admin</h4>
-                    <h4>admin_name: admin</h4>
-                    <h4>admin_password: admin</h4>
-
-                    
-                </div>
+               
             
             </div>
         </div>
     </div>
 
-    
+    <div class="modal fade" id="credentialsModal" tabindex="-1" aria-labelledby="credentialsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="credentialsModalLabel">Testing Credentials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6><strong>Donor Credentials:</strong></h6>
+                    <p>Username: <code>salauddin_85</code></p>
+                    <p>Password: <code>root25809#$</code></p>
+                    <hr>
+                    <h6><strong>Admin Credentials:</strong></h6>
+                    <p>Username: <code>admin</code></p>
+                    <p>Password: <code>admin</code></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+     
     <!-- footer -->
     <div id="footer" class="container-fluid no-padding"></div>
 

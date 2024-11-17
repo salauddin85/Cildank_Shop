@@ -419,8 +419,19 @@ border-color: rgb(48, 13, 188) !important;
 
 
 
+.username-login:focus {
 
-
+    border-color:#007bff !important; /* Green border */
+    outline: none !important; /* Removes the default focus outline */
+    background-color: #f0f8ff !important; /* Light blue background */
+    box-shadow: 0 0 5px #007bff !important; /* Adds a green glow around the input */
+}
+.login-password:focus{
+    border-color:#007bff !important; /* Green border */
+    outline: none !important; /* Removes the default focus outline */
+    background-color: #f0f8ff !important; /* Light blue background */
+    box-shadow: 0 0 5px #007bff !important; /* Adds a green glow around the input */
+}
 
 
 
@@ -684,6 +695,7 @@ body {
         width: 250px;
         margin-left: -30px;
     }
+   
     #menswomenstop{
         flex-wrap: wrap;
     }
