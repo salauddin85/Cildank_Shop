@@ -303,7 +303,7 @@
 
  .banner-sections {
     position: relative;
-    background-image: url(./images/minimalist-retail-clothing-display.jpg);
+    background-image: url(images/minimalist-retail-clothing-display.jpg);
     background-repeat: no-repeat;
     background-size: cover; /* Ensures the image covers the entire area */
     background-position: center; /* Centers the image */
@@ -325,6 +325,8 @@
     z-index: 1;
 }
 .navbar {
+    /* position: sticky;
+    top: 0px; */
     position: relative;
     z-index: 2; 
 }
